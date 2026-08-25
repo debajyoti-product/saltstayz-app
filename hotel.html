@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saltstayz Premier - Naraina | Room Details</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Dancing+Script:wght@400;600&family=Playfair+Display:ital@0;1&family=Jost:wght@400;500;600;700&family=Cabin:wght@400;500;600;700&family=Carlito:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Aref+Ruqaa&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ss-green': '#4f7134',
+            'ss-green-dark': '#3d5a26',
+            'ss-green-soft': '#eef3e6',
+            'ss-gold': '#f1e5b1',
+            'ss-gold-dark': '#ffb514',
+            'ss-gold-deep': '#822049',
+            'ss-cream': '#f3f8ee',
+            'ss-light-gold': '#f5f3ec',
+            'ss-blue-dark': '#08273b',
+            'ss-text': '#1a1a1a',
+            'ss-text-mute': '#6a6a66',
+            'ss-border': 'rgba(26, 26, 26, 0.08)',
+            'ss-border-strong': 'rgba(26, 26, 26, 0.16)'
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'Carlito', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'Carlito', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --ss-green: #4f7134;
+      --ss-green-dark: #3d5a26;
+      --ss-green-soft: #eef3e6;
+      --ss-gold: #f1e5b1;
+      --ss-gold-dark: #ffb514;
+      --ss-gold-deep: #822049;
+      --ss-cream: #f3f8ee;
+      --ss-light-gold: #f5f3ec;
+      --ss-text: #1a1a1a;
+      --ss-text-mute: #6a6a66;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--ss-light-gold);
+      color: var(--ss-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-brand-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(61, 90, 38, 0.18);
+    }
+  
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+
+      -ms-overflow-style: none;
+
+      scrollbar-width: none;
+
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+    .no-scrollbar {
+
+      -ms-overflow-style: none;
+
+      scrollbar-width: none;
+
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+    .no-scrollbar {
+
+      -ms-overflow-style: none;
+
+      scrollbar-width: none;
+
+    }
+  </style>
+</head>
+<body class="bg-ss-light-gold min-h-screen text-ss-text flex flex-col antialiased">
+<!-- Z1: Sticky Header & Nav -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-ss-border shadow-sm transition-all duration-200">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <div class="flex items-center gap-6 xl:gap-10">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex-shrink-0">
+          <img src="nav_logo.png" alt="Saltstayz" class="h-[12px] sm:h-[16px] w-auto object-contain" />
+        </a>
+
+        <!-- Desktop Navigation (3 Clear Flows) -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+          
+          <!-- Flow 1: Destinations Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
+              <span>Destinations</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+            </button>
+
+            <!-- Mega Menu -->
+            <div class="hidden group-hover:block absolute top-full left-0 w-72 bg-white rounded-none p-3 shadow-2xl border border-ss-border mt-1">
+              <div class="grid grid-cols-2 gap-1">
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Gurgaon</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Delhi</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Noida</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Mohali</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Manesar</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Bengaluru</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Faridabad</a>
+                <a href="index.html#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Rishikesh</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow 2: Our Hotels / Brand Tiers Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
+              <span>Our Hotels</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+            </button>
+
+            <!-- Tiers Mega Menu -->
+            <div class="hidden group-hover:block absolute top-full left-0 w-[640px] bg-white rounded-none p-5 shadow-2xl border border-ss-border mt-1">
+              <div class="grid grid-cols-3 gap-4">
+                
+                <!-- Autograph -->
+                <a href="index.html#collections" class="p-4 rounded-xl bg-[#1a1a1a]/[0.03] border-l-4 border-[#ffb514] hover:bg-[#1a1a1a]/[0.06] transition block text-left">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold tracking-wider bg-ss-text text-ss-gold px-2.5 py-0.5 rounded" style="font-family: 'Amarna', serif;">Autograph</span>
+                    <span class="text-xs text-ss-text-mute font-semibold">4 Stays</span>
+                  </div>
+                  <p class="text-xs text-ss-text-mute leading-relaxed mt-2 font-medium">Ultimate luxury.</p>
+                </a>
+
+                <!-- Premier -->
+                <a href="index.html#collections" class="p-4 rounded-xl bg-ss-green-soft/40 border-l-4 border-ss-green hover:bg-ss-green-soft/70 transition block text-left">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold tracking-wider bg-ss-green text-white px-2.5 py-0.5 rounded" style="font-family: 'Merriweather', serif;">Premier</span>
+                    <span class="text-xs text-ss-text-mute font-semibold">11 Stays</span>
+                  </div>
+                  <p class="text-xs text-ss-text-mute leading-relaxed mt-2 font-medium">Premium comfort</p>
+                </a>
+
+                <!-- Select -->
+                <a href="index.html#collections" class="p-4 rounded-xl bg-gray-50 border-l-4 border-gray-400 hover:bg-gray-100 transition block text-left">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold tracking-wider bg-ss-green-soft text-ss-green px-2.5 py-0.5 rounded" style="font-family: 'Stack Sans Notch', sans-serif;">Select</span>
+                    <span class="text-xs text-ss-text-mute font-semibold">18 Stays</span>
+                  </div>
+                  <p class="text-xs text-ss-text-mute leading-relaxed mt-2 font-medium">Modern essentials.</p>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow 3: Experiences Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
+              <span>Experiences</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+            </button>
+            <div class="hidden group-hover:block absolute top-full left-0 w-44 bg-white rounded-none p-2 shadow-2xl border border-ss-border mt-1">
+              <a href="index.html#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Restaurants</a>
+              <a href="index.html#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Banquets</a>
+            </div>
+          </div>
+
+          <!-- Membership -->
+          <a href="index.html#beyond" class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center">
+            <span>Membership</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Header Right -->
+      <div class="flex items-center gap-3">
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-ss-text font-bold text-xs hover:text-ss-green transition py-2 px-1">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5 text-ss-green"></i>
+            <span class="hidden sm:inline border-b-2 border-ss-green pb-0.5">Book direct, save more</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          
+          <div class="hidden group-hover:block absolute right-0 top-full w-64 bg-white rounded-none p-4 shadow-xl border border-ss-border mt-1 z-50">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-ss-text-mute mb-2">Multi-Channel Support</div>
+            <a href="tel:+919599199610" class="flex items-center gap-3 p-2 rounded-lg hover:bg-ss-green-soft transition text-xs font-semibold text-ss-text">
+              <span class="w-7 h-7 rounded-full bg-ss-green/15 text-ss-green flex items-center justify-center"><i data-lucide="phone" class="w-3.5 h-3.5"></i></span>
+              <div>
+                <div>Call to Book</div>
+                <div class="text-[11px] text-ss-text-mute">+91 95991 99610</div>
+              </div>
+            </a>
+            <a href="https://wa.me/919599199610" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-ss-green-soft transition text-xs font-semibold text-ss-text mt-1">
+              <span class="w-7 h-7 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i></span>
+              <div>
+                <div>WhatsApp Concierge</div>
+                <div class="text-[11px] text-ss-text-mute">Instant Chat</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <button class="relative group/signin hidden sm:inline-flex items-center justify-center p-[1.5px] rounded-none overflow-hidden transition shadow-sm">
+          <span class="absolute inset-0 bg-gradient-to-r from-[#6b9946] to-ss-green"></span>
+          <span class="relative px-5 py-1.5 bg-white rounded-none text-xs font-bold text-ss-text group-hover/signin:bg-transparent group-hover/signin:text-white transition-all duration-300">
+            Sign In
+          </span>
+        </button>
+
+        <button onclick="toggleMobileDrawer()" class="lg:hidden p-2 rounded-lg text-ss-text hover:bg-ss-green-soft">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Breadcrumb -->
+  <div class="bg-ss-light-gold border-b border-ss-border/50">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-[11px] font-medium text-ss-text-mute overflow-x-auto no-scrollbar whitespace-nowrap">
+      <a href="index.html" class="hover:text-ss-green transition">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 opacity-50 shrink-0"></i>
+      <a href="results.html" class="hover:text-ss-green transition">Delhi</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 opacity-50 shrink-0"></i>
+      <span class="text-ss-text font-bold truncate">Saltstayz Premier - Naraina</span>
+    </div>
+  </div>
+  <!-- Section Tabs (Secondary Sticky Nav) -->
+  <nav class="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-ss-border overflow-x-auto no-scrollbar shadow-sm">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-6 sm:gap-10 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest h-14 whitespace-nowrap">
+      <a href="#photos" class="text-ss-green border-b-2 border-ss-green h-full flex items-center">Photos</a>
+      <a href="#rooms" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">Rooms</a>
+      <a href="#amenities" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">Amenities</a>
+      <a href="#why-book-direct" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">Why Book Direct</a>
+      <a href="#reviews" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">Reviews</a>
+      <a href="#faq" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">FAQ</a>
+      <a href="#location" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">Location</a>
+      <a href="#about" class="text-ss-text-mute hover:text-ss-green transition h-full flex items-center">About</a>
+    </div>
+  </nav>
+
+  <!-- Hero Photo Gallery (Full-bleed Editorial Style) -->
+  <section id="photos" class="w-full relative bg-[#0a0a0a]">
+    <div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-[50vh] sm:h-[70vh] items-stretch">
+      <div class="w-[90vw] sm:w-[70vw] lg:w-[60vw] shrink-0 snap-center relative pr-1">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1600&q=80" alt="Room View" class="w-full h-full object-cover" />
+      </div>
+      <div class="w-[90vw] sm:w-[70vw] lg:w-[60vw] shrink-0 snap-center relative pr-1">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80" alt="Lobby" class="w-full h-full object-cover" />
+      </div>
+      <div class="w-[90vw] sm:w-[70vw] lg:w-[60vw] shrink-0 snap-center relative pr-1">
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=80" alt="Bathroom" class="w-full h-full object-cover" />
+      </div>
+    </div>
+    
+    <!-- Gallery CTA -->
+    <div class="absolute bottom-6 right-6 lg:right-12 bg-white text-ss-text text-xs font-bold px-5 py-3 shadow-xl cursor-pointer hover:bg-ss-green-soft transition flex items-center gap-2 uppercase tracking-widest">
+      <i data-lucide="layout-grid" class="w-4 h-4"></i>
+      <span class="hidden sm:inline">View all 50+ photos</span>
+      <span class="sm:hidden">50+ Photos</span>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+      
+      <!-- LEFT COLUMN (Scrollable Content) -->
+      <div class="lg:col-span-8 flex flex-col gap-12 lg:gap-14">
+        
+        <!-- Header & Info -->
+        <div>
+          <div class="mb-3.5">
+            <img src="ratings_badges.png" alt="Google 4.2 | MakeMyTrip 4.0 | Booking.com 8.4" class="h-6 sm:h-7 w-auto object-contain" />
+          </div>
+          
+          <h1 class="font-brand-display text-3xl sm:text-4xl lg:text-[42px] font-bold text-ss-text mb-4 leading-tight">Saltstayz Premier - Naraina</h1>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-ss-border">
+            <div class="flex items-start sm:items-center gap-2 text-sm text-ss-text-mute">
+              <i data-lucide="map-pin" class="w-4 h-4 text-ss-green shrink-0 mt-0.5 sm:mt-0"></i>
+              <span>C-83, Naraina Industrial Area Phase 1, New Delhi, 110028</span>
+            </div>
+            
+            <div class="relative group shrink-0">
+              <button class="flex items-center gap-2 px-4 py-2 border border-ss-border rounded-full hover:bg-ss-green-soft hover:text-ss-green hover:border-ss-green transition text-xs font-bold text-ss-text">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5 text-ss-green"></i>
+                <span>Contact Hotel</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+              </button>
+              
+              <div class="hidden group-hover:block absolute right-0 top-full w-56 bg-white rounded-none p-2 shadow-2xl border border-ss-border mt-1 z-30">
+                <a href="tel:+919599199610" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-ss-green-soft hover:text-ss-green transition text-xs font-bold text-ss-text">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-ss-green"></i>
+                  <div>
+                    <div>Call Hotel</div>
+                    <div class="text-[10px] text-ss-text-mute font-normal">+91 95991 99610</div>
+                  </div>
+                </a>
+                <a href="https://wa.me/919599199610" target="_blank" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-green-50 hover:text-green-700 transition text-xs font-bold text-ss-text mt-1">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-600"></i>
+                  <div>
+                    <div>WhatsApp</div>
+                    <div class="text-[10px] text-ss-text-mute font-normal">Instant Concierge</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room Selection -->
+        <section id="rooms" class="scroll-mt-36">
+
+          <!-- Overnight / Day-use Toggle -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="inline-flex items-center gap-1 bg-[#1a1a1a] p-1 rounded-none border border-black/10 shadow-md">
+              <button id="btn-overnight" onclick="setStayType('overnight')" class="px-4 py-1.5 rounded-none text-[11px] font-bold bg-gradient-to-r from-[#6b9946] to-ss-green text-white shadow-sm flex items-center gap-1.5 transition">
+                <i data-lucide="moon" class="w-3.5 h-3.5"></i>
+                <span>Overnight</span>
+              </button>
+              <button id="btn-dayuse" onclick="setStayType('dayuse')" class="px-4 py-1.5 rounded-none text-[11px] font-bold text-white/70 hover:text-white flex items-center gap-1.5 transition">
+                <i data-lucide="sun" class="w-3.5 h-3.5"></i>
+                <span>Day-use</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Day Use Controls -->
+          <div id="dayuse-controls" class="hidden mb-8 bg-white border border-ss-border p-6 shadow-sm">
+            <div class="mb-6">
+               <div class="flex justify-between items-center mb-2">
+                 <label class="text-[11px] font-bold uppercase tracking-widest text-ss-text">Check-in Time</label>
+                 <span id="checkin-time-display" class="text-sm font-bold text-ss-green bg-ss-green-soft px-3 py-1 border border-ss-green/30">12:00 PM</span>
+               </div>
+               <input type="range" id="time-slider" min="0" max="9" value="0" step="1" class="w-full accent-ss-green h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" oninput="updateDayUseTime()">
+               <div class="flex justify-between text-[10px] text-ss-text-mute mt-2 font-medium">
+                 <span id="slider-min-time">Now</span>
+                 <span id="slider-max-time">+9 Hrs</span>
+               </div>
+            </div>
+            
+            <div>
+               <label class="text-[11px] font-bold uppercase tracking-widest text-ss-text mb-3 block">Check-out Time</label>
+               <div class="grid grid-cols-3 gap-3">
+                 <button onclick="setDuration(3, 2000, this)" class="duration-btn flex flex-col items-center justify-center py-3 px-2 border-2 border-ss-green bg-ss-green-soft transition">
+                   <span class="text-sm font-bold text-ss-text mb-1">3 Hrs</span>
+                   <span class="text-[10px] text-ss-text-mute mb-2 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> <span class="checkout-time-text">3:00 PM</span></span>
+                   <span class="text-xs font-bold text-ss-green">₹2,000</span>
+                 </button>
+                 <button onclick="setDuration(6, 3000, this)" class="duration-btn flex flex-col items-center justify-center py-3 px-2 border border-ss-border bg-white hover:border-gray-300 transition">
+                   <span class="text-sm font-bold text-ss-text mb-1">6 Hrs</span>
+                   <span class="text-[10px] text-ss-text-mute mb-2 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> <span class="checkout-time-text">6:00 PM</span></span>
+                   <span class="text-xs font-bold text-ss-green">₹3,000</span>
+                 </button>
+                 <button onclick="setDuration(9, 4000, this)" class="duration-btn flex flex-col items-center justify-center py-3 px-2 border border-ss-border bg-white hover:border-gray-300 transition">
+                   <span class="text-sm font-bold text-ss-text mb-1">9 Hrs</span>
+                   <span class="text-[10px] text-ss-text-mute mb-2 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> <span class="checkout-time-text">9:00 PM</span></span>
+                   <span class="text-xs font-bold text-ss-green">₹4,000</span>
+                 </button>
+               </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Room Card 1 -->
+            <div id="room-card-1" class="border-2 border-ss-border bg-white shadow-sm flex flex-col overflow-hidden rounded-none relative transition-colors duration-300">
+              
+              <!-- Guest Selection Overlay (Hidden by default) -->
+              <div id="guest-overlay-1" class="absolute inset-0 z-30 hidden transition-opacity duration-300">
+                <!-- Blur backdrop -->
+                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm" onclick="toggleGuestPopup(1, false)"></div>
+                <!-- Popup Box -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-ss-border shadow-2xl p-6 w-[85%] max-w-[280px] rounded-none">
+                  <div class="flex justify-between items-center mb-5 border-b border-ss-border pb-3">
+                    <h4 class="font-bold text-ss-text">Select Guests</h4>
+                    <button onclick="toggleGuestPopup(1, false)" class="text-ss-text-mute hover:text-black transition"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                  <!-- Adults -->
+                  <div class="flex justify-between items-center mb-5">
+                    <span class="text-sm font-bold text-ss-text">Adults</span>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(1, 'adults', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="adult-count-1" class="text-[13px] font-bold w-6 text-center">2</span>
+                      <button onclick="updateGuests(1, 'adults', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <!-- Children -->
+                  <div class="flex justify-between items-center mb-6">
+                    <div>
+                      <span class="text-sm font-bold text-ss-text block">Children</span>
+                      <span class="text-[10px] text-ss-text-mute uppercase tracking-widest block">0-12 yrs</span>
+                    </div>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(1, 'children', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="child-count-1" class="text-[13px] font-bold w-6 text-center">0</span>
+                      <button onclick="updateGuests(1, 'children', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <button onclick="applyGuests(1)" class="w-full bg-black text-white text-[13px] font-bold py-3 hover:bg-gray-800 transition rounded-none uppercase tracking-widest">
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action / Selection Circle (top right) -->
+              <button onclick="selectRoom(1)" id="room-radio-btn-1" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-black/40 hover:bg-black/60 transition border-2 border-white/80 shadow-md">
+                <svg id="room-radio-1" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white opacity-0 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </button>
+              
+              <!-- Room Photo -->
+              <div class="w-full h-[290px] relative shrink-0">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" alt="Deluxe suite" class="w-full h-full object-cover" />
+                <div class="time-pill absolute top-3 left-3 bg-white text-ss-text border border-ss-border shadow-md px-3 py-1.5 text-[10px] font-bold hidden items-center gap-1.5 tracking-widest uppercase">
+                  <i data-lucide="clock" class="w-3 h-3 text-ss-green"></i> <span class="time-pill-text">12:00 PM - 3:00 PM</span>
+                </div>
+                <div class="absolute bottom-3 left-3 bg-black/60 text-white rounded-none px-3 py-1.5 text-[10px] font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-sm">
+                  <i data-lucide="image" class="w-3 h-3"></i> 8 photos
+                </div>
+              </div>
+              
+              <div class="p-6 flex-1 flex flex-col justify-between relative z-0">
+                <!-- Title & Room Stepper -->
+                <div class="flex justify-between items-start mb-1.5 gap-2 pt-1">
+                  <h3 class="font-brand-display text-[22px] font-bold text-ss-text leading-tight">Deluxe suite</h3>
+                  <!-- Room Stepper -->
+                  <div class="flex flex-col items-end gap-1 shrink-0 mt-0.5">
+                    <span class="text-[9px] uppercase font-bold text-ss-text-mute tracking-widest mr-1">Rooms</span>
+                    <div class="flex items-center bg-white border border-ss-border rounded-none p-1 shadow-sm h-8">
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="room-count-3" class="text-[13px] font-bold w-4 text-center">0</span>
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-ss-text-mute font-medium -mt-1 mb-5">
+                  <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> City facing</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="sun" class="w-3.5 h-3.5"></i> Balcony</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="bed-double" class="w-3.5 h-3.5"></i> Queen bed</span>
+                  <div class="basis-full h-0"></div>
+                  <span class="flex items-center gap-1.5"><i data-lucide="cigarette-off" class="w-3.5 h-3.5"></i> No smoking</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="ruler" class="w-3.5 h-3.5 transform rotate-45"></i> 320 sq.ft</span>
+                </div>
+
+                <!-- Meal Plans -->
+                <div class="border-t border-ss-border pt-4 mb-4">
+                  <div class="grid grid-cols-[0.9fr_0.9fr_1.2fr] gap-2">
+                    <!-- Room only -->
+                    <div onclick="selectMealPlan(1, 0)" class="meal-plan-card border-2 border-ss-green bg-ss-green-soft rounded-none p-2 cursor-pointer transition">
+                      <div class="meal-title text-[11px] font-bold text-ss-text mb-1 truncate">Room only</div>
+                      <div class="meal-price text-[10px] text-ss-green font-bold">Included</div>
+                    </div>
+                    <!-- Breakfast -->
+                    <div onclick="selectMealPlan(1, 1)" class="meal-plan-card border border-ss-border hover:border-gray-300 rounded-none p-2 cursor-pointer transition">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Breakfast</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹600 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                    <!-- Breakfast & dinner -->
+                    <div onclick="selectMealPlan(1, 2)" class="meal-plan-card border border-ss-border hover:border-gray-300 rounded-none p-2 cursor-pointer transition">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 leading-tight whitespace-nowrap">Breakfast & dinner</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹1,900 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Price & Guests Selection CTA -->
+                <div class="mt-auto border-t border-ss-border pt-4 flex justify-between items-end gap-2">
+                  <div>
+                    <div class="text-[11px] text-ss-text-mute line-through mb-0.5">₹5,500</div>
+                    <div class="flex items-baseline gap-1">
+                      <span class="font-bold text-[22px] text-ss-green leading-none">₹4,500</span>
+                      <span class="text-[10px] text-ss-text-mute font-medium">+taxes</span>
+                    </div>
+                  </div>
+                  <button id="guest-cta-1" onclick="toggleGuestPopup(1, true)" class="bg-[#111] text-white text-[13px] font-bold px-5 py-2.5 rounded-none hover:bg-black transition shadow-sm border border-black min-w-[120px]">
+                    2 Adults
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Room Card 2 -->
+            <div id="room-card-2" class="border border-ss-border bg-white shadow-sm flex flex-col overflow-hidden rounded-none relative transition-colors duration-300">
+              
+              <!-- Guest Selection Overlay (Hidden by default) -->
+              <div id="guest-overlay-2" class="absolute inset-0 z-30 hidden transition-opacity duration-300">
+                <!-- Blur backdrop -->
+                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm" onclick="toggleGuestPopup(2, false)"></div>
+                <!-- Popup Box -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-ss-border shadow-2xl p-6 w-[85%] max-w-[280px] rounded-none">
+                  <div class="flex justify-between items-center mb-5 border-b border-ss-border pb-3">
+                    <h4 class="font-bold text-ss-text">Select Guests</h4>
+                    <button onclick="toggleGuestPopup(2, false)" class="text-ss-text-mute hover:text-black transition"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                  <!-- Adults -->
+                  <div class="flex justify-between items-center mb-5">
+                    <span class="text-sm font-bold text-ss-text">Adults</span>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(2, 'adults', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="adult-count-2" class="text-[13px] font-bold w-6 text-center">2</span>
+                      <button onclick="updateGuests(2, 'adults', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <!-- Children -->
+                  <div class="flex justify-between items-center mb-6">
+                    <div>
+                      <span class="text-sm font-bold text-ss-text block">Children</span>
+                      <span class="text-[10px] text-ss-text-mute uppercase tracking-widest block">0-12 yrs</span>
+                    </div>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(2, 'children', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="child-count-2" class="text-[13px] font-bold w-6 text-center">0</span>
+                      <button onclick="updateGuests(2, 'children', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <button onclick="applyGuests(2)" class="w-full bg-black text-white text-[13px] font-bold py-3 hover:bg-gray-800 transition rounded-none uppercase tracking-widest">
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action / Selection Circle (top right) -->
+              <button onclick="selectRoom(2)" id="room-radio-btn-2" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-black/40 hover:bg-black/60 transition border-2 border-white/80 shadow-md">
+                <svg id="room-radio-2" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white opacity-0 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </button>
+              
+              <!-- Room Photo -->
+              <div class="w-full h-[290px] relative shrink-0">
+                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80" alt="Deluxe Twin Suite" class="w-full h-full object-cover" />
+                <div class="time-pill absolute top-3 left-3 bg-white text-ss-text border border-ss-border shadow-md px-3 py-1.5 text-[10px] font-bold hidden items-center gap-1.5 tracking-widest uppercase">
+                  <i data-lucide="clock" class="w-3 h-3 text-ss-green"></i> <span class="time-pill-text">12:00 PM - 3:00 PM</span>
+                </div>
+                <div class="absolute bottom-3 left-3 bg-black/60 text-white rounded-none px-3 py-1.5 text-[10px] font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-sm">
+                  <i data-lucide="image" class="w-3 h-3"></i> 6 photos
+                </div>
+              </div>
+              
+              <div class="p-6 flex-1 flex flex-col justify-between relative z-0">
+                <!-- Title & Room Stepper -->
+                <div class="flex justify-between items-start mb-1.5 gap-2 pt-1">
+                  <h3 class="font-brand-display text-[22px] font-bold text-ss-text leading-tight">Deluxe twin suite</h3>
+                  <!-- Room Stepper -->
+                  <div class="flex flex-col items-end gap-1 shrink-0 mt-0.5">
+                    <span class="text-[9px] uppercase font-bold text-ss-text-mute tracking-widest mr-1">Rooms</span>
+                    <div class="flex items-center bg-white border border-ss-border rounded-none p-1 shadow-sm h-8">
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="room-count-4" class="text-[13px] font-bold w-4 text-center">0</span>
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-ss-text-mute font-medium -mt-1 mb-5">
+                  <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> City facing</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="sun" class="w-3.5 h-3.5"></i> Balcony</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="bed" class="w-3.5 h-3.5"></i> Twin beds</span>
+                  <div class="basis-full h-0"></div>
+                  <span class="flex items-center gap-1.5"><i data-lucide="cigarette-off" class="w-3.5 h-3.5"></i> No smoking</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="ruler" class="w-3.5 h-3.5 transform rotate-45"></i> 340 sq.ft</span>
+                </div>
+
+                <!-- Meal Plans -->
+                <div class="border-t border-ss-border pt-4 mb-4">
+                  <div class="grid grid-cols-[0.9fr_0.9fr_1.2fr] gap-2">
+                    <!-- Room only -->
+                    <div onclick="selectMealPlan(2, 0)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Room only</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">Included</div>
+                    </div>
+                    <!-- Breakfast -->
+                    <div onclick="selectMealPlan(2, 1)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Breakfast</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹600 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                    <!-- Breakfast & dinner -->
+                    <div onclick="selectMealPlan(2, 2)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 leading-tight whitespace-nowrap">Breakfast & dinner</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹1,900 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Price & Guests Selection CTA -->
+                <div class="mt-auto border-t border-ss-border pt-4 flex justify-between items-end gap-2">
+                  <div>
+                    <div class="text-[11px] text-ss-text-mute line-through mb-0.5">₹6,200</div>
+                    <div class="flex items-baseline gap-1">
+                      <span class="font-bold text-[22px] text-ss-green leading-none">₹5,100</span>
+                      <span class="text-[10px] text-ss-text-mute font-medium">+taxes</span>
+                    </div>
+                  </div>
+                  <button id="guest-cta-2" onclick="toggleGuestPopup(2, true)" disabled class="bg-[#111] text-white text-[13px] font-bold px-5 py-2.5 rounded-none hover:bg-black transition shadow-sm border border-black min-w-[120px] opacity-50 cursor-not-allowed pointer-events-none">
+                    Select guest
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Room Card 3 -->
+            <div id="room-card-3" class="border border-ss-border bg-white shadow-sm flex flex-col overflow-hidden rounded-none relative transition-colors duration-300">
+              
+              <!-- Guest Selection Overlay (Hidden by default) -->
+              <div id="guest-overlay-3" class="absolute inset-0 z-30 hidden transition-opacity duration-300">
+                <!-- Blur backdrop -->
+                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm" onclick="toggleGuestPopup(3, false)"></div>
+                <!-- Popup Box -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-ss-border shadow-2xl p-6 w-[85%] max-w-[280px] rounded-none">
+                  <div class="flex justify-between items-center mb-5 border-b border-ss-border pb-3">
+                    <h4 class="font-bold text-ss-text">Select Guests</h4>
+                    <button onclick="toggleGuestPopup(3, false)" class="text-ss-text-mute hover:text-black transition"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                  <!-- Adults -->
+                  <div class="flex justify-between items-center mb-5">
+                    <span class="text-sm font-bold text-ss-text">Adults</span>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(3, 'adults', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="adult-count-3" class="text-[13px] font-bold w-6 text-center">2</span>
+                      <button onclick="updateGuests(3, 'adults', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <!-- Children -->
+                  <div class="flex justify-between items-center mb-6">
+                    <div>
+                      <span class="text-sm font-bold text-ss-text block">Children</span>
+                      <span class="text-[10px] text-ss-text-mute uppercase tracking-widest block">0-12 yrs</span>
+                    </div>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(3, 'children', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="child-count-3" class="text-[13px] font-bold w-6 text-center">0</span>
+                      <button onclick="updateGuests(3, 'children', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <button onclick="applyGuests(3)" class="w-full bg-black text-white text-[13px] font-bold py-3 hover:bg-gray-800 transition rounded-none uppercase tracking-widest">
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action / Selection Circle (top right) -->
+              <button onclick="selectRoom(3)" id="room-radio-btn-3" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-black/40 hover:bg-black/60 transition border-2 border-white/80 shadow-md">
+                <svg id="room-radio-3" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white opacity-0 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </button>
+              
+              <!-- Room Photo -->
+              <div class="w-full h-[290px] relative shrink-0">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Executive Suite" class="w-full h-full object-cover" />
+                <div class="absolute bottom-3 left-3 bg-black/60 text-white rounded-none px-3 py-1.5 text-[10px] font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-sm">
+                  <i data-lucide="image" class="w-3 h-3"></i> 8 photos
+                </div>
+              </div>
+              
+              <div class="p-6 flex-1 flex flex-col justify-between relative z-0">
+                <!-- Title & Room Stepper -->
+                <div class="flex justify-between items-start mb-1.5 gap-2 pt-1">
+                  <h3 class="font-brand-display text-[22px] font-bold text-ss-text leading-tight">Executive Suite</h3>
+                  <!-- Room Stepper -->
+                  <div class="flex flex-col items-end gap-1 shrink-0 mt-0.5">
+                    <span class="text-[9px] uppercase font-bold text-ss-text-mute tracking-widest mr-1">Rooms</span>
+                    <div class="flex items-center bg-white border border-ss-border rounded-none p-1 shadow-sm h-8">
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="room-count-3" class="text-[13px] font-bold w-4 text-center">0</span>
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-ss-text-mute font-medium -mt-1 mb-5">
+                  <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> City facing</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="sun" class="w-3.5 h-3.5"></i> Balcony</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="bed-double" class="w-3.5 h-3.5"></i> Queen bed</span>
+                  <div class="basis-full h-0"></div>
+                  <span class="flex items-center gap-1.5"><i data-lucide="cigarette-off" class="w-3.5 h-3.5"></i> No smoking</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="ruler" class="w-3.5 h-3.5 transform rotate-45"></i> 320 sq.ft</span>
+                </div>
+
+                <!-- Meal Plans -->
+                <div class="border-t border-ss-border pt-4 mb-4">
+                  <div class="grid grid-cols-[0.9fr_0.9fr_1.2fr] gap-2">
+                    <!-- Room only -->
+                    <div onclick="selectMealPlan(3, 0)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Room only</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">Included</div>
+                    </div>
+                    <!-- Breakfast -->
+                    <div onclick="selectMealPlan(3, 1)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Breakfast</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹600 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                    <!-- Breakfast & dinner -->
+                    <div onclick="selectMealPlan(3, 2)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 leading-tight whitespace-nowrap">Breakfast & dinner</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹1,900 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Price & Guests Selection CTA -->
+                <div class="mt-auto border-t border-ss-border pt-4 flex justify-between items-end gap-2">
+                  <div>
+                    <div class="text-[11px] text-ss-text-mute line-through mb-0.5">₹5,500</div>
+                    <div class="flex items-baseline gap-1">
+                      <span class="font-bold text-[22px] text-ss-green leading-none">₹4,500</span>
+                      <span class="text-[10px] text-ss-text-mute font-medium">+taxes</span>
+                    </div>
+                  </div>
+                  <button id="guest-cta-3" onclick="toggleGuestPopup(3, true)" disabled class="bg-[#111] text-white text-[13px] font-bold px-5 py-2.5 rounded-none hover:bg-black transition shadow-sm border border-black min-w-[120px] opacity-50 cursor-not-allowed pointer-events-none">
+                    Select guest
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Room Card 4 -->
+            <div id="room-card-4" class="border border-ss-border bg-white shadow-sm flex flex-col overflow-hidden rounded-none relative transition-colors duration-300">
+              
+              <!-- Guest Selection Overlay (Hidden by default) -->
+              <div id="guest-overlay-4" class="absolute inset-0 z-30 hidden transition-opacity duration-300">
+                <!-- Blur backdrop -->
+                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm" onclick="toggleGuestPopup(4, false)"></div>
+                <!-- Popup Box -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-ss-border shadow-2xl p-6 w-[85%] max-w-[280px] rounded-none">
+                  <div class="flex justify-between items-center mb-5 border-b border-ss-border pb-3">
+                    <h4 class="font-bold text-ss-text">Select Guests</h4>
+                    <button onclick="toggleGuestPopup(4, false)" class="text-ss-text-mute hover:text-black transition"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                  <!-- Adults -->
+                  <div class="flex justify-between items-center mb-5">
+                    <span class="text-sm font-bold text-ss-text">Adults</span>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(4, 'adults', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="adult-count-4" class="text-[13px] font-bold w-6 text-center">2</span>
+                      <button onclick="updateGuests(4, 'adults', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <!-- Children -->
+                  <div class="flex justify-between items-center mb-6">
+                    <div>
+                      <span class="text-sm font-bold text-ss-text block">Children</span>
+                      <span class="text-[10px] text-ss-text-mute uppercase tracking-widest block">0-12 yrs</span>
+                    </div>
+                    <div class="flex items-center border border-ss-border shadow-sm h-8 rounded-none">
+                      <button onclick="updateGuests(4, 'children', -1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="child-count-4" class="text-[13px] font-bold w-6 text-center">0</span>
+                      <button onclick="updateGuests(4, 'children', 1)" class="w-8 h-full flex items-center justify-center text-ss-text hover:bg-gray-50 transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                  <button onclick="applyGuests(4)" class="w-full bg-black text-white text-[13px] font-bold py-3 hover:bg-gray-800 transition rounded-none uppercase tracking-widest">
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action / Selection Circle (top right) -->
+              <button onclick="selectRoom(4)" id="room-radio-btn-4" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-black/40 hover:bg-black/60 transition border-2 border-white/80 shadow-md">
+                <svg id="room-radio-4" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white opacity-0 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </button>
+              
+              <!-- Room Photo -->
+              <div class="w-full h-[290px] relative shrink-0">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80" alt="Family Room" class="w-full h-full object-cover" />
+                <div class="absolute bottom-3 left-3 bg-black/60 text-white rounded-none px-3 py-1.5 text-[10px] font-bold flex items-center gap-1.5 shadow-sm backdrop-blur-sm">
+                  <i data-lucide="image" class="w-3 h-3"></i> 6 photos
+                </div>
+              </div>
+              
+              <div class="p-6 flex-1 flex flex-col justify-between relative z-0">
+                <!-- Title & Room Stepper -->
+                <div class="flex justify-between items-start mb-1.5 gap-2 pt-1">
+                  <h3 class="font-brand-display text-[22px] font-bold text-ss-text leading-tight">Family Room</h3>
+                  <!-- Room Stepper -->
+                  <div class="flex flex-col items-end gap-1 shrink-0 mt-0.5">
+                    <span class="text-[9px] uppercase font-bold text-ss-text-mute tracking-widest mr-1">Rooms</span>
+                    <div class="flex items-center bg-white border border-ss-border rounded-none p-1 shadow-sm h-8">
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="minus" class="w-3 h-3"></i></button>
+                      <span id="room-count-4" class="text-[13px] font-bold w-4 text-center">0</span>
+                      <button class="w-6 h-6 flex items-center justify-center text-ss-text hover:bg-gray-100 rounded-none transition"><i data-lucide="plus" class="w-3 h-3"></i></button>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-ss-text-mute font-medium -mt-1 mb-5">
+                  <span class="flex items-center gap-1.5"><i data-lucide="building" class="w-3.5 h-3.5"></i> City facing</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="sun" class="w-3.5 h-3.5"></i> Balcony</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="bed" class="w-3.5 h-3.5"></i> Twin beds</span>
+                  <div class="basis-full h-0"></div>
+                  <span class="flex items-center gap-1.5"><i data-lucide="cigarette-off" class="w-3.5 h-3.5"></i> No smoking</span>
+                  <span class="flex items-center gap-1.5"><i data-lucide="ruler" class="w-3.5 h-3.5 transform rotate-45"></i> 550 sq.ft</span>
+                </div>
+
+                <!-- Meal Plans -->
+                <div class="border-t border-ss-border pt-4 mb-4">
+                  <div class="grid grid-cols-[0.9fr_0.9fr_1.2fr] gap-2">
+                    <!-- Room only -->
+                    <div onclick="selectMealPlan(4, 0)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Room only</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">Included</div>
+                    </div>
+                    <!-- Breakfast -->
+                    <div onclick="selectMealPlan(4, 1)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 truncate">Breakfast</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹600 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                    <!-- Breakfast & dinner -->
+                    <div onclick="selectMealPlan(4, 2)" class="meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border">
+                      <div class="meal-title text-[11px] font-normal text-ss-text mb-1 leading-tight whitespace-nowrap">Breakfast & dinner</div>
+                      <div class="meal-price text-[10px] text-ss-text-mute">+₹1,900 <span class="text-[10px] font-normal">+taxes</span></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Price & Guests Selection CTA -->
+                <div class="mt-auto border-t border-ss-border pt-4 flex justify-between items-end gap-2">
+                  <div>
+                    <div class="text-[11px] text-ss-text-mute line-through mb-0.5">₹6,200</div>
+                    <div class="flex items-baseline gap-1">
+                      <span class="font-bold text-[22px] text-ss-green leading-none">₹5,100</span>
+                      <span class="text-[10px] text-ss-text-mute font-medium">+taxes</span>
+                    </div>
+                  </div>
+                  <button id="guest-cta-4" onclick="toggleGuestPopup(4, true)" disabled class="bg-[#111] text-white text-[13px] font-bold px-5 py-2.5 rounded-none hover:bg-black transition shadow-sm border border-black min-w-[120px] opacity-50 cursor-not-allowed pointer-events-none">
+                    Select guest
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        
+
+        <!-- Amenities -->
+        <section id="amenities" class="scroll-mt-36">
+          <h2 class="text-[11px] font-bold uppercase tracking-widest text-ss-green mb-6">Property Amenities</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+            <div class="flex flex-col gap-2">
+              <i data-lucide="wifi" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">Free High-Speed WiFi</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="coffee" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">In-house Restaurant</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="car" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">Secure Parking</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="wind" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">Air Conditioning</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="concierge-bell" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">24/7 Front Desk</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="shield" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">24/7 Security</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="tv" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">Smart TV</span>
+            </div>
+            <div class="flex flex-col gap-2">
+              <i data-lucide="droplet" class="w-5 h-5 text-ss-text-mute"></i>
+              <span class="text-sm font-medium text-ss-text">Daily Housekeeping</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Book Direct -->
+        <section id="why-book-direct" class="scroll-mt-36 pt-8 border-t border-ss-border">
+          <h2 class="text-[11px] font-bold uppercase tracking-widest text-ss-green mb-6">Why Book Direct?</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-ss-green shrink-0"></i>
+              <div class="text-sm font-bold text-ss-text">Lowest price guaranteed!</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="clock" class="w-5 h-5 text-ss-green shrink-0"></i>
+              <div class="text-sm font-bold text-ss-text">Early check-in at 12 PM</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="calendar-x" class="w-5 h-5 text-ss-green shrink-0"></i>
+              <div class="text-sm font-bold text-ss-text">Free cancellation till 6 PM</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reviews (Homepage Pattern) -->
+        <section id="reviews" class="scroll-mt-36 pt-8 border-t border-ss-border">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-ss-text flex items-center gap-2">
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400 text-amber-400"></i> 4.5 <span class="text-sm font-normal text-ss-text-mute ml-1">(124 Reviews)</span>
+            </h2>
+            <button class="text-[11px] font-bold text-ss-green uppercase tracking-widest hover:underline flex items-center gap-1">
+              View more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 shadow-sm border border-ss-border border-t-4 border-t-ss-green flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 mb-4">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                </div>
+                <p class="text-ss-text text-sm italic leading-relaxed mb-6">
+                  "We've been staying here during our business trips to Delhi. Reliable WiFi, comfortable beds and smooth 12 PM check-in."
+                </p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="font-bold text-xs text-ss-text">Sneha & Arjun K.</div>
+                <span class="text-[11px] text-ss-text-mute">1 week ago</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 shadow-sm border border-ss-border border-t-4 border-t-ss-green flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 mb-4">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 text-gray-300"></i>
+                </div>
+                <p class="text-ss-text text-sm italic leading-relaxed mb-6">
+                  "Great location near the industrial area. Food from the in-house restaurant was exceptional. Highly recommended for corporate stays."
+                </p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="font-bold text-xs text-ss-text">Vikas Sharma</div>
+                <span class="text-[11px] text-ss-text-mute">2 weeks ago</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Curated FAQ & Rules -->
+        <section id="faq" class="scroll-mt-36 pt-8 border-t border-ss-border mb-12">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+            <h2 class="text-[11px] font-bold uppercase tracking-widest text-ss-green">FAQ</h2>
+            <div class="relative">
+              <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ss-text-mute"></i>
+              <input type="text" placeholder="search your query" class="pl-9 pr-4 py-2 border border-ss-border text-xs w-full sm:w-64 focus:outline-none focus:border-ss-green transition bg-white placeholder:text-ss-text-mute/60">
+            </div>
+          </div>
+          
+          <div class="divide-y divide-ss-border border-y border-ss-border">
+            <details class="group py-4 cursor-pointer" open>
+              <summary class="flex justify-between items-center font-bold text-sm text-ss-text list-none">
+                What are the check-in and check-out timings?
+                <span class="transition group-open:rotate-180">
+                  <i data-lucide="chevron-down" class="w-5 h-5 text-ss-text-mute"></i>
+                </span>
+              </summary>
+              <div class="text-sm text-ss-text-mute mt-3 leading-relaxed pr-8">
+                Standard check-in time is 2:00 PM and check-out is 11:00 AM. Early check-in or late check-out is subject to availability and may incur additional charges. Book direct for priority 12 PM check-in.
+              </div>
+            </details>
+            
+            <details class="group py-4 cursor-pointer">
+              <summary class="flex justify-between items-center font-bold text-sm text-ss-text list-none">
+                What is the cancellation policy?
+                <span class="transition group-open:rotate-180">
+                  <i data-lucide="chevron-down" class="w-5 h-5 text-ss-text-mute"></i>
+                </span>
+              </summary>
+              <div class="text-sm text-ss-text-mute mt-3 leading-relaxed pr-8">
+                You can cancel for free up to 24 hours before your check-in date. Cancellations made within 24 hours of check-in will incur a one-night retention charge.
+              </div>
+            </details>
+
+            <details class="group py-4 cursor-pointer">
+              <summary class="flex justify-between items-center font-bold text-sm text-ss-text list-none">
+                Are unmarried couples allowed?
+                <span class="transition group-open:rotate-180">
+                  <i data-lucide="chevron-down" class="w-5 h-5 text-ss-text-mute"></i>
+                </span>
+              </summary>
+              <div class="text-sm text-ss-text-mute mt-3 leading-relaxed pr-8">
+                Yes, unmarried couples are welcome. Guests must be 18 years or older and present a valid government-approved photo ID (Passport, Driving License, Voter ID, or Aadhar Card) at check-in. Local IDs are accepted.
+              </div>
+            </details>
+
+            <details class="group py-4 cursor-pointer">
+              <summary class="flex justify-between items-center font-bold text-sm text-ss-text list-none">
+                Are pets allowed at the property?
+                <span class="transition group-open:rotate-180">
+                  <i data-lucide="chevron-down" class="w-5 h-5 text-ss-text-mute"></i>
+                </span>
+              </summary>
+              <div class="text-sm text-ss-text-mute mt-3 leading-relaxed pr-8">
+                Currently, pets are not allowed at this property to ensure the comfort of all our guests.
+              </div>
+            </details>
+          </div>
+          
+          <button class="mt-6 text-xs font-bold text-ss-green uppercase tracking-widest hover:underline flex items-center gap-1">
+            View more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </section>
+        
+        <!-- Location Map -->
+        <section id="location" class="scroll-mt-36 pt-8 border-t border-ss-border mb-12">
+          <h2 class="text-[11px] font-bold uppercase tracking-widest text-ss-green mb-6">Location</h2>
+          
+          <div class="w-full h-[506px] relative overflow-hidden rounded-none border border-ss-border bg-[#e5e3df] group">
+            
+            <!-- Interactive Map Container -->
+            <div id="interactive-map" class="absolute inset-0 z-0"></div>
+            
+            <!-- Top Left: Search -->
+            <button class="absolute top-4 left-4 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition z-10 text-ss-text border border-gray-100">
+              <i data-lucide="search" class="w-4 h-4 text-gray-700"></i>
+            </button>
+            
+            <!-- Top Right: Expand -->
+            <button class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition z-10 text-ss-text border border-gray-100">
+              <i data-lucide="expand" class="w-4 h-4 text-gray-700"></i>
+            </button>
+            
+            <!-- Right: Zoom Only (No Pegman) -->
+            <div class="absolute top-20 right-4 flex flex-col z-10">
+              <div class="bg-white rounded-full shadow-md flex flex-col overflow-hidden border border-gray-100">
+                <button id="map-zoom-in" class="w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition border-b border-gray-100 text-ss-text">
+                  <i data-lucide="plus" class="w-4 h-4 text-gray-700"></i>
+                </button>
+                <button id="map-zoom-out" class="w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition text-ss-text">
+                  <i data-lucide="minus" class="w-4 h-4 text-gray-700"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Center: Custom House Pin (pointer-events-none so we can drag the map beneath it) -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center pointer-events-none drop-shadow-2xl">
+              <div class="w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center shadow-lg relative z-10 border-[3px] border-white">
+                <i data-lucide="home" class="w-5 h-5 text-white"></i>
+              </div>
+              <div class="w-3 h-3 bg-[#1a1a1a] rotate-45 -mt-1.5 shadow-md border-r-2 border-b-2 border-white pointer-events-none" style="clip-path: polygon(100% 0, 100% 100%, 0 100%);"></div>
+            </div>
+            
+          </div>
+        </section>
+        
+
+        <!-- SEO Property Content / About Section -->
+        <section id="about" class="scroll-mt-36 pt-8 border-t border-ss-border mb-4">
+          <div class="relative">
+            <div id="seo-text-container" class="overflow-hidden transition-all duration-700 ease-in-out relative" style="max-height: 96px;">
+              <h2 class="font-brand-display text-[22px] font-bold text-ss-text mb-4">Best Hotel in Naraina, Delhi - SaltStayz Premier</h2>
+              <div class="space-y-4 text-ss-text-mute text-sm leading-relaxed font-body">
+                <p>SaltStayz Premier Naraina puts you at the center of Delhi with 36 well-appointed rooms, a rooftop terrace, and a restaurant that takes food seriously.</p>
+                
+                <h3 class="font-bold text-ss-text text-base mt-6">5 Room Types, One Address</h3>
+                <p>Standard, Deluxe, Superior, Twin, and Family - five types covering solo travelers, couples, colleagues, and families. The Family Room delivers the space groups need. Twin works with colleagues on a shared stay. Deluxe and Superior bring upgraded comfort for guests who want more from their nights.</p>
+                
+                <ul class="space-y-2 mt-2 ml-1">
+                  <li><strong class="text-ss-text font-bold">Standard:</strong> A practical and comfortable base layout designed naturally for solo travelers.</li>
+                  <li><strong class="text-ss-text font-bold">Deluxe:</strong> Brings upgraded comfort and premium finishes for guests who want more from their nights.</li>
+                  <li><strong class="text-ss-text font-bold">Superior:</strong> An elevated room choice delivering extra comfort and a step up in your stay experience.</li>
+                  <li><strong class="text-ss-text font-bold">Twin:</strong> A smart, shared layout built perfectly for colleagues or friends on a trip together.</li>
+                  <li><strong class="text-ss-text font-bold">Family:</strong> Delivers the generous extra space and layout configuration that groups and families need.</li>
+                </ul>
+
+                <h3 class="font-bold text-ss-text text-base mt-6 pt-2">Only Hotel in Naraina Vihar, Delhi, with a Rooftop Worth Coming Back To</h3>
+                <p>After a long day in the city, the open terrace is where the evening belongs to unwind, catch up with friends, and take in the Delhi skyline. The in-house restaurant serves both vegetarian and non-vegetarian menus prepared separately in dedicated kitchen setups. For guests with dietary preferences or religious requirements. Naraina sits in the thick of Central-West Delhi with direct access to major business districts, markets, and transit hubs. Rajouri Garden, Karol Bagh, and the industrial belt are all within reach.</p>
+              </div>
+              
+              <!-- Gradient overlay for text fade out when collapsed -->
+              <div id="seo-text-fade" class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-ss-light-gold to-transparent transition-opacity duration-500"></div>
+            </div>
+            
+            <button id="seo-view-more-btn" onclick="toggleSeoContent()" class="mt-4 text-ss-green font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-1 transition">
+              <span>View More</span>
+              <i data-lucide="chevron-down" id="seo-chevron" class="w-4 h-4 transition-transform duration-300"></i>
+            </button>
+          </div>
+          
+          <script>
+            function toggleSeoContent() {
+              const container = document.getElementById('seo-text-container');
+              const fade = document.getElementById('seo-text-fade');
+              const btnText = document.querySelector('#seo-view-more-btn span');
+              const chevron = document.getElementById('seo-chevron');
+              
+              if (container.style.maxHeight === '96px') {
+                container.style.maxHeight = '1500px';
+                fade.style.opacity = '0';
+                btnText.textContent = 'View Less';
+                chevron.classList.add('rotate-180');
+              } else {
+                container.style.maxHeight = '96px';
+                fade.style.opacity = '1';
+                btnText.textContent = 'View More';
+                chevron.classList.remove('rotate-180');
+              }
+            }
+          </script>
+        </section>
+
+      </div>
+      
+      <!-- RIGHT COLUMN (Sticky Booking Rail) -->
+      <div class="lg:col-span-4 relative">
+        
+        <!-- Sticky Wrapper -->
+        <div id="sticky-booking-wrapper" class="sticky top-24" style="transition: top 0.1s ease-out;">
+
+          <!-- New Simplified Beyond Card -->
+          <div id="beyond-card-container" class="bg-ss-cream p-6 border-2 border-ss-green/30 shadow-md mb-6 flex flex-col gap-1 mt-4 lg:mt-8 relative rounded-sm overflow-hidden transition-all duration-500">
+            <div class="absolute inset-0 bg-gradient-to-br from-ss-green/10 to-transparent pointer-events-none"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="inline-flex items-center gap-1.5 text-black text-[13px] font-bold uppercase tracking-widest">Saltstayz <span class="inline-flex items-center gap-1"><i data-lucide="sparkles" class="w-4 h-4 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+              </div>
+              <div class="font-brand-display text-[22px] font-bold text-black leading-tight mb-4 pr-2">
+                Save <span class="bg-gradient-to-r from-[#6b9946] to-ss-green bg-clip-text text-transparent">₹1800</span> + get <span class="bg-gradient-to-r from-[#6b9946] to-ss-green bg-clip-text text-transparent">₹54</span> (3%) cashback on this booking
+              </div>
+              <label class="flex items-center gap-2.5 cursor-pointer mt-1 group w-max">
+                <input type="checkbox" id="beyond-toggle" class="accent-ss-green w-5 h-5 cursor-pointer" checked />
+                <span class="text-xs font-bold text-ss-text uppercase tracking-widest group-hover:text-ss-green transition">Apply to Booking</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Booking Card -->
+          <div class="bg-white border border-ss-border shadow-xl mt-16 p-6 flex flex-col gap-6">
+
+            <!-- Stay Details (Calendar) -->
+            <div id="booking-dates-container" class="grid grid-cols-2 gap-4">
+              <div class="border border-ss-border p-3 cursor-pointer hover:border-ss-green transition">
+                <div class="text-[9px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Check-in</div>
+                <div class="font-bold text-sm text-ss-text">Thu, 22 Aug</div>
+              </div>
+              <div class="border border-ss-border p-3 cursor-pointer hover:border-ss-green transition">
+                <div class="text-[9px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Check-out</div>
+                <div class="font-bold text-sm text-ss-text">Sat, 24 Aug</div>
+              </div>
+            </div>
+
+            <!-- Rooms Section -->
+            <div class="border-t border-ss-border pt-6">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-ss-green mb-4">Rooms</div>
+              
+              <!-- Dynamic Room List -->
+              <div id="booking-rooms-list" class="flex flex-col gap-3">
+                <div class="flex justify-between items-start text-sm">
+                  <div>
+                    <div class="font-bold text-ss-text" id="booking-room-name">Deluxe suite <span class="font-normal text-ss-text-mute">(with balcony)</span></div>
+                    <div class="text-[11px] text-ss-text-mute mt-0.5" id="booking-room-details">Room only • 1 Adult</div>
+                  </div>
+                  <div class="font-medium text-ss-text" id="booking-room-rate">₹5,100</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subtotal Section -->
+            <div class="border-t border-ss-border pt-6 pb-2">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-ss-text-mute mb-4">Subtotal</div>
+              <div class="flex flex-col gap-3 text-sm text-ss-text">
+                <div class="flex justify-between items-center">
+                  <span class="text-ss-text-mute">Taxes & Fees</span>
+                  <span class="font-medium">₹1,080</span>
+                </div>
+                <!-- This row only shows when toggle is checked -->
+                <div id="beyond-discount-row" class="flex justify-between items-center text-ss-green font-bold bg-ss-green-soft/50 p-2 -mx-2 rounded transition-all duration-300 overflow-hidden" style="max-height: 48px; opacity: 1;">
+                  <span>Beyond Discount (20%)</span>
+                  <span>- ₹1,800</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Payable -->
+            <div class="flex justify-between items-end mb-2 pt-4 border-t-2 border-ss-text border-dashed">
+              <div class="text-xs font-bold uppercase tracking-widest text-ss-text-mute pb-1">Total Payable</div>
+              <div class="text-3xl sm:text-[34px] font-bold text-ss-text leading-none flex items-center justify-end">
+                <span class="mr-1 font-brand-display">₹</span><span id="total-price-val" class="font-mono text-right min-w-[140px] inline-block">8,280</span>
+              </div>
+            </div>
+
+            <!-- ONE Single Call to Action -->
+            <button class="w-full bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-sm uppercase tracking-widest py-4 transition shadow-lg mt-2 rounded-none">
+              Book Now
+            </button>
+            <div class="text-center text-[10.5px] text-[#555552] font-medium">
+              zero upfront payment. pay at the hotel
+            </div>
+            
+          </div>
+            </div>
+            
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- MORE STAYS IN DELHI -->
+    <section class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-ss-border">
+      <h2 class="text-[22px] font-brand-display font-bold text-ss-text mb-6">More stays in Delhi</h2>
+      
+      <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-4 snap-x snap-mandatory">
+        
+        <!-- Compact Hotel Card 1 -->
+        <a href="hotel.html" class="flex flex-col border border-ss-border bg-white shadow-sm hover:shadow-md transition group rounded-none w-[280px] sm:w-[320px] shrink-0 snap-start">
+          <div class="w-full h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 left-3 bg-ss-green text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">20% Off</div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div>
+              <h3 class="font-brand-display text-lg font-bold text-ss-text group-hover:text-ss-green transition">Saltstayz Premier</h3>
+              <p class="text-[11px] text-ss-text-mute font-medium flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG Road, Delhi</p>
+            </div>
+            <div class="flex items-end justify-between mt-1 border-t border-ss-border pt-3">
+              <div>
+                <div class="text-[10px] text-ss-text-mute line-through leading-none">₹7,500</div>
+                <div class="text-[17px] font-bold text-ss-green leading-none mt-1">₹2,760 <span class="text-[9px] text-ss-text-mute font-normal">/night</span></div>
+              </div>
+              <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text border-b border-ss-text pb-0.5 group-hover:text-ss-green group-hover:border-ss-green transition">View Details</button>
+            </div>
+          </div>
+        </a>
+
+        <!-- Compact Hotel Card 2 -->
+        <a href="hotel.html" class="flex flex-col border border-ss-border bg-white shadow-sm hover:shadow-md transition group rounded-none w-[280px] sm:w-[320px] shrink-0 snap-start">
+          <div class="w-full h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier Naraina" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 left-3 bg-ss-green text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">20% Off</div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div>
+              <h3 class="font-brand-display text-lg font-bold text-ss-text group-hover:text-ss-green transition">Saltstayz Premier</h3>
+              <p class="text-[11px] text-ss-text-mute font-medium flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> Naraina, Delhi</p>
+            </div>
+            <div class="flex items-end justify-between mt-1 border-t border-ss-border pt-3">
+              <div>
+                <div class="text-[10px] text-ss-text-mute line-through leading-none">₹5,200</div>
+                <div class="text-[17px] font-bold text-ss-green leading-none mt-1">₹2,100 <span class="text-[9px] text-ss-text-mute font-normal">/night</span></div>
+              </div>
+              <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text border-b border-ss-text pb-0.5 group-hover:text-ss-green group-hover:border-ss-green transition">View Details</button>
+            </div>
+          </div>
+        </a>
+
+        <!-- Compact Hotel Card 3 -->
+        <a href="hotel.html" class="flex flex-col border border-ss-border bg-white shadow-sm hover:shadow-md transition group rounded-none w-[280px] sm:w-[320px] shrink-0 snap-start">
+          <div class="w-full h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier Cyber City" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 left-3 bg-ss-green text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">20% Off</div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div>
+              <h3 class="font-brand-display text-lg font-bold text-ss-text group-hover:text-ss-green transition">Saltstayz Premier</h3>
+              <p class="text-[11px] text-ss-text-mute font-medium flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> Cyber City, Delhi</p>
+            </div>
+            <div class="flex items-end justify-between mt-1 border-t border-ss-border pt-3">
+              <div>
+                <div class="text-[10px] text-ss-text-mute line-through leading-none">₹4,120</div>
+                <div class="text-[17px] font-bold text-ss-green leading-none mt-1">₹1,690 <span class="text-[9px] text-ss-text-mute font-normal">/night</span></div>
+              </div>
+              <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text border-b border-ss-text pb-0.5 group-hover:text-ss-green group-hover:border-ss-green transition">View Details</button>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Compact Hotel Card 4 -->
+        <a href="hotel.html" class="flex flex-col border border-ss-border bg-white shadow-sm hover:shadow-md transition group rounded-none w-[280px] sm:w-[320px] shrink-0 snap-start">
+          <div class="w-full h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Autograph" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 left-3 bg-ss-green text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">20% Off</div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div>
+              <h3 class="font-brand-display text-lg font-bold text-ss-text group-hover:text-ss-green transition">Saltstayz Autograph</h3>
+              <p class="text-[11px] text-ss-text-mute font-medium flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> GC Ext, Delhi</p>
+            </div>
+            <div class="flex items-end justify-between mt-1 border-t border-ss-border pt-3">
+              <div>
+                <div class="text-[10px] text-ss-text-mute line-through leading-none">₹9,500</div>
+                <div class="text-[17px] font-bold text-ss-green leading-none mt-1">₹3,450 <span class="text-[9px] text-ss-text-mute font-normal">/night</span></div>
+              </div>
+              <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text border-b border-ss-text pb-0.5 group-hover:text-ss-green group-hover:border-ss-green transition">View Details</button>
+            </div>
+          </div>
+        </a>
+
+        <!-- Compact Hotel Card 5 -->
+        <a href="hotel.html" class="flex flex-col border border-ss-border bg-white shadow-sm hover:shadow-md transition group rounded-none w-[280px] sm:w-[320px] shrink-0 snap-start">
+          <div class="w-full h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Select" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 left-3 bg-ss-green text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">20% Off</div>
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <div>
+              <h3 class="font-brand-display text-lg font-bold text-ss-text group-hover:text-ss-green transition">Saltstayz Select</h3>
+              <p class="text-[11px] text-ss-text-mute font-medium flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> Sector 27, Delhi</p>
+            </div>
+            <div class="flex items-end justify-between mt-1 border-t border-ss-border pt-3">
+              <div>
+                <div class="text-[10px] text-ss-text-mute line-through leading-none">₹3,800</div>
+                <div class="text-[17px] font-bold text-ss-green leading-none mt-1">₹1,500 <span class="text-[9px] text-ss-text-mute font-normal">/night</span></div>
+              </div>
+              <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text border-b border-ss-text pb-0.5 group-hover:text-ss-green group-hover:border-ss-green transition">View Details</button>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+<!-- Z7: Footer -->
+  <footer class="bg-ss-green-dark text-white/80 pt-16 pb-24 sm:pb-12 border-t border-white/10 text-xs">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+      <!-- Col 1: Brand -->
+      <div class="md:col-span-2">
+        <div class="mb-4">
+          <img src="/logo.png" alt="Saltstayz" class="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-95" />
+        </div>
+        <p class="text-white/60 max-w-sm leading-relaxed mb-6">
+          Premium boutique hospitality across India's finest destinations. Curated for modern leisure and corporate travelers.
+        </p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-ss-gold hover:text-ss-blue-dark transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-ss-gold hover:text-ss-blue-dark transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-ss-gold hover:text-ss-blue-dark transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider text-[11px] mb-3 text-ss-gold">Active Cities</div>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#destinations" class="hover:text-white transition">Gurgaon (7)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Delhi (2)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Mohali (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Bengaluru (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Manesar (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Rishikesh (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Noida (1)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider text-[11px] mb-3 text-ss-gold">Brand Tiers</div>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#collections" class="hover:text-white transition">Saltstayz Autograph</a></li>
+          <li><a href="#collections" class="hover:text-white transition">Saltstayz Premier</a></li>
+          <li><a href="#collections" class="hover:text-white transition">Saltstayz Select</a></li>
+          <li class="pt-2 text-white/40 font-semibold">• Experiences & Banquets</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider text-[11px] mb-3 text-ss-gold">Guest Help</div>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-white transition">Manage Booking</a></li>
+          <li><a href="#" class="hover:text-white transition">Cancellation Policy</a></li>
+          <li><a href="tel:+919599199610" class="hover:text-white transition">Contact Us: +91 95991 99610</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-white/50 text-[11px] gap-4">
+      <div>© 2026 Saltstayz Hospitality Pvt. Ltd. All rights reserved.</div>
+      <div class="flex gap-4">
+        <a href="#" class="hover:underline">Terms of Service</a>
+        <span>·</span>
+        <a href="#" class="hover:underline">Refund Policy</a>
+        <span>·</span>
+        <a href="#" class="hover:underline">Direct Booking Guarantee</a>
+      </div>
+    </div>
+  </footer><!-- Mobile Bottom Nav -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-ss-border flex items-center justify-around py-2 shadow-lg">
+    <a href="#" class="flex flex-col items-center gap-1 text-ss-green font-bold text-[10px]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>Home</span>
+    </a>
+    <a href="#destinations" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="map-pin" class="w-5 h-5"></i>
+      <span>Destinations</span>
+    </a>
+    <a href="#collections" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="building-2" class="w-5 h-5"></i>
+      <span>Hotels</span>
+    </a>
+    <a href="#beyond" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="sparkles" class="w-5 h-5 text-ss-gold-dark"></i>
+      <span>Beyond</span>
+    </a>
+    <a href="tel:+919599199610" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="phone" class="w-5 h-5"></i>
+      <span>Call</span>
+    </a>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-start justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-none max-w-2xl w-full p-6 shadow-2xl mt-12">
+      <div class="flex items-center justify-between pb-4 border-b border-ss-border">
+        <div class="flex items-center gap-2 flex-1">
+          <i data-lucide="search" class="w-5 h-5 text-ss-green"></i>
+          <input type="text" placeholder="Search city or boutique hotel..." class="w-full text-base font-semibold text-ss-text outline-none bg-transparent" autofocus />
+        </div>
+        <button onclick="closeSearchModal()" class="p-2 rounded-full hover:bg-gray-100 text-ss-text-mute">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-5">
+        <div class="text-[10px] font-bold uppercase tracking-wider text-ss-text-mute mb-2.5">Quick City Selection</div>
+        <div class="flex flex-wrap gap-2">
+          <button class="px-3 py-1.5 rounded-full bg-ss-green text-white font-bold text-xs shadow-sm">Gurgaon (7)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Delhi (2)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Mohali (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Bengaluru (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Manesar (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Rishikesh (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Noida (1)</button>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <div class="text-[10px] font-bold uppercase tracking-wider text-ss-text-mute mb-2">Featured Hotels with Tier Badges</div>
+        <div class="space-y-2">
+          <a href="#hotels" onclick="closeSearchModal()" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-ss-green-soft transition">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-ss-text text-ss-gold font-bold text-xs flex items-center justify-center">A</div>
+              <div>
+                <div class="font-bold text-xs text-ss-text">Saltstayz Autograph, MG Road</div>
+                <div class="text-[11px] text-ss-text-mute">Sector 28, Gurgaon · 4.7 ★</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase bg-ss-text text-ss-gold px-2 py-0.5 rounded">Autograph</span>
+          </a>
+
+          <a href="#hotels" onclick="closeSearchModal()" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-ss-green-soft transition">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-ss-green text-white font-bold text-xs flex items-center justify-center">P</div>
+              <div>
+                <div class="font-bold text-xs text-ss-text">Saltstayz Premier — Naraina</div>
+                <div class="text-[11px] text-ss-text-mute">Central Delhi · 4.5 ★</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase bg-ss-green text-white px-2 py-0.5 rounded">Premier</span>
+          </a>
+
+          <a href="#hotels" onclick="closeSearchModal()" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-ss-green-soft transition">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-gray-200 text-ss-green font-bold text-xs flex items-center justify-center">S</div>
+              <div>
+                <div class="font-bold text-xs text-ss-text">Saltstayz Select, Cyber City</div>
+                <div class="text-[11px] text-ss-text-mute">DLF Phase 2, Gurgaon · 4.3 ★</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase bg-ss-green-soft text-ss-green px-2 py-0.5 rounded">Select</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/60 hidden">
+    <div class="fixed right-0 top-0 bottom-0 w-80 bg-white p-6 overflow-y-auto flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-ss-border mb-6">
+          <img src="/logo.png" alt="Saltstayz" class="h-6 w-auto object-contain" />
+          <button onclick="toggleMobileDrawer()" class="p-1 rounded-full text-ss-text-mute hover:bg-gray-100">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-4 text-sm font-bold text-ss-text">
+          <a href="#" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50 text-ss-green">Home</a>
+          <a href="#destinations" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Destinations (7 Cities)</a>
+          <a href="#collections" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Our Hotel Tiers</a>
+          <a href="index.html#experiences" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Experiences (Restaurants & Banquets)</a>
+          <a href="index.html#beyond" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Membership</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-ss-border">
+        <a href="tel:+919599199610" class="w-full bg-ss-green text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-xs mb-2">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span>Call: +91 95991 99610</span>
+        </a>
+        <div class="text-center text-[10px] text-ss-text-mute">Guaranteed Best Rate when booking direct</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    function setHeaderStayType(type) {
+      const over = document.getElementById('tab-overnight');
+      const day = document.getElementById('tab-dayuse');
+      if(type === 'overnight') {
+        over.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-ss-green text-white shadow-sm flex items-center gap-1.5 transition";
+        day.className = "px-4 py-1.5 rounded-full text-xs font-bold text-ss-text-mute hover:text-ss-green flex items-center gap-1.5 transition";
+      } else {
+        day.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-[#822049] text-white shadow-sm flex items-center gap-1.5 transition";
+        over.className = "px-4 py-1.5 rounded-full text-xs font-bold text-ss-text-mute hover:text-ss-green flex items-center gap-1.5 transition";
+      }
+    }
+
+    function openSearchModal() {
+      document.getElementById('search-modal').classList.remove('hidden');
+      document.getElementById('search-modal').classList.add('flex');
+    }
+    function closeSearchModal() {
+      document.getElementById('search-modal').classList.add('hidden');
+      document.getElementById('search-modal').classList.remove('flex');
+    }
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      drawer.classList.toggle('hidden');
+    }
+  </script>
+
+  <script>
+    // Beyond Interactive Logic
+    const beyondToggle = document.getElementById('beyond-toggle');
+    const discountRow = document.getElementById('beyond-discount-row');
+    const totalValEl = document.getElementById('total-price-val');
+    const beyondContainer = document.getElementById('beyond-card-container');
+    
+    let currentTotal = 8280;
+    let targetTotal = 8280;
+    
+    function animatePrice() {
+      if(Math.abs(targetTotal - currentTotal) > 1) {
+        const diff = targetTotal - currentTotal;
+        const step = Math.sign(diff) * Math.max(Math.abs(diff * 0.08), 5);
+        currentTotal += step;
+        totalValEl.innerText = Math.round(currentTotal).toLocaleString('en-IN');
+        requestAnimationFrame(animatePrice);
+      } else {
+        currentTotal = targetTotal;
+        totalValEl.innerText = Math.round(currentTotal).toLocaleString('en-IN');
+      }
+    }
+    
+    if(beyondToggle) {
+      beyondToggle.addEventListener('change', (e) => {
+        if(e.target.checked) {
+          // Apply Beyond
+          discountRow.style.maxHeight = '48px';
+          discountRow.style.opacity = '1';
+          discountRow.style.marginTop = '0px';
+          beyondContainer.classList.remove('opacity-60', 'grayscale');
+          targetTotal = 8280;
+        } else {
+          // Remove Beyond
+          discountRow.style.maxHeight = '0px';
+          discountRow.style.opacity = '0';
+          discountRow.style.marginTop = '-12px';
+          beyondContainer.classList.add('opacity-60', 'grayscale');
+          targetTotal = 10080;
+        }
+        requestAnimationFrame(animatePrice);
+      });
+    }
+
+    // Guest Selection & Room Selection Logic
+    const guestState = {
+      1: { adults: 1, children: 0 },
+      2: { adults: 0, children: 0 },
+      3: { adults: 0, children: 0 },
+      4: { adults: 0, children: 0 }
+    };
+
+    function toggleGuestPopup(cardId, show) {
+      const overlay = document.getElementById(`guest-overlay-${cardId}`);
+      if (show) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+      } else {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+      }
+    }
+
+    function updateGuests(cardId, type, delta) {
+      const maxAdults = 4;
+      const maxChildren = 3;
+      
+      let current = guestState[cardId][type];
+      current += delta;
+      
+      if (type === 'adults') {
+        if (current < 1) current = 1;
+        if (current > maxAdults) current = maxAdults;
+      } else {
+        if (current < 0) current = 0;
+        if (current > maxChildren) current = maxChildren;
+      }
+      
+      guestState[cardId][type] = current;
+      
+      const countEl = document.getElementById(`${type === 'adults' ? 'adult' : 'child'}-count-${cardId}`);
+      countEl.innerText = current;
+    }
+
+    function applyGuests(cardId) {
+      const state = guestState[cardId];
+      const btn = document.getElementById(`guest-cta-${cardId}`);
+      let text = `${state.adults} Adult${state.adults > 1 ? 's' : ''}`;
+      if (state.children > 0) {
+        text += `, ${state.children} Child${state.children > 1 ? 'ren' : ''}`;
+      }
+      btn.innerText = text;
+      toggleGuestPopup(cardId, false);
+      updateBookingCard();
+    }
+    
+    // Meal Plan Selection Logic
+    
+    // Update Booking Card Details
+    function updateBookingCard() {
+      const roomList = document.getElementById('booking-rooms-list');
+      if (!roomList) return;
+      
+      // Calculate nights (static mock for now, ideally parsed from dates)
+      const nights = 2;
+
+      const allCards = [1, 2, 3, 4];
+      let hasSelectedRoom = false;
+      let newHtml = '';
+      let subtotal = 0;
+
+      allCards.forEach(id => {
+        const card = document.getElementById(`room-card-${id}`);
+        if (card && card.classList.contains('border-ss-green')) {
+          hasSelectedRoom = true;
+          
+          // Get Room Name
+          const roomTitleEl = card.querySelector('.font-brand-display');
+          let roomName = 'Deluxe suite';
+          if (roomTitleEl) roomName = roomTitleEl.innerText.replace(/\s*\([^)]*\)/g, '').trim(); // Strip any brackets just in case
+
+          // Get Guest Count
+          const state = guestState[id];
+          const guestStr = `${state.adults} Adult${state.adults > 1 ? 's' : ''}`;
+
+          // Get Meal Plan
+          let mealPlanStr = "Room only";
+          const mealCards = card.querySelectorAll('.meal-plan-card');
+          mealCards.forEach(mCard => {
+            if (mCard.classList.contains('border-ss-green')) {
+              const mTitle = mCard.querySelector('.meal-title');
+              if (mTitle) mealPlanStr = mTitle.innerText;
+            }
+          });
+
+          // Get Price
+          let price = id === 1 ? 5100 : 5100;
+          if (mealPlanStr.includes("Breakfast & dinner")) {
+            price = id === 1 ? 6800 : 7000;
+          } else if (mealPlanStr.includes("Breakfast")) {
+            price = id === 1 ? 5700 : 5700;
+          }
+          
+          // Multiply by nights
+          const roomTotal = price * nights;
+          subtotal += roomTotal;
+          
+          const priceStr = "₹" + roomTotal.toLocaleString('en-IN');
+          
+          newHtml += `
+            <div class="flex justify-between items-start text-sm">
+              <div>
+                <div class="font-bold text-ss-text">${roomName} <span class="font-normal text-ss-text-mute">- ${nights} night${nights > 1 ? 's' : ''}</span></div>
+                <div class="text-[11px] text-ss-text-mute mt-0.5">${mealPlanStr} • ${guestStr}</div>
+              </div>
+              <div class="font-medium text-ss-text">${priceStr}</div>
+            </div>
+          `;
+        }
+      });
+
+      const taxesEl = document.querySelector('.text-ss-text-mute + .font-medium'); // Taxes & Fees span
+      const totalPriceVal = document.getElementById('total-price-val');
+
+      if (!hasSelectedRoom) {
+        roomList.innerHTML = `<div class="text-xs text-ss-text-mute italic">No rooms selected</div>`;
+        if (taxesEl && taxesEl.previousElementSibling.innerText.includes("Taxes")) taxesEl.innerText = "₹0";
+        if (totalPriceVal) totalPriceVal.innerText = "0";
+      } else {
+        roomList.innerHTML = newHtml;
+        
+        // Calculate taxes (mock 12% for example)
+        const taxes = Math.round(subtotal * 0.12);
+        if (taxesEl && taxesEl.previousElementSibling.innerText.includes("Taxes")) {
+          taxesEl.innerText = "₹" + taxes.toLocaleString('en-IN');
+        }
+        
+        // Calculate total
+        let total = subtotal + taxes;
+        
+        // Handle Beyond Discount
+        const beyondToggle = document.getElementById('beyond-toggle');
+        if (beyondToggle && beyondToggle.checked) {
+           const discount = Math.round(total * 0.2);
+           total -= discount;
+           const beyondRow = document.getElementById('beyond-discount-row');
+           if (beyondRow) beyondRow.querySelector('span:last-child').innerText = "- ₹" + discount.toLocaleString('en-IN');
+        }
+        
+        // We set global targetTotal so requestAnimationFrame interpolates it
+        if (typeof targetTotal !== 'undefined') {
+          targetTotal = total;
+        } else {
+          if (totalPriceVal) totalPriceVal.innerText = total.toLocaleString('en-IN');
+        }
+        
+        // Adjust sticky position if height changed
+        setTimeout(adjustStickyBooking, 50);
+      }
+    }
+
+    function selectMealPlan(roomIndex, planIndex) {
+      const roomCard = document.getElementById(`room-card-${roomIndex}`);
+      if (!roomCard) return;
+      
+      // If choosing a plan (0, 1, 2), prevent if room is not selected
+      if (planIndex >= 0 && !roomCard.classList.contains('border-ss-green')) return;
+
+      const mealCards = roomCard.querySelectorAll('.meal-plan-card');
+      mealCards.forEach((card, idx) => {
+        const titleEl = card.querySelector('.meal-title');
+        const priceEl = card.querySelector('.meal-price');
+        
+        if (planIndex === -1) {
+          // Unselected room -> unselect and dim all meal plans (including Room Only)
+          card.className = "meal-plan-card rounded-none p-2 cursor-pointer transition opacity-50 pointer-events-none border border-ss-border";
+          if (titleEl) titleEl.className = "meal-title text-[11px] font-normal text-ss-text mb-1 truncate";
+          if (priceEl) priceEl.className = "meal-price text-[10px] text-ss-text-mute";
+        } else if (idx === planIndex) {
+          // Active selected meal plan
+          card.className = "meal-plan-card rounded-none p-2 cursor-pointer transition opacity-100 border-2 border-ss-green bg-ss-green-soft";
+          if (titleEl) titleEl.className = "meal-title text-[11px] font-bold text-ss-text mb-1 truncate";
+          if (priceEl) priceEl.className = "meal-price text-[10px] text-ss-green font-bold";
+        } else {
+          // Unselected meal plan in an active card
+          card.className = "meal-plan-card rounded-none p-2 cursor-pointer transition opacity-100 border border-ss-border hover:border-gray-300";
+          if (titleEl) titleEl.className = "meal-title text-[11px] font-normal text-ss-text mb-1 truncate";
+          if (priceEl) priceEl.className = "meal-price text-[10px] text-ss-text-mute";
+        }
+      });
+    }
+      setTimeout(updateBookingCard, 20);
+
+    // Room Selection Radio/Checkbox logic
+    function selectRoom(cardId) {
+      const card = document.getElementById(`room-card-${cardId}`);
+      if (!card) return;
+      const isAlreadySelected = card.classList.contains('border-ss-green');
+
+      const radioSvg = document.getElementById(`room-radio-${cardId}`);
+      const radioBtn = document.getElementById(`room-radio-btn-${cardId}`);
+      const guestCta = document.getElementById(`guest-cta-${cardId}`);
+      const roomCount = document.getElementById(`room-count-${cardId}`);
+      
+      if (!isAlreadySelected) {
+        // Select this card
+        card.classList.add('border-ss-green', 'border-2');
+        card.classList.remove('border-ss-border', 'border');
+        
+        if(radioSvg) {
+          radioSvg.classList.remove('opacity-0');
+          radioSvg.classList.add('opacity-100');
+        }
+        if(radioBtn) {
+          radioBtn.classList.add('bg-ss-green', 'border-ss-green');
+          radioBtn.classList.remove('bg-black/40', 'border-white/80');
+        }
+
+        // Set room count to 1
+        if(roomCount) roomCount.innerText = "1";
+
+        // Set guest CTA to 1 Adult and enable
+        if(guestCta) {
+          guestCta.innerText = "1 Adult";
+          guestCta.disabled = false;
+          guestCta.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+          guestState[cardId] = { adults: 1, children: 0 };
+        }
+        
+        // Select Room Only by default on selected card
+        selectMealPlan(cardId, 0);
+        
+      } else {
+        // Deselect / Uncheck this card
+        card.classList.remove('border-ss-green', 'border-2');
+        card.classList.add('border-ss-border', 'border');
+        
+        if(radioSvg) {
+          radioSvg.classList.add('opacity-0');
+          radioSvg.classList.remove('opacity-100');
+        }
+        if(radioBtn) {
+          radioBtn.classList.remove('bg-ss-green', 'border-ss-green');
+          radioBtn.classList.add('bg-black/40', 'border-white/80');
+        }
+
+        // Set room count to 0
+        if(roomCount) roomCount.innerText = "0";
+
+        // Set guest CTA to Select guest and disable
+        if(guestCta) {
+          guestCta.innerText = "Select guest";
+          guestCta.disabled = true;
+          guestCta.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+          guestState[cardId] = { adults: 0, children: 0 };
+        }
+        
+        // Deselect all meal plans (including Room only) and dim them
+        selectMealPlan(cardId, -1);
+      }
+      
+      // We also need to trigger updateBookingCard if not using setTimeout in selectMealPlan,
+      // but selectMealPlan already triggers updateBookingCard.
+    }
+
+    
+    // Dynamic Sticky Booking Card Logic
+    function adjustStickyBooking() {
+      const wrapper = document.getElementById('sticky-booking-wrapper');
+      if (!wrapper) return;
+      
+      const vh = window.innerHeight;
+      const height = wrapper.offsetHeight;
+      
+      // If the booking card is taller than the viewport (with 100px padding), 
+      // we offset the 'top' so that its bottom aligns with the viewport bottom.
+      if (height > vh - 120) {
+        const newTop = Math.min(vh - height - 24, 96);
+        wrapper.style.top = `${newTop}px`;
+      } else {
+        wrapper.style.top = `96px`; // Default top-24
+      }
+    }
+    
+    window.addEventListener('scroll', adjustStickyBooking, { passive: true });
+    window.addEventListener('resize', adjustStickyBooking, { passive: true });
+    setTimeout(adjustStickyBooking, 100);
+
+    
+    // Day Use Logic
+    let currentDayUseDuration = 3;
+    let baseTimeHour = 12; // Start at 12 PM for demo
+
+    function formatTime(hourCounter) {
+        let h = hourCounter % 24;
+        let suffix = h >= 12 ? 'PM' : 'AM';
+        let displayH = h % 12;
+        if (displayH === 0) displayH = 12;
+        return `${displayH}:00 ${suffix}`;
+    }
+
+    function updateDayUseTime() {
+        const slider = document.getElementById('time-slider');
+        const offset = parseInt(slider.value);
+        const checkinH = baseTimeHour + offset;
+        const checkoutH = checkinH + currentDayUseDuration;
+
+        document.getElementById('checkin-time-display').innerText = formatTime(checkinH);
+        
+        // Update all checkout displays
+        document.querySelectorAll('.duration-btn').forEach(btn => {
+            const dur = parseInt(btn.querySelector('.text-sm').innerText);
+            btn.querySelector('.checkout-time-text').innerText = formatTime(checkinH + dur);
+        });
+
+        // Update pills
+        document.querySelectorAll('.time-pill-text').forEach(el => {
+            el.innerText = `${formatTime(checkinH)} - ${formatTime(checkoutH)}`;
+        });
+    }
+
+    function setDuration(hours, price, btnElement) {
+        currentDayUseDuration = hours;
+        
+        // Update styling
+        document.querySelectorAll('.duration-btn').forEach(btn => {
+            btn.className = "duration-btn flex flex-col items-center justify-center py-3 px-2 border border-ss-border bg-white hover:border-gray-300 transition";
+        });
+        btnElement.className = "duration-btn flex flex-col items-center justify-center py-3 px-2 border-2 border-ss-green bg-ss-green-soft transition";
+
+        updateDayUseTime();
+    }
+
+    function setStayType(type) {
+        const btnOvernight = document.getElementById('btn-overnight');
+        const btnDayuse = document.getElementById('btn-dayuse');
+        const controls = document.getElementById('dayuse-controls');
+        const card3 = document.getElementById('room-card-3');
+        const card4 = document.getElementById('room-card-4');
+        const datesContainer = document.getElementById('booking-dates-container');
+        const timePills = document.querySelectorAll('.time-pill');
+
+        if(type === 'dayuse') {
+            btnDayuse.className = "px-4 py-1.5 rounded-none text-[11px] font-bold bg-gradient-to-r from-[#6b9946] to-ss-green text-white shadow-sm flex items-center gap-1.5 transition";
+            btnOvernight.className = "px-4 py-1.5 rounded-none text-[11px] font-bold text-white/70 hover:text-white flex items-center gap-1.5 transition";
+            
+            controls.classList.remove('hidden');
+            if (card3) card3.style.display = 'none';
+            if (card4) card4.style.display = 'none';
+            
+            timePills.forEach(pill => {
+                pill.classList.remove('hidden');
+                pill.classList.add('flex');
+            });
+
+            datesContainer.innerHTML = `
+              <div class="col-span-2 border border-ss-border p-3 cursor-pointer hover:border-ss-green transition">
+                <div class="text-[9px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Check-in</div>
+                <div class="font-bold text-sm text-ss-text">Thu, 22 Aug (Day Use)</div>
+              </div>`;
+              
+            // Initialize slider standard
+            updateDayUseTime();
+
+        } else {
+            btnOvernight.className = "px-4 py-1.5 rounded-none text-[11px] font-bold bg-gradient-to-r from-[#6b9946] to-ss-green text-white shadow-sm flex items-center gap-1.5 transition";
+            btnDayuse.className = "px-4 py-1.5 rounded-none text-[11px] font-bold text-white/70 hover:text-white flex items-center gap-1.5 transition";
+            
+            controls.classList.add('hidden');
+            if (card3) card3.style.display = 'flex';
+            if (card4) card4.style.display = 'flex';
+            
+            timePills.forEach(pill => {
+                pill.classList.add('hidden');
+                pill.classList.remove('flex');
+            });
+
+            datesContainer.innerHTML = `
+              <div class="border border-ss-border p-3 cursor-pointer hover:border-ss-green transition">
+                <div class="text-[9px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Check-in</div>
+                <div class="font-bold text-sm text-ss-text">Thu, 22 Aug</div>
+              </div>
+              <div class="border border-ss-border p-3 cursor-pointer hover:border-ss-green transition">
+                <div class="text-[9px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Check-out</div>
+                <div class="font-bold text-sm text-ss-text">Sat, 24 Aug</div>
+              </div>`;
+        }
+    }
+    // Initialize default selection
+    selectRoom(1);
+
+    // Initialize Leaflet Map
+    document.addEventListener("DOMContentLoaded", function() {
+      if (document.getElementById('interactive-map')) {
+        const map = L.map('interactive-map', {
+          center: [28.632, 77.215], // Delhi
+          zoom: 13,
+          zoomControl: false, // Hide default zoom control to use custom buttons
+          attributionControl: false // Hide default attribution to keep it clean
+        });
+
+        // Use CartoDB Voyager tiles for a clean, light aesthetic
+        L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+          maxZoom: 19,
+        }).addTo(map);
+
+        // Bind Custom HTML Zoom Buttons
+        const zoomInBtn = document.getElementById('map-zoom-in');
+        const zoomOutBtn = document.getElementById('map-zoom-out');
+        
+        if(zoomInBtn) {
+          zoomInBtn.addEventListener('click', () => map.zoomIn());
+        }
+        if(zoomOutBtn) {
+          zoomOutBtn.addEventListener('click', () => map.zoomOut());
+        }
+      }
+    });
+  </script>
+</body>

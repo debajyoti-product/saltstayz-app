@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saltstayz | Boutique Hotels in Delhi, Gurgaon, Mohali, Bengaluru & Beyond</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Dancing+Script:wght@400;600&family=Playfair+Display:ital@0;1&family=Jost:wght@400;500;600;700&family=Cabin:wght@400;500;600;700&family=Carlito:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Aref+Ruqaa&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ss-green': '#4f7134',
+            'ss-green-dark': '#3d5a26',
+            'ss-green-soft': '#eef3e6',
+            'ss-gold': '#f1e5b1',
+            'ss-gold-dark': '#ffb514',
+            'ss-gold-deep': '#822049',
+            'ss-cream': '#f3f8ee',
+            'ss-light-gold': '#f5f3ec',
+            'ss-blue-dark': '#08273b',
+            'ss-text': '#1a1a1a',
+            'ss-text-mute': '#6a6a66',
+            'ss-border': 'rgba(26, 26, 26, 0.08)',
+            'ss-border-strong': 'rgba(26, 26, 26, 0.16)'
+          },
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'Carlito', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'Carlito', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --ss-green: #4f7134;
+      --ss-green-dark: #3d5a26;
+      --ss-green-soft: #eef3e6;
+      --ss-gold: #f1e5b1;
+      --ss-gold-dark: #ffb514;
+      --ss-gold-deep: #822049;
+      --ss-cream: #f3f8ee;
+      --ss-light-gold: #f5f3ec;
+      --ss-text: #1a1a1a;
+      --ss-text-mute: #6a6a66;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--ss-light-gold);
+      color: var(--ss-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-brand-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(61, 90, 38, 0.18);
+    }
+  
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+
+      -ms-overflow-style: none;
+
+      scrollbar-width: none;
+
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+    .no-scrollbar {
+
+      -ms-overflow-style: none;
+
+      scrollbar-width: none;
+
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+    .no-scrollbar {
+
+      -ms-overflow-style: none;
+
+      scrollbar-width: none;
+
+    }
+  </style>
+</head>
+<body class="bg-ss-light-gold min-h-screen text-ss-text flex flex-col antialiased">
+
+  <!-- Z1: Sticky Header & Nav -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-ss-border shadow-sm transition-all duration-200">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <div class="flex items-center gap-6 xl:gap-10">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex-shrink-0">
+          <img src="nav_logo.png" alt="Saltstayz" class="h-[12px] sm:h-[16px] w-auto object-contain" />
+        </a>
+
+        <!-- Desktop Navigation (3 Clear Flows) -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+          
+          <!-- Flow 1: Destinations Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
+              <span>Destinations</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+            </button>
+
+            <!-- Mega Menu -->
+            <div class="hidden group-hover:block absolute top-full left-0 w-72 bg-white rounded-none p-3 shadow-2xl border border-ss-border mt-1">
+              <div class="grid grid-cols-2 gap-1">
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Gurgaon</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Delhi</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Noida</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Mohali</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Manesar</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Bengaluru</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Faridabad</a>
+                <a href="#hotels" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Rishikesh</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow 2: Our Hotels / Brand Tiers Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
+              <span>Our Hotels</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+            </button>
+
+            <!-- Tiers Mega Menu -->
+            <div class="hidden group-hover:block absolute top-full left-0 w-[640px] bg-white rounded-none p-5 shadow-2xl border border-ss-border mt-1">
+              <div class="grid grid-cols-3 gap-4">
+                
+                <!-- Autograph -->
+                <a href="#collections" onclick="switchTab('autograph')" class="p-4 rounded-xl bg-[#1a1a1a]/[0.03] border-l-4 border-[#ffb514] hover:bg-[#1a1a1a]/[0.06] transition block text-left">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold tracking-wider bg-ss-text text-ss-gold px-2.5 py-0.5 rounded" style="font-family: 'Amarna', serif;">Autograph</span>
+                    <span class="text-xs text-ss-text-mute font-semibold">4 Stays</span>
+                  </div>
+                  <p class="text-xs text-ss-text-mute leading-relaxed mt-2 font-medium">Ultimate luxury.</p>
+                </a>
+
+                <!-- Premier -->
+                <a href="#collections" onclick="switchTab('premier')" class="p-4 rounded-xl bg-ss-green-soft/40 border-l-4 border-ss-green hover:bg-ss-green-soft/70 transition block text-left">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold tracking-wider bg-ss-green text-white px-2.5 py-0.5 rounded" style="font-family: 'Merriweather', serif;">Premier</span>
+                    <span class="text-xs text-ss-text-mute font-semibold">11 Stays</span>
+                  </div>
+                  <p class="text-xs text-ss-text-mute leading-relaxed mt-2 font-medium">Premium comfort</p>
+                </a>
+
+                <!-- Select -->
+                <a href="#collections" onclick="switchTab('select')" class="p-4 rounded-xl bg-gray-50 border-l-4 border-gray-400 hover:bg-gray-100 transition block text-left">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[11px] font-bold tracking-wider bg-ss-green-soft text-ss-green px-2.5 py-0.5 rounded" style="font-family: 'Stack Sans Notch', sans-serif;">Select</span>
+                    <span class="text-xs text-ss-text-mute font-semibold">18 Stays</span>
+                  </div>
+                  <p class="text-xs text-ss-text-mute leading-relaxed mt-2 font-medium">Modern essentials.</p>
+                </a>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow 3: Experiences Dropdown -->
+          <div class="relative group">
+            <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
+              <span>Experiences</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+            </button>
+            <div class="hidden group-hover:block absolute top-full left-0 w-44 bg-white rounded-none p-2 shadow-2xl border border-ss-border mt-1">
+              <a href="#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Restaurants</a>
+              <a href="#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Banquets</a>
+            </div>
+          </div>
+
+          <!-- Membership -->
+          <a href="#beyond" class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center">
+            <span>Membership</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Header Right -->
+      <div class="flex items-center gap-3">
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-ss-text font-bold text-xs hover:text-ss-green transition py-2 px-1">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5 text-ss-green"></i>
+            <span class="hidden sm:inline border-b-2 border-ss-green pb-0.5">Book direct, save more</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          
+          <div class="hidden group-hover:block absolute right-0 top-full w-64 bg-white rounded-none p-4 shadow-xl border border-ss-border mt-1 z-50">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-ss-text-mute mb-2">Multi-Channel Support</div>
+            <a href="tel:+919599199610" class="flex items-center gap-3 p-2 rounded-lg hover:bg-ss-green-soft transition text-xs font-semibold text-ss-text">
+              <span class="w-7 h-7 rounded-full bg-ss-green/15 text-ss-green flex items-center justify-center"><i data-lucide="phone" class="w-3.5 h-3.5"></i></span>
+              <div>
+                <div>Call to Book</div>
+                <div class="text-[11px] text-ss-text-mute">+91 95991 99610</div>
+              </div>
+            </a>
+            <a href="https://wa.me/919599199610" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-ss-green-soft transition text-xs font-semibold text-ss-text mt-1">
+              <span class="w-7 h-7 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i></span>
+              <div>
+                <div>WhatsApp Concierge</div>
+                <div class="text-[11px] text-ss-text-mute">Instant Chat</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <button class="relative group/signin hidden sm:inline-flex items-center justify-center p-[1.5px] rounded-none overflow-hidden transition shadow-sm">
+          <span class="absolute inset-0 bg-gradient-to-r from-[#6b9946] to-ss-green"></span>
+          <span class="relative px-5 py-1.5 bg-white rounded-none text-xs font-bold text-ss-text group-hover/signin:bg-transparent group-hover/signin:text-white transition-all duration-300">
+            Sign In
+          </span>
+        </button>
+
+        <button onclick="toggleMobileDrawer()" class="lg:hidden p-2 rounded-lg text-ss-text hover:bg-ss-green-soft">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="bg-ss-cream">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-[11px] font-medium text-ss-text-mute">
+      <a href="index.html" class="hover:text-ss-green transition">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 opacity-50"></i>
+      <a href="index.html#hotels" class="hover:text-ss-green transition">Hotels</a>
+      <i data-lucide="chevron-right" class="w-3 h-3 opacity-50"></i>
+      <span class="text-ss-text font-bold">Gurgaon</span>
+    </div>
+  </div>
+
+  <main class="bg-ss-cream min-h-screen pt-5 pb-16">
+    
+    <!-- Sticky Top Container (Search Widget + Filters) -->
+    <div class="sticky top-[80px] z-40 bg-ss-cream border-b border-ss-border pb-3 pt-2 mb-4 shadow-sm transition-all">
+      <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col xl:flex-row items-start xl:items-end justify-between gap-4">
+          
+          <!-- Left: Single Bar Search Widget -->
+          <div class="flex flex-col gap-2 w-full xl:w-auto">
+            <!-- Overnight / Day-Use Toggle -->
+            <div class="flex items-center bg-gray-200/50 p-1 w-max rounded-none">
+              <button class="bg-white shadow-sm text-ss-text font-bold text-[10px] sm:text-xs uppercase tracking-widest px-6 py-2 transition rounded-none">Overnight</button>
+              <button class="text-ss-text-mute hover:text-ss-text font-bold text-[10px] sm:text-xs uppercase tracking-widest px-6 py-2 transition rounded-none border border-transparent">Day-Use</button>
+            </div>
+            
+            <div class="flex items-center bg-[#1a1a1a] p-1 shadow-lg overflow-x-auto hide-scrollbar w-full xl:w-auto">
+              <!-- Location -->
+              <div class="flex items-center bg-black/40 hover:bg-black/60 transition py-3 px-4 border-r border-white/10 min-w-[150px]">
+                <i data-lucide="search" class="w-4 h-4 text-white/60 mr-2"></i>
+                <input type="text" value="Gurgaon" class="bg-transparent border-none outline-none text-white text-[12px] font-bold w-full" />
+              </div>
+              <!-- Dates -->
+              <div class="flex items-center justify-center bg-black/40 hover:bg-black/60 transition py-3 px-4 border-r border-white/10 min-w-[120px] cursor-pointer">
+                <i data-lucide="calendar" class="w-4 h-4 text-white/60 mr-2"></i>
+                <div class="text-white text-[12px] font-medium whitespace-nowrap">21 Aug - 22 Aug</div>
+              </div>
+              <!-- Guests -->
+              <div class="flex items-center justify-center bg-black/40 hover:bg-black/60 transition py-3 px-4 border-r border-white/10 min-w-[120px] cursor-pointer">
+                <i data-lucide="user" class="w-4 h-4 text-white/60 mr-2"></i>
+                <div class="text-white text-[12px] font-medium whitespace-nowrap">2 GUESTS, 1 ROOM</div>
+              </div>
+              <!-- Book Now / Search Button -->
+              <button class="bg-gradient-to-r from-ss-green to-[#6b9946] hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[12px] uppercase tracking-widest px-8 py-3 transition min-w-[120px]">
+                Search
+              </button>
+            </div>
+          </div>
+          <!-- Right: Filter Bar -->
+          <div class="flex items-center bg-white rounded-none border-2 border-ss-border shadow-none overflow-x-auto hide-scrollbar w-full xl:w-auto">
+            <button onclick="openFilterModal('property')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition border-r-2 border-ss-border flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
+              <i data-lucide="building-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Property <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            </button>
+            <button onclick="openFilterModal('price')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition border-r-2 border-ss-border flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
+              <i data-lucide="indian-rupee" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Price <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            </button>
+            <button onclick="openFilterModal('locality')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition border-r-2 border-ss-border flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Locality <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            </button>
+            <button onclick="openFilterModal('amenities')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Amenities <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            </button>
+          </div>
+          
+          </div>
+      </div>
+    </div>
+
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 relative">
+      
+      <!-- Top Bar: Result Count & Sort -->
+      <div class="flex flex-wrap items-center justify-between mb-6 gap-4">
+        <div class="flex items-center gap-3">
+          <h1 class="font-brand-display font-bold text-ss-text text-xl sm:text-2xl m-0 leading-none">24 Stays Found in Gurgaon</h1>
+          <!-- Active Filter Chips (Desktop) -->
+          <div class="hidden md:flex items-center gap-2 ml-4 border-l border-ss-border pl-4">
+             <span class="bg-white border border-ss-border hover:border-ss-green text-ss-text px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-none flex items-center gap-1 transition shadow-sm">₹1000 - ₹3000 <i data-lucide="x" class="w-3 h-3 cursor-pointer hover:text-ss-green"></i></span>
+             <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text-mute hover:text-ss-green transition underline underline-offset-2">Clear all</button>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <!-- Direct Booking Benefits Link -->
+          <button onclick="openBenefitsModal()" class="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-green hover:text-ss-green-dark transition flex items-center gap-1.5 shrink-0 whitespace-nowrap -translate-x-[10%]">
+            <span>Direct Booking Benefits</span>
+            <i data-lucide="info" class="w-3.5 h-3.5 -translate-x-[20%]"></i>
+          </button>
+            
+            <!-- Sort Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center gap-2 border border-ss-border bg-white px-5 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-ss-text hover:bg-gray-50 transition shadow-sm rounded-none">
+              Sort: Recommended <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+            <div class="absolute right-0 top-full mt-1 w-48 bg-white border border-ss-border shadow-2xl hidden group-hover:block z-50">
+               <a href="#" class="block px-4 py-3 text-xs text-ss-green bg-ss-green-soft font-bold uppercase tracking-widest border-b border-ss-border/50">Recommended</a>
+               <a href="#" class="block px-4 py-3 text-xs text-ss-text hover:bg-gray-50 font-bold uppercase tracking-widest border-b border-ss-border/50">Price (Low to High)</a>
+               <a href="#" class="block px-4 py-3 text-xs text-ss-text hover:bg-gray-50 font-bold uppercase tracking-widest border-b border-ss-border/50">Price (High to Low)</a>
+               <a href="#" class="block px-4 py-3 text-xs text-ss-text hover:bg-gray-50 font-bold uppercase tracking-widest border-b border-ss-border/50">Guest Rating</a>
+               </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Active Filters (Mobile) -->
+      <div class="flex md:hidden items-center gap-2 overflow-x-auto hide-scrollbar mb-6 pb-1">
+         <span class="bg-white border border-ss-green text-ss-green px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-none flex items-center gap-1 shrink-0 shadow-sm">₹1000 - ₹3000 <i data-lucide="x" class="w-3 h-3 cursor-pointer hover:text-black"></i></span>
+         <button class="text-[10px] font-bold uppercase tracking-widest text-ss-text-mute hover:text-ss-green transition shrink-0 underline underline-offset-2">Clear all</button>
+      </div>
+
+      <!-- Main Grid/Map Container -->
+      <div id="results-layout" class="flex flex-col lg:flex-row gap-6 sm:gap-8 transition-all duration-300 items-start">
+        
+        <!-- Cards Column -->
+        <div id="cards-container" class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="flex flex-col group card-hover sm:md:lg:">
+            <a href="hotel.html" class="relative h-[280px] overflow-hidden rounded-none block cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </a>
+            <div class="py-5 px-[2%] flex flex-col justify-between flex-1 bg-transparent">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                   <h3 class="font-[\'Jost\'] text-[22px] font-normal tracking-wide m-0 leading-none text-ss-text"><a href="hotel.html" class="hover:text-ss-green transition">Saltstayz Premier</a></h3>
+                   <span class="text-ss-text-mute text-[11px] uppercase tracking-widest font-semibold m-0 leading-none flex items-center gap-0.5">
+                     <i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG ROAD
+                   </span>
+                </div>
+                <p class="text-ss-text-light text-[13px] mb-5 leading-relaxed font-light tracking-wide">
+                  Offers curated breakfast, parking, gym +3more.
+                </p>
+                <div class="flex items-center gap-2 mb-6">
+                   <span class="text-[10px] font-bold text-ss-text uppercase tracking-widest flex items-center gap-1"><span class="text-ss-green">20%</span> off + <span class="text-ss-green">3%</span> cashback with <span class="inline-flex items-center gap-0.5 text-black normal-case tracking-normal"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+                   <span class="border border-ss-border text-ss-text-mute text-[8px] uppercase tracking-widest px-1.5 py-0.5 font-bold rounded-none">DIRECT ONLY</span>
+                </div>
+              </div>
+              <div class="flex items-stretch gap-4 mt-auto">
+                 <div class="border border-ss-border px-3 py-2 flex flex-col justify-center items-center bg-ss-cream rounded-none">
+                    <span class="text-[9px] text-ss-text-mute uppercase tracking-widest mb-0.5 line-through">₹7,500</span>
+                    <span class="text-[15px] font-bold text-ss-green">₹2,760</span>
+                 </div>
+                 <a href="hotel.html" class="bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[11px] uppercase tracking-widest px-4 sm:px-6 flex-1 whitespace-nowrap transition shadow-md flex justify-center items-center rounded-none">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+<div class="flex flex-col group card-hover sm:md:lg:">
+            <a href="hotel.html" class="relative h-[280px] overflow-hidden rounded-none block cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </a>
+            <div class="py-5 px-[2%] flex flex-col justify-between flex-1 bg-transparent">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                   <h3 class="font-[\'Jost\'] text-[22px] font-normal tracking-wide m-0 leading-none text-ss-text"><a href="hotel.html" class="hover:text-ss-green transition">Saltstayz Premier</a></h3>
+                   <span class="text-ss-text-mute text-[11px] uppercase tracking-widest font-semibold m-0 leading-none flex items-center gap-0.5">
+                     <i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG ROAD
+                   </span>
+                </div>
+                <p class="text-ss-text-light text-[13px] mb-5 leading-relaxed font-light tracking-wide">
+                  Offers curated breakfast, parking, gym +3more.
+                </p>
+                <div class="flex items-center gap-2 mb-6">
+                   <span class="text-[10px] font-bold text-ss-text uppercase tracking-widest flex items-center gap-1"><span class="text-ss-green">20%</span> off + <span class="text-ss-green">3%</span> cashback with <span class="inline-flex items-center gap-0.5 text-black normal-case tracking-normal"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+                   <span class="border border-ss-border text-ss-text-mute text-[8px] uppercase tracking-widest px-1.5 py-0.5 font-bold rounded-none">DIRECT ONLY</span>
+                </div>
+              </div>
+              <div class="flex items-stretch gap-4 mt-auto">
+                 <div class="border border-ss-border px-3 py-2 flex flex-col justify-center items-center bg-ss-cream rounded-none">
+                    <span class="text-[9px] text-ss-text-mute uppercase tracking-widest mb-0.5 line-through">₹7,500</span>
+                    <span class="text-[15px] font-bold text-ss-green">₹2,760</span>
+                 </div>
+                 <a href="hotel.html" class="bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[11px] uppercase tracking-widest px-4 sm:px-6 flex-1 whitespace-nowrap transition shadow-md flex justify-center items-center rounded-none">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+<div class="flex flex-col group card-hover sm:md:lg:">
+            <a href="hotel.html" class="relative h-[280px] overflow-hidden rounded-none block cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </a>
+            <div class="py-5 px-[2%] flex flex-col justify-between flex-1 bg-transparent">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                   <h3 class="font-[\'Jost\'] text-[22px] font-normal tracking-wide m-0 leading-none text-ss-text"><a href="hotel.html" class="hover:text-ss-green transition">Saltstayz Premier</a></h3>
+                   <span class="text-ss-text-mute text-[11px] uppercase tracking-widest font-semibold m-0 leading-none flex items-center gap-0.5">
+                     <i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG ROAD
+                   </span>
+                </div>
+                <p class="text-ss-text-light text-[13px] mb-5 leading-relaxed font-light tracking-wide">
+                  Offers curated breakfast, parking, gym +3more.
+                </p>
+                <div class="flex items-center gap-2 mb-6">
+                   <span class="text-[10px] font-bold text-ss-text uppercase tracking-widest flex items-center gap-1"><span class="text-ss-green">20%</span> off + <span class="text-ss-green">3%</span> cashback with <span class="inline-flex items-center gap-0.5 text-black normal-case tracking-normal"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+                   <span class="border border-ss-border text-ss-text-mute text-[8px] uppercase tracking-widest px-1.5 py-0.5 font-bold rounded-none">DIRECT ONLY</span>
+                </div>
+              </div>
+              <div class="flex items-stretch gap-4 mt-auto">
+                 <div class="border border-ss-border px-3 py-2 flex flex-col justify-center items-center bg-ss-cream rounded-none">
+                    <span class="text-[9px] text-ss-text-mute uppercase tracking-widest mb-0.5 line-through">₹7,500</span>
+                    <span class="text-[15px] font-bold text-ss-green">₹2,760</span>
+                 </div>
+                 <a href="hotel.html" class="bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[11px] uppercase tracking-widest px-4 sm:px-6 flex-1 whitespace-nowrap transition shadow-md flex justify-center items-center rounded-none">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+<div class="flex flex-col group card-hover sm:md:lg:">
+            <a href="hotel.html" class="relative h-[280px] overflow-hidden rounded-none block cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </a>
+            <div class="py-5 px-[2%] flex flex-col justify-between flex-1 bg-transparent">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                   <h3 class="font-[\'Jost\'] text-[22px] font-normal tracking-wide m-0 leading-none text-ss-text"><a href="hotel.html" class="hover:text-ss-green transition">Saltstayz Premier</a></h3>
+                   <span class="text-ss-text-mute text-[11px] uppercase tracking-widest font-semibold m-0 leading-none flex items-center gap-0.5">
+                     <i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG ROAD
+                   </span>
+                </div>
+                <p class="text-ss-text-light text-[13px] mb-5 leading-relaxed font-light tracking-wide">
+                  Offers curated breakfast, parking, gym +3more.
+                </p>
+                <div class="flex items-center gap-2 mb-6">
+                   <span class="text-[10px] font-bold text-ss-text uppercase tracking-widest flex items-center gap-1"><span class="text-ss-green">20%</span> off + <span class="text-ss-green">3%</span> cashback with <span class="inline-flex items-center gap-0.5 text-black normal-case tracking-normal"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+                   <span class="border border-ss-border text-ss-text-mute text-[8px] uppercase tracking-widest px-1.5 py-0.5 font-bold rounded-none">DIRECT ONLY</span>
+                </div>
+              </div>
+              <div class="flex items-stretch gap-4 mt-auto">
+                 <div class="border border-ss-border px-3 py-2 flex flex-col justify-center items-center bg-ss-cream rounded-none">
+                    <span class="text-[9px] text-ss-text-mute uppercase tracking-widest mb-0.5 line-through">₹7,500</span>
+                    <span class="text-[15px] font-bold text-ss-green">₹2,760</span>
+                 </div>
+                 <a href="hotel.html" class="bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[11px] uppercase tracking-widest px-4 sm:px-6 flex-1 whitespace-nowrap transition shadow-md flex justify-center items-center rounded-none">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+<div class="flex flex-col group card-hover sm:md:lg:">
+            <a href="hotel.html" class="relative h-[280px] overflow-hidden rounded-none block cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </a>
+            <div class="py-5 px-[2%] flex flex-col justify-between flex-1 bg-transparent">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                   <h3 class="font-[\'Jost\'] text-[22px] font-normal tracking-wide m-0 leading-none text-ss-text"><a href="hotel.html" class="hover:text-ss-green transition">Saltstayz Premier</a></h3>
+                   <span class="text-ss-text-mute text-[11px] uppercase tracking-widest font-semibold m-0 leading-none flex items-center gap-0.5">
+                     <i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG ROAD
+                   </span>
+                </div>
+                <p class="text-ss-text-light text-[13px] mb-5 leading-relaxed font-light tracking-wide">
+                  Offers curated breakfast, parking, gym +3more.
+                </p>
+                <div class="flex items-center gap-2 mb-6">
+                   <span class="text-[10px] font-bold text-ss-text uppercase tracking-widest flex items-center gap-1"><span class="text-ss-green">20%</span> off + <span class="text-ss-green">3%</span> cashback with <span class="inline-flex items-center gap-0.5 text-black normal-case tracking-normal"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+                   <span class="border border-ss-border text-ss-text-mute text-[8px] uppercase tracking-widest px-1.5 py-0.5 font-bold rounded-none">DIRECT ONLY</span>
+                </div>
+              </div>
+              <div class="flex items-stretch gap-4 mt-auto">
+                 <div class="border border-ss-border px-3 py-2 flex flex-col justify-center items-center bg-ss-cream rounded-none">
+                    <span class="text-[9px] text-ss-text-mute uppercase tracking-widest mb-0.5 line-through">₹7,500</span>
+                    <span class="text-[15px] font-bold text-ss-green">₹2,760</span>
+                 </div>
+                 <a href="hotel.html" class="bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[11px] uppercase tracking-widest px-4 sm:px-6 flex-1 whitespace-nowrap transition shadow-md flex justify-center items-center rounded-none">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+<div class="flex flex-col group card-hover sm:md:lg:">
+            <a href="hotel.html" class="relative h-[280px] overflow-hidden rounded-none block cursor-pointer">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Saltstayz Premier MG Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </a>
+            <div class="py-5 px-[2%] flex flex-col justify-between flex-1 bg-transparent">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                   <h3 class="font-[\'Jost\'] text-[22px] font-normal tracking-wide m-0 leading-none text-ss-text"><a href="hotel.html" class="hover:text-ss-green transition">Saltstayz Premier</a></h3>
+                   <span class="text-ss-text-mute text-[11px] uppercase tracking-widest font-semibold m-0 leading-none flex items-center gap-0.5">
+                     <i data-lucide="map-pin" class="w-3 h-3 text-ss-green"></i> MG ROAD
+                   </span>
+                </div>
+                <p class="text-ss-text-light text-[13px] mb-5 leading-relaxed font-light tracking-wide">
+                  Offers curated breakfast, parking, gym +3more.
+                </p>
+                <div class="flex items-center gap-2 mb-6">
+                   <span class="text-[10px] font-bold text-ss-text uppercase tracking-widest flex items-center gap-1"><span class="text-ss-green">20%</span> off + <span class="text-ss-green">3%</span> cashback with <span class="inline-flex items-center gap-0.5 text-black normal-case tracking-normal"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span></span>
+                   <span class="border border-ss-border text-ss-text-mute text-[8px] uppercase tracking-widest px-1.5 py-0.5 font-bold rounded-none">DIRECT ONLY</span>
+                </div>
+              </div>
+              <div class="flex items-stretch gap-4 mt-auto">
+                 <div class="border border-ss-border px-3 py-2 flex flex-col justify-center items-center bg-ss-cream rounded-none">
+                    <span class="text-[9px] text-ss-text-mute uppercase tracking-widest mb-0.5 line-through">₹7,500</span>
+                    <span class="text-[15px] font-bold text-ss-green">₹2,760</span>
+                 </div>
+                 <a href="hotel.html" class="bg-gradient-to-r from-[#6b9946] to-ss-green hover:from-ss-green-dark hover:to-ss-green text-white font-bold text-[11px] uppercase tracking-widest px-4 sm:px-6 flex-1 whitespace-nowrap transition shadow-md flex justify-center items-center rounded-none">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        </div>
+      <!-- Empty State / Fallback (Hidden by default) -->
+      <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center">
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 border border-ss-border shadow-sm">
+          <i data-lucide="search-x" class="w-8 h-8 text-ss-text-mute"></i>
+        </div>
+        <h3 class="font-brand-display text-2xl font-bold text-ss-text mb-2">No exact matches found</h3>
+        <p class="text-ss-text-mute text-sm mb-8 max-w-md mx-auto">We couldn't find properties matching all your filters. Here are some great nearby options instead.</p>
+        <button class="bg-white border-2 border-ss-green text-ss-green font-bold text-xs uppercase tracking-widest px-8 py-3 hover:bg-ss-green-soft transition rounded-none shadow-sm">
+          Clear All Filters
+        </button>
+      </div>
+      
+    </div>
+    
+    
+    <!-- Direct Booking Benefits Modal -->
+    <div id="benefits-modal-backdrop" class="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm hidden items-center justify-center opacity-0 transition-opacity duration-300">
+      <div id="benefits-modal-container" class="bg-white w-[90%] max-w-sm rounded-none shadow-2xl border border-ss-border relative transform scale-95 transition-transform duration-300 flex flex-col">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-5 border-b border-ss-border">
+          <h3 class="font-brand-display text-xl font-bold text-ss-text m-0">Direct Booking Benefits</h3>
+          <button onclick="closeBenefitsModal()" class="text-ss-text-mute hover:text-ss-text transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <!-- Content -->
+        <div class="p-6">
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4">
+              <i data-lucide="check-circle" class="w-5 h-5 text-ss-green shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-ss-text">Lowest price guaranteed!</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <i data-lucide="clock" class="w-5 h-5 text-ss-green shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-ss-text">Early check-in at 12 PM</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <i data-lucide="calendar-x" class="w-5 h-5 text-ss-green shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-ss-text">Free cancellation till 6 PM</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <i data-lucide="credit-card" class="w-5 h-5 text-ss-green shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-ss-text">Zero upfront payment</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <i data-lucide="coins" class="w-5 h-5 text-ss-green shrink-0 mt-0.5"></i>
+              <span class="text-sm font-semibold text-ss-text">Cashback on every booking (with <span class="inline-flex items-center gap-0.5 text-[0.95em] translate-y-[2%] font-bold text-black"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-ss-gold-dark fill-ss-gold-dark"></i>Beyond</span>)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Filter Modals Backdrop -->
+    <div id="filter-modal-backdrop" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center opacity-0 transition-opacity duration-300">
+      
+      <!-- Modal Container -->
+      <div id="filter-modal-container" class="bg-white w-[90%] max-w-md rounded-none shadow-2xl border border-ss-border relative transform scale-95 transition-transform duration-300 flex flex-col max-h-[80vh]">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between p-5 border-b border-ss-border">
+          <h3 id="filter-modal-title" class="font-brand-display text-xl font-bold text-ss-text m-0">Filter</h3>
+          <button onclick="closeFilterModal()" class="text-ss-text-mute hover:text-ss-text transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        
+        <!-- Content Panels -->
+        <div class="p-4 overflow-y-auto">
+          
+          <!-- Property Type Panel -->
+          <div id="panel-property" class="filter-panel hidden flex-col gap-5">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Autograph (4)</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Premier (11)</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Select (9)</span>
+            </label>
+          </div>
+
+          <!-- Price Panel -->
+          <div id="panel-price" class="filter-panel hidden flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between text-xs font-bold text-ss-text uppercase tracking-widest mb-2">
+                <span>Min: ₹1000</span>
+                <span id="price-max-display">Max: ₹5000</span>
+              </div>
+              <input type="range" min="1000" max="15000" step="500" value="5000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-ss-green">
+            </div>
+            <div class="flex gap-4">
+               <div class="flex-1 border border-ss-border p-3">
+                 <div class="text-[9px] text-ss-text-mute uppercase tracking-widest font-bold mb-1">Minimum</div>
+                 <div class="text-sm font-bold text-ss-text">₹1000</div>
+               </div>
+               <div class="flex-1 border border-ss-border p-3">
+                 <div class="text-[9px] text-ss-text-mute uppercase tracking-widest font-bold mb-1">Maximum</div>
+                 <div class="text-sm font-bold text-ss-text" id="price-max-box">₹5000</div>
+               </div>
+            </div>
+          </div>
+
+          <!-- Locality Panel -->
+          <div id="panel-locality" class="filter-panel hidden flex-col gap-5">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Cyber Hub</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">MG Road</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Sector 29</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Golf Course Road</span>
+            </label>
+          </div>
+
+          <!-- Amenities Panel -->
+          <div id="panel-amenities" class="filter-panel hidden flex-col gap-5">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Swimming Pool</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Fitness Center</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Free Breakfast</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="checkbox" class="w-5 h-5 accent-ss-green">
+              <span class="text-sm font-bold text-ss-text group-hover:text-ss-green transition">Spa</span>
+            </label>
+          </div>
+          
+        </div>
+        
+        <!-- Footer -->
+        <div class="p-5 border-t border-ss-border flex justify-between items-center bg-gray-50">
+          <button onclick="closeFilterModal()" class="text-xs font-bold uppercase tracking-widest text-ss-text-mute hover:text-ss-text transition underline underline-offset-2">Clear</button>
+          <button onclick="closeFilterModal()" class="bg-ss-green hover:bg-ss-green-dark text-white font-bold text-xs uppercase tracking-widest px-8 py-3 transition shadow-md rounded-none">Apply Filters</button>
+        </div>
+        
+      </div>
+    </div>
+
+  
+    <script>
+      function openBenefitsModal() {
+        const backdrop = document.getElementById('benefits-modal-backdrop');
+        const container = document.getElementById('benefits-modal-container');
+        backdrop.classList.remove('hidden');
+        backdrop.classList.add('flex');
+        void backdrop.offsetWidth; // trigger reflow
+        backdrop.classList.remove('opacity-0');
+        container.classList.remove('scale-95');
+        container.classList.add('scale-100');
+      }
+      
+      function closeBenefitsModal() {
+        const backdrop = document.getElementById('benefits-modal-backdrop');
+        const container = document.getElementById('benefits-modal-container');
+        backdrop.classList.add('opacity-0');
+        container.classList.remove('scale-100');
+        container.classList.add('scale-95');
+        setTimeout(() => {
+          backdrop.classList.add('hidden');
+          backdrop.classList.remove('flex');
+        }, 300);
+      }
+
+      function openFilterModal(type) {
+        const backdrop = document.getElementById('filter-modal-backdrop');
+        const container = document.getElementById('filter-modal-container');
+        
+        document.querySelectorAll('.filter-panel').forEach(p => p.classList.add('hidden'));
+        const panel = document.getElementById('panel-' + type);
+        if(panel) panel.classList.remove('hidden');
+        
+        const titles = {
+          'property': 'Property Type',
+          'price': 'Price Range',
+          'locality': 'Locality',
+          'amenities': 'Amenities'
+        };
+        document.getElementById('filter-modal-title').innerText = titles[type];
+        
+        backdrop.classList.remove('hidden');
+        backdrop.classList.add('flex');
+        setTimeout(() => {
+          backdrop.classList.remove('opacity-0');
+          container.classList.remove('scale-95');
+          container.classList.add('scale-100');
+        }, 10);
+      }
+
+      function closeFilterModal() {
+        const backdrop = document.getElementById('filter-modal-backdrop');
+        const container = document.getElementById('filter-modal-container');
+        
+        backdrop.classList.add('opacity-0');
+        container.classList.remove('scale-100');
+        container.classList.add('scale-95');
+        
+        setTimeout(() => {
+          backdrop.classList.add('hidden');
+          backdrop.classList.remove('flex');
+        }, 300);
+      }
+      
+      document.addEventListener('DOMContentLoaded', () => {
+         const backdrop = document.getElementById('filter-modal-backdrop');
+         if(backdrop) {
+             backdrop.addEventListener('click', (e) => {
+                if (e.target === backdrop) {
+                   closeFilterModal();
+                }
+             });
+         }
+         
+         const priceSlider = document.querySelector('input[type="range"]');
+         if(priceSlider) {
+           priceSlider.addEventListener('input', (e) => {
+             const val = '₹' + e.target.value;
+             const display = document.getElementById('price-max-display');
+             if(display) display.innerText = 'Max: ' + val;
+             const box = document.getElementById('price-max-box');
+             if(box) box.innerText = val;
+           });
+         }
+      });
+    </script>
+
+  
+    <!-- SEO Content Section -->
+    <section class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-ss-border mt-8">
+      <h2 class="font-brand-display text-[22px] font-bold text-ss-text mb-6">Best Hotels And Rooms in Delhi | Corporate and Leisure Stays Across Connaught Place, Chanakyapuri and Nehru Place | <span class="text-ss-green">Saltstayz</span></h2>
+      
+      <div class="space-y-4 text-ss-text-mute text-sm leading-relaxed font-body">
+        <p>Delhi does not have one identity. It has several, each with its own pace, its own crowd, and its own reasons to be there. Connaught Place is the commercial and cultural center. Rajiv Chowk Metro, Janpath, and Central Delhi's corporate corridors all converge at one postcode. Chanakyapuri is the diplomatic quarter, with wide, tree-lined roads, embassy row, and a quieter part of the capital that most visitors never see. Nehru Place is South Delhi's IT and commercial hub, drawing professionals from across the city's southern belt.</p>
+        <p><span class="text-ss-green font-bold">Saltstayz</span> operates across each of these addresses. <span class="text-ss-green font-bold">Saltstayz Autograph CP</span> is located in Connaught Place, with Moti Mahal on-site and 28 rooms across four categories. <span class="text-ss-green font-bold">Saltstayz Select Malcha & Chanakyapuri</span> is a boutique seven-room property inside the Diplomatic Enclave, one of the most exclusive addresses in the capital. <span class="text-ss-green font-bold">Saltstayz Select Nehru Place & New Friends Colony</span> positions guests between two of South Delhi's most established neighborhoods.</p>
+        <p>The best hotel rooms in Delhi are not always the most expensive ones. They are the ones closest to where you need to be, consistent in what they deliver, and equipped for the kind of stay you are actually taking, whether that is a one-night business trip, an extended corporate posting, or a leisure weekend in the capital. <span class="text-ss-green font-bold">Saltstayz</span> properties across Delhi are built around that logic.</p>
+        <p>For the frequent business traveler, <span class="text-ss-green font-bold">Saltstayz Beyond</span> earns real credits from the first booking, redeemable like cash on every subsequent stay across every property in India.</p>
+        <p>Delhi rewards the guest who chooses its base carefully. Book direct at <a href="https://saltstayz.com" class="text-ss-green hover:underline font-bold">saltstayz.com</a></p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-ss-border mb-8">
+      <h2 class="font-brand-display text-[22px] font-bold text-ss-text mb-6">People Also Ask</h2>
+      
+      <div class="flex flex-col border-t border-ss-border" id="faq-container">
+        
+        <details class="group border-b border-ss-border ">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What are the best hotels in Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            <span class='text-ss-green font-bold'>Saltstayz</span> operates 6 properties spread across Delhi's most distinct localities — Connaught Place, Paschim Vihar, Naraina, Pitampura, Nehru Place & New Friends Colony, and Chanakyapuri — and the "best" one genuinely depends on why you're travelling. First-time visitors and sightseers do best in Connaught Place given its central, walkable position; business travellers with airport-adjacent trips should look at Paschim Vihar or Naraina; and anyone with embassy business belongs in Chanakyapuri. Our <a href='https://saltstayz.com/insights/hotels-in-delhi-complete-guide' class='text-ss-green hover:underline font-bold'>complete Delhi guide</a> breaks down each locality in detail so you can match the property to your actual itinerary rather than guessing.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border ">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What are the best budget-friendly hotels in Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            <a href='https://saltstayz.com/hotels/delhi/saltstayz-select-pitampura' class='text-ss-green hover:underline font-bold'>Saltstayz Select – Pitampura</a> and <a href='https://saltstayz.com/hotels/delhi/saltstayz-select-nehru-place-and-new-friends-colony' class='text-ss-green hover:underline font-bold'>Saltstayz Select – Nehru Place & New Friends Colony</a> offer the most accessible pricing in the portfolio, since both sit outside Connaught Place's premium central-Delhi real estate market while still covering the essentials — buffet breakfast, parking, and guaranteed early check-in. For travellers without a specific reason to be in Central Delhi, choosing one of these localities can mean a meaningfully lower nightly rate for comparable room quality.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border ">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">How much does it cost to stay at a hotel in Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            Pricing across <span class='text-ss-green font-bold'>Saltstayz</span>'s Delhi portfolio varies by tier and locality rather than following one flat citywide rate. Select-tier properties in Pitampura and Nehru Place sit at the more accessible end, while the Premier tier in Paschim Vihar and Naraina, and the Autograph tier in Connaught Place, are priced higher to reflect their locations and amenity sets. Since rates also shift with season and demand, it's worth checking the live booking page for each property closer to your travel dates rather than relying on a fixed number.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border ">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">Are hotels in Delhi more expensive on weekends?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            Weekend and festival-period demand can push rates up across most Delhi localities, particularly around Connaught Place where leisure and event-driven bookings spike. Booking a few weeks ahead of a weekend trip generally secures noticeably better pricing and room availability than searching a day or two before, especially during peak seasons like the October-to-February festival and wedding window.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What is the best area to stay in Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            There's no single best area — it depends entirely on your itinerary. Connaught Place works best for first-time visitors and sightseeing given its central, metro-connected position; Paschim Vihar or Naraina suit travellers prioritising airport access; Nehru Place fits South Delhi business; Chanakyapuri is unbeatable for embassy visits; and Pitampura offers a genuinely residential, value-friendly base for family trips and local weddings. Matching the locality to your actual reason for travelling, rather than defaulting to whichever name is most familiar, is the single most useful decision you can make before booking.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">Which areas in Delhi are best for a budget-friendly stay?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            Pitampura and Nehru Place & New Friends Colony consistently offer better value than Connaught Place's premium central pricing, without requiring a significant trade-off in comfort or service quality. Both areas are genuinely residential-commercial hubs in their own right, so you're not settling for a compromise location — you're simply avoiding CP's tourist-district price premium.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What are the best hotels in Delhi for families?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            <a href='https://saltstayz.com/hotels/delhi/saltstayz-select-pitampura' class='text-ss-green hover:underline font-bold'>Saltstayz Select – Pitampura</a> is particularly well suited to family travel, thanks to North-West Delhi's residential character, established local markets, and value pricing that makes a multi-day family trip more affordable than a Central Delhi stay. The area also hosts a significant volume of local weddings and functions, so families attending an event nearby benefit from staying close to the actual venue rather than commuting from CP.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What are the best hotels in Delhi for couples?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            <a href='https://saltstayz.com/hotels/delhi/saltstayz-select-malcha-and-chankyapuri' class='text-ss-green hover:underline font-bold'>Saltstayz Select – Malcha & Chanakyapuri</a> offers a noticeably quieter, leafier setting than Delhi's commercial districts, thanks to its position within the capital's low-density diplomatic enclave. For couples who want a calmer base with tree-lined streets rather than the bustle of a shopping district, this locality is a genuine standout within the portfolio.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">Do hotels in Delhi offer breakfast?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            Most <span class='text-ss-green font-bold'>Saltstayz</span> Delhi properties include buffet breakfast as part of the standard room package, covering both the Select and Premier tiers across Pitampura, Paschim Vihar, Naraina, and Nehru Place. It's worth confirming exact inclusions on the specific property page before booking, since amenity sets can vary slightly by tier.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">Do hotels in Delhi offer early or 24-hour check-in?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            Every <span class='text-ss-green font-bold'>Saltstayz</span> property in Delhi guarantees a 12 PM check-in as brand-wide policy, rather than leaving it "subject to availability" like many competing hotels. This matters most for travellers landing on an early or overnight flight who want to actually rest before a full day of meetings or sightseeing, rather than waiting in a lobby for hours.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">Is it better to book a hotel in Delhi in advance?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            Yes — booking ahead consistently secures better rates and wider room-category choice than a last-minute search, particularly around high-demand periods like Diwali, the Republic Day period, or major conferences. Delhi's hotel demand tightens noticeably during these windows, so building in lead time protects both your budget and your options.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">Are hotels in Delhi safe for guests?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            <span class='text-ss-green font-bold'>Saltstayz</span> properties across Delhi maintain standard safety infrastructure including CCTV coverage and front-desk security, and specific safety details are listed on each property's individual page. For solo travellers or families booking in an unfamiliar part of the city, checking these details alongside recent guest reviews is a sensible habit before confirming any stay.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What documents are required for hotel check-in in Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            A valid government-issued photo ID — Aadhaar, passport, driving licence, or voter ID — is required at check-in across all <span class='text-ss-green font-bold'>Saltstayz</span> properties, in line with standard Indian hotel regulations. Carrying a physical copy rather than relying solely on a digital version is advisable, since some front desks still prefer a physical document for verification.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">What is the best time to visit Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            October through March offers Delhi's most comfortable weather for both sightseeing and business travel, avoiding the intense summer heat that regularly crosses 40°C between April and June, as well as the humidity and occasional waterlogging of the July-to-September monsoon season. Winter does bring reduced air quality due to regional smog, so travellers with respiratory sensitivities may want to factor that into their planning.
+          </div>
+        </details>
+
+        <details class="group border-b border-ss-border hidden faq-hidden-item">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-4 text-ss-text hover:text-ss-green transition">
+            <span class="pr-6">How can I get around Delhi?</span>
+            <span class="transition group-open:rotate-180 shrink-0">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </span>
+          </summary>
+          <div class="text-ss-text-mute text-sm pb-4 leading-relaxed font-body pr-4">
+            The Delhi Metro covers most major localities efficiently, with Connaught Place's Rajiv Chowk station serving as the network's busiest interchange between the Blue and Yellow lines, and Paschim Vihar and Pitampura both sitting directly on metro routes. For areas with less direct metro access, like Chanakyapuri, cabs remain the standard option — and regardless of locality, it's worth building buffer time into any cross-city trip around Delhi's peak traffic windows of roughly 9-11 AM and 6-9 PM.
+          </div>
+        </details>
+
+      </div>
+      
+      <button id="show-all-faq-btn" onclick="toggleAllFaqs()" class="mt-6 text-ss-green font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 hover:text-ss-green-dark transition">
+        <span>Show All</span>
+        <i data-lucide="chevron-down" id="faq-chevron" class="w-4 h-4 transition-transform"></i>
+      </button>
+
+      <script>
+        function toggleAllFaqs() {
+          const hiddenFaqs = document.querySelectorAll('.faq-hidden-item');
+          const btnText = document.querySelector('#show-all-faq-btn span');
+          const chevron = document.querySelector('#faq-chevron');
+          
+          let isExpanded = false;
+          hiddenFaqs.forEach(faq => {
+            if (faq.classList.contains('hidden')) {
+              faq.classList.remove('hidden');
+              isExpanded = true;
+            } else {
+              faq.classList.add('hidden');
+            }
+          });
+          
+          if (isExpanded) {
+            btnText.textContent = 'Show Less';
+            chevron.classList.add('rotate-180');
+          } else {
+            btnText.textContent = 'Show All';
+            chevron.classList.remove('rotate-180');
+          }
+        }
+      </script>
+    </section>
+
+</main>
+  
+  <footer class="bg-ss-green-dark text-white/80 pt-16 pb-24 sm:pb-12 border-t border-white/10 text-xs">
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+      <!-- Col 1: Brand -->
+      <div class="md:col-span-2">
+        <div class="mb-4">
+          <img src="/logo.png" alt="Saltstayz" class="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-95" />
+        </div>
+        <p class="text-white/60 max-w-sm leading-relaxed mb-6">
+          Premium boutique hospitality across India's finest destinations. Curated for modern leisure and corporate travelers.
+        </p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-ss-gold hover:text-ss-blue-dark transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-ss-gold hover:text-ss-blue-dark transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-ss-gold hover:text-ss-blue-dark transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider text-[11px] mb-3 text-ss-gold">Active Cities</div>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#destinations" class="hover:text-white transition">Gurgaon (7)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Delhi (2)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Mohali (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Bengaluru (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Manesar (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Rishikesh (1)</a></li>
+          <li><a href="#destinations" class="hover:text-white transition">Noida (1)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider text-[11px] mb-3 text-ss-gold">Brand Tiers</div>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#collections" class="hover:text-white transition">Saltstayz Autograph</a></li>
+          <li><a href="#collections" class="hover:text-white transition">Saltstayz Premier</a></li>
+          <li><a href="#collections" class="hover:text-white transition">Saltstayz Select</a></li>
+          <li class="pt-2 text-white/40 font-semibold">• Experiences & Banquets</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider text-[11px] mb-3 text-ss-gold">Guest Help</div>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#" class="hover:text-white transition">Manage Booking</a></li>
+          <li><a href="#" class="hover:text-white transition">Cancellation Policy</a></li>
+          <li><a href="tel:+919599199610" class="hover:text-white transition">Contact Us: +91 95991 99610</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-[94%] mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-white/50 text-[11px] gap-4">
+      <div>© 2026 Saltstayz Hospitality Pvt. Ltd. All rights reserved.</div>
+      <div class="flex gap-4">
+        <a href="#" class="hover:underline">Terms of Service</a>
+        <span>·</span>
+        <a href="#" class="hover:underline">Refund Policy</a>
+        <span>·</span>
+        <a href="#" class="hover:underline">Direct Booking Guarantee</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-ss-border flex items-center justify-around py-2 shadow-lg">
+    <a href="#" class="flex flex-col items-center gap-1 text-ss-green font-bold text-[10px]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>Home</span>
+    </a>
+    <a href="#destinations" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="map-pin" class="w-5 h-5"></i>
+      <span>Destinations</span>
+    </a>
+    <a href="#collections" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="building-2" class="w-5 h-5"></i>
+      <span>Hotels</span>
+    </a>
+    <a href="#beyond" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="sparkles" class="w-5 h-5 text-ss-gold-dark"></i>
+      <span>Beyond</span>
+    </a>
+    <a href="tel:+919599199610" class="flex flex-col items-center gap-1 text-ss-text-mute hover:text-ss-green font-medium text-[10px]">
+      <i data-lucide="phone" class="w-5 h-5"></i>
+      <span>Call</span>
+    </a>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-start justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-none max-w-2xl w-full p-6 shadow-2xl mt-12">
+      <div class="flex items-center justify-between pb-4 border-b border-ss-border">
+        <div class="flex items-center gap-2 flex-1">
+          <i data-lucide="search" class="w-5 h-5 text-ss-green"></i>
+          <input type="text" placeholder="Search city or boutique hotel..." class="w-full text-base font-semibold text-ss-text outline-none bg-transparent" autofocus />
+        </div>
+        <button onclick="closeSearchModal()" class="p-2 rounded-full hover:bg-gray-100 text-ss-text-mute">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-5">
+        <div class="text-[10px] font-bold uppercase tracking-wider text-ss-text-mute mb-2.5">Quick City Selection</div>
+        <div class="flex flex-wrap gap-2">
+          <button class="px-3 py-1.5 rounded-full bg-ss-green text-white font-bold text-xs shadow-sm">Gurgaon (7)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Delhi (2)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Mohali (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Bengaluru (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Manesar (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Rishikesh (1)</button>
+          <button class="px-3 py-1.5 rounded-full bg-ss-green-soft text-ss-green font-semibold text-xs hover:bg-ss-green hover:text-white transition">Noida (1)</button>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <div class="text-[10px] font-bold uppercase tracking-wider text-ss-text-mute mb-2">Featured Hotels with Tier Badges</div>
+        <div class="space-y-2">
+          <a href="#hotels" onclick="closeSearchModal()" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-ss-green-soft transition">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-ss-text text-ss-gold font-bold text-xs flex items-center justify-center">A</div>
+              <div>
+                <div class="font-bold text-xs text-ss-text">Saltstayz Autograph, MG Road</div>
+                <div class="text-[11px] text-ss-text-mute">Sector 28, Gurgaon · 4.7 ★</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase bg-ss-text text-ss-gold px-2 py-0.5 rounded">Autograph</span>
+          </a>
+
+          <a href="#hotels" onclick="closeSearchModal()" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-ss-green-soft transition">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-ss-green text-white font-bold text-xs flex items-center justify-center">P</div>
+              <div>
+                <div class="font-bold text-xs text-ss-text">Saltstayz Premier — Naraina</div>
+                <div class="text-[11px] text-ss-text-mute">Central Delhi · 4.5 ★</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase bg-ss-green text-white px-2 py-0.5 rounded">Premier</span>
+          </a>
+
+          <a href="#hotels" onclick="closeSearchModal()" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-ss-green-soft transition">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-gray-200 text-ss-green font-bold text-xs flex items-center justify-center">S</div>
+              <div>
+                <div class="font-bold text-xs text-ss-text">Saltstayz Select, Cyber City</div>
+                <div class="text-[11px] text-ss-text-mute">DLF Phase 2, Gurgaon · 4.3 ★</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase bg-ss-green-soft text-ss-green px-2 py-0.5 rounded">Select</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/60 hidden">
+    <div class="fixed right-0 top-0 bottom-0 w-80 bg-white p-6 overflow-y-auto flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-ss-border mb-6">
+          <img src="/logo.png" alt="Saltstayz" class="h-6 w-auto object-contain" />
+          <button onclick="toggleMobileDrawer()" class="p-1 rounded-full text-ss-text-mute hover:bg-gray-100">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-4 text-sm font-bold text-ss-text">
+          <a href="#" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50 text-ss-green">Home</a>
+          <a href="#destinations" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Destinations (7 Cities)</a>
+          <a href="#collections" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Our Hotel Tiers</a>
+          <a href="#experiences" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Experiences (Restaurants & Banquets)</a>
+          <a href="#beyond" onclick="toggleMobileDrawer()" class="block py-2 border-b border-ss-border/50">Membership</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-ss-border">
+        <a href="tel:+919599199610" class="w-full bg-ss-green text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-xs mb-2">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span>Call: +91 95991 99610</span>
+        </a>
+        <div class="text-center text-[10px] text-ss-text-mute">Guaranteed Best Rate when booking direct</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    function setStayType(type) {
+      const over = document.getElementById('tab-overnight');
+      const day = document.getElementById('tab-dayuse');
+      if(type === 'overnight') {
+        over.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-ss-green text-white shadow-sm flex items-center gap-1.5 transition";
+        day.className = "px-4 py-1.5 rounded-full text-xs font-bold text-ss-text-mute hover:text-ss-green flex items-center gap-1.5 transition";
+      } else {
+        day.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-[#822049] text-white shadow-sm flex items-center gap-1.5 transition";
+        over.className = "px-4 py-1.5 rounded-full text-xs font-bold text-ss-text-mute hover:text-ss-green flex items-center gap-1.5 transition";
+      }
+    }
+
+    function openSearchModal() {
+      document.getElementById('search-modal').classList.remove('hidden');
+      document.getElementById('search-modal').classList.add('flex');
+    }
+    function closeSearchModal() {
+      document.getElementById('search-modal').classList.add('hidden');
+      document.getElementById('search-modal').classList.remove('flex');
+    }
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      drawer.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
