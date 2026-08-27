@@ -39,10 +39,10 @@
   </script>
 
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f5f3ec; color: #1a1a1a; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f5f3ec; color: #1a1a1a; overscroll-behavior-y: none; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .screen { display: none !important; min-height: 100vh; width: 100%; flex-direction: column; background: #f5f3ec;}
+    .screen { display: none !important; height: 100%; width: 100%; position: absolute; top: 0; left: 0; flex-direction: column; background: #f5f3ec;}
     .screen.active { display: flex !important; }
     .overlay { display: none !important; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f5f3ec; z-index: 50; flex-direction: column; transform: translateY(100%); transition: transform 0.3s ease-in-out;}
     .overlay.active { display: flex !important; transform: translateY(0); }
