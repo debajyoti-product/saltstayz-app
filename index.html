@@ -2118,6 +2118,35 @@
       }
     }
     
+
+    const scrollPositions = {};
+    let activeNavigationTab = 'home';
+    
+    function navigateToScreen(screenId) {
+       const active = document.querySelector('.screen.active');
+       if (active) {
+           scrollPositions[active.id] = window.scrollY || document.documentElement.scrollTop;
+           active.classList.remove('active');
+       }
+       
+       const newScreen = document.getElementById(screenId);
+       if (newScreen) newScreen.classList.add('active');
+       
+       const nav = document.getElementById('bottom-nav');
+       if (nav) {
+           if (screenId.startsWith('tab-')) nav.style.display = 'flex';
+           else nav.style.display = 'none';
+       }
+       
+       if (scrollPositions[screenId]) {
+           window.scrollTo(0, scrollPositions[screenId]);
+       } else {
+           window.scrollTo(0, 0);
+       }
+       
+       if (window.lucide) lucide.createIcons();
+    }
+
     function switchTab(tabId) {
       console.log('switching to', tabId);
       activeNavigationTab = tabId;
