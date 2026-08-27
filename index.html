@@ -39,10 +39,10 @@
   </script>
 
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f5f3ec; color: #1a1a1a; overscroll-behavior-y: none; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f5f3ec; color: #1a1a1a; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .screen { display: none !important; height: 100%; width: 100%; position: absolute; top: 0; left: 0; flex-direction: column; background: #f5f3ec;}
+    .screen { display: none !important; min-height: 100vh; width: 100%; flex-direction: column; background: #f5f3ec;}
     .screen.active { display: flex !important; }
     .overlay { display: none !important; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #f5f3ec; z-index: 50; flex-direction: column; transform: translateY(100%); transition: transform 0.3s ease-in-out;}
     .overlay.active { display: flex !important; transform: translateY(0); }
@@ -1000,7 +1000,7 @@
                Locality <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-ss-text-mute"></i>
             </button>
             <button onclick="openFilterSheet('category')" class="flex-1 flex justify-center items-center gap-1 bg-white border border-[rgba(26,26,26,0.08)] rounded-full py-1.5 text-[11.5px] font-bold text-ss-text shadow-sm active:scale-95 transition-transform shrink-0">
-               Category <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-ss-text-mute"></i>
+               Property <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-ss-text-mute"></i>
             </button>
          </div>
       </div>
@@ -1152,10 +1152,10 @@
 
       <!-- Floating Sort & Filter Widget -->
       <div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 flex items-center bg-gradient-to-r from-ss-green to-ss-green-dark text-white rounded-[24px] shadow-2xl border border-white/10 overflow-hidden divide-x divide-white/20">
-         <button class="px-5 py-2.5 font-bold text-[11.5px] flex items-center gap-1.5 active:bg-white/10 transition-colors">
+         <button onclick="openSortSheet()" class="px-5 py-2.5 font-bold text-[11.5px] flex items-center gap-1.5 active:bg-white/10 transition-colors">
             <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-white"></i> Sort
          </button>
-         <button class="px-5 py-2.5 font-bold text-[11.5px] flex items-center gap-1.5 active:bg-white/10 transition-colors">
+         <button onclick="openMainFilterSheet()" class="px-5 py-2.5 font-bold text-[11.5px] flex items-center gap-1.5 active:bg-white/10 transition-colors">
             <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-white"></i> Filter
          </button>
       </div>
@@ -1230,7 +1230,7 @@
   <div id="filter-category-sheet" class="fixed inset-0 flex-col bg-black/60 z-[80] !justify-end hidden">
      <div class="bg-white rounded-t-3xl p-6 pb-[calc(2rem+env(safe-area-inset-bottom))] translate-y-full transition-transform duration-300" id="filter-category-content">
         <div class="flex justify-between items-center mb-6">
-           <h3 class="font-bold text-xl text-[#182612]">Category</h3>
+           <h3 class="font-bold text-xl text-[#182612]">Property</h3>
            <button onclick="closeFilterSheet('category')" class="p-2 bg-[rgba(26,26,26,0.04)] rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
         </div>
         <div class="space-y-3">
@@ -1256,7 +1256,7 @@
               <input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 accent-ss-green" />
            </div>
         </div>
-        <button onclick="closeFilterSheet('category')" class="w-full bg-ss-green text-white py-3.5 rounded-full font-bold text-[15px] shadow-sm mt-6">Apply Category</button>
+        <button onclick="closeFilterSheet('category')" class="w-full bg-ss-green text-white py-3.5 rounded-full font-bold text-[15px] shadow-sm mt-6">Apply Property</button>
      </div>
   </div>
 
@@ -1292,7 +1292,106 @@
         </div>
      </div>
   </div>
->
+
+  <!-- Sort Sheet -->
+  <div id="sort-sheet" class="fixed inset-0 flex-col bg-black/60 z-[80] !justify-end hidden">
+     <div class="bg-white rounded-t-3xl p-6 pb-[calc(2rem+env(safe-area-inset-bottom))] translate-y-full transition-transform duration-300" id="sort-content">
+        <div class="flex justify-between items-center mb-6">
+           <h3 class="font-bold text-xl text-[#182612]">Sort By</h3>
+           <button onclick="closeSortSheet()" class="p-2 bg-[rgba(26,26,26,0.04)] rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div class="space-y-2">
+           <label class="flex items-center justify-between p-4 rounded-xl border-2 border-ss-green bg-ss-green-soft/20 cursor-pointer">
+              <span class="font-bold text-[15px] text-[#182612]">Recommended</span>
+              <div class="w-5 h-5 rounded-full border-[5px] border-ss-green bg-white"></div>
+           </label>
+           <label class="flex items-center justify-between p-4 rounded-xl border border-[rgba(26,26,26,0.1)] active:bg-gray-50 transition cursor-pointer">
+              <span class="font-bold text-[15px] text-[#182612]">Price: Low to High</span>
+              <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+           </label>
+           <label class="flex items-center justify-between p-4 rounded-xl border border-[rgba(26,26,26,0.1)] active:bg-gray-50 transition cursor-pointer">
+              <span class="font-bold text-[15px] text-[#182612]">Price: High to Low</span>
+              <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+           </label>
+           <label class="flex items-center justify-between p-4 rounded-xl border border-[rgba(26,26,26,0.1)] active:bg-gray-50 transition cursor-pointer">
+              <span class="font-bold text-[15px] text-[#182612]">Rating</span>
+              <div class="w-5 h-5 rounded-full border-2 border-gray-300"></div>
+           </label>
+        </div>
+        <button onclick="closeSortSheet()" class="w-full bg-ss-green text-white py-3.5 rounded-full font-bold text-[15px] shadow-sm mt-6">Apply Sort</button>
+     </div>
+  </div>
+
+  <!-- Main Filter Sheet -->
+  <div id="main-filter-sheet" class="fixed inset-0 flex-col bg-black/60 z-[80] !justify-end hidden">
+     <div class="bg-white rounded-t-3xl pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] translate-y-full transition-transform duration-300 flex flex-col max-h-[85vh]" id="main-filter-content">
+        <div class="flex justify-between items-center mb-4 px-6">
+           <h3 class="font-bold text-xl text-[#182612]">Filters</h3>
+           <button onclick="closeMainFilterSheet()" class="p-2 bg-[rgba(26,26,26,0.04)] rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto px-6 space-y-8 no-scrollbar pb-6">
+           <!-- Property -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Property</h4>
+              <div class="flex gap-2">
+                 <button class="flex-1 py-2.5 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-xl text-[13px] font-bold">Select</button>
+                 <button class="flex-1 py-2.5 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-xl text-[13px] font-bold">Premier</button>
+                 <button class="flex-1 py-2.5 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-xl text-[13px] font-bold">Autograph</button>
+              </div>
+           </div>
+
+           <!-- Price -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-4">Price Range</h4>
+              <div class="flex justify-between items-center text-[13px] font-bold text-ss-text mb-3">
+                 <span>₹1,300</span>
+                 <span>₹3,500</span>
+              </div>
+              <div class="relative h-1.5 bg-gray-200 rounded-full mx-2 mb-2">
+                 <div class="absolute left-[15%] right-[25%] h-full bg-ss-green rounded-full"></div>
+                 <div class="absolute left-[15%] top-1/2 -translate-y-1/2 -ml-3 w-6 h-6 bg-white border-2 border-ss-green rounded-full shadow"></div>
+                 <div class="absolute right-[25%] top-1/2 -translate-y-1/2 -mr-3 w-6 h-6 bg-white border-2 border-ss-green rounded-full shadow"></div>
+              </div>
+           </div>
+
+           <!-- Locality -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Locality</h4>
+              <div class="space-y-3">
+                 <label class="flex items-center gap-3"><input type="checkbox" checked class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Sector 43, Gurugram</span></label>
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">DLF Phase 3</span></label>
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">MG Road</span></label>
+              </div>
+           </div>
+
+           <!-- Amenities -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Amenities</h4>
+              <div class="space-y-3">
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Free WiFi</span></label>
+                 <label class="flex items-center gap-3"><input type="checkbox" checked class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Breakfast included</span></label>
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Swimming Pool</span></label>
+              </div>
+           </div>
+           
+           <!-- Facilities -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Facilities</h4>
+              <div class="space-y-3">
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Parking</span></label>
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Fitness Center</span></label>
+                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Bar / Lounge</span></label>
+              </div>
+           </div>
+        </div>
+        
+        <div class="px-6 pt-4 border-t border-[rgba(26,26,26,0.08)] flex gap-3">
+           <button onclick="closeMainFilterSheet()" class="flex-1 bg-gray-100 text-[#182612] py-3.5 rounded-full font-bold text-[15px]">Clear All</button>
+           <button onclick="closeMainFilterSheet()" class="flex-1 bg-ss-green text-white py-3.5 rounded-full font-bold text-[15px] shadow-sm">Show Results</button>
+        </div>
+     </div>
+  </div>
 
   <!-- ==================== HOTEL DETAIL OVERLAY ==================== -->
   <div id="detail-flow" class="overlay bg-ss-light-gold z-[60]">
@@ -2021,6 +2120,17 @@
     
     function switchTab(tabId) {
       console.log('switching to', tabId);
+      
+      // Close overlays if open so nav bar works
+      const viewAllFlow = document.getElementById('view-all-flow');
+      if (viewAllFlow && viewAllFlow.classList.contains('active')) {
+          viewAllFlow.classList.remove('active');
+      }
+      const searchFlow = document.getElementById('search-flow');
+      if (searchFlow && searchFlow.classList.contains('active')) {
+          searchFlow.classList.remove('active');
+      }
+      
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       document.getElementById('tab-' + tabId).classList.add('active');
       
@@ -2506,6 +2616,45 @@
        if (window.lucide) lucide.createIcons();
     }
     
+    
+    function openSortSheet() {
+       const sheet = document.getElementById('sort-sheet');
+       const content = document.getElementById('sort-content');
+       sheet.classList.remove('hidden');
+       sheet.classList.add('flex');
+       void sheet.offsetWidth;
+       content.classList.remove('translate-y-full');
+       if (window.lucide) lucide.createIcons();
+    }
+    function closeSortSheet() {
+       const sheet = document.getElementById('sort-sheet');
+       const content = document.getElementById('sort-content');
+       content.classList.add('translate-y-full');
+       setTimeout(() => {
+          sheet.classList.add('hidden');
+          sheet.classList.remove('flex');
+       }, 300);
+    }
+    
+    function openMainFilterSheet() {
+       const sheet = document.getElementById('main-filter-sheet');
+       const content = document.getElementById('main-filter-content');
+       sheet.classList.remove('hidden');
+       sheet.classList.add('flex');
+       void sheet.offsetWidth;
+       content.classList.remove('translate-y-full');
+       if (window.lucide) lucide.createIcons();
+    }
+    function closeMainFilterSheet() {
+       const sheet = document.getElementById('main-filter-sheet');
+       const content = document.getElementById('main-filter-content');
+       content.classList.add('translate-y-full');
+       setTimeout(() => {
+          sheet.classList.add('hidden');
+          sheet.classList.remove('flex');
+       }, 300);
+    }
+
     function openBenefitsSheet() {
        const sheet = document.getElementById('benefits-sheet');
        const content = document.getElementById('benefits-content');
