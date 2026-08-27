@@ -178,14 +178,54 @@
          
          <!-- Toggles -->
          <div class="flex gap-3 w-full">
-            <button class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-ss-green to-ss-green-dark text-white text-sm font-medium shadow-sm">
-               <i data-lucide="home" class="w-4 h-4"></i> Stays
+            <button id="toggle-stays" onclick="window.switchHomeTab('stays')" type="button" class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-ss-green to-ss-green-dark text-white text-sm font-medium shadow-sm transition-all duration-200">
+               <i id="icon-stays" data-lucide="home" class="w-4 h-4 text-white"></i> <span id="text-stays">Stays</span>
             </button>
-            <button class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-white border border-[rgba(26,26,26,0.12)] text-ss-text-mute text-sm font-medium shadow-sm">
-               <i data-lucide="concierge-bell" class="w-4 h-4 text-ss-text-mute"></i> Experiences
+            <button id="toggle-banquets" onclick="window.switchHomeTab('banquets')" type="button" class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-white border border-[rgba(26,26,26,0.12)] text-ss-text-mute text-sm font-medium shadow-sm transition-all duration-200">
+               <i id="icon-banquets" data-lucide="concierge-bell" class="w-4 h-4 text-ss-text-mute"></i> <span id="text-banquets">Banquets</span>
             </button>
          </div>
       </div>
+      
+      <script>
+      window.switchHomeTab = function(tab) {
+         var staysBtn = document.getElementById('toggle-stays');
+         var banquetsBtn = document.getElementById('toggle-banquets');
+         var staysContent = document.getElementById('home-stays-content');
+         var banquetsContent = document.getElementById('home-banquets-content');
+         
+         if (!staysBtn || !banquetsBtn || !staysContent || !banquetsContent) return;
+
+         var staysActiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-ss-green to-ss-green-dark text-white text-sm font-medium shadow-sm transition-all duration-200';
+         var banquetsActiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-[#eab308] to-[#4f7134] text-white text-sm font-medium shadow-sm transition-all duration-200';
+         var inactiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-white border border-[rgba(26,26,26,0.12)] text-ss-text-mute text-sm font-medium shadow-sm transition-all duration-200';
+         
+         if (tab === 'stays') {
+             staysBtn.className = staysActiveClasses;
+             banquetsBtn.className = inactiveClasses;
+             staysContent.style.display = 'flex';
+             banquetsContent.style.display = 'none';
+             
+             var staysSvg = staysBtn.querySelector('svg');
+             if (staysSvg) { staysSvg.classList.remove('text-ss-text-mute'); staysSvg.classList.add('text-white'); }
+             var banquetsSvg = banquetsBtn.querySelector('svg');
+             if (banquetsSvg) { banquetsSvg.classList.remove('text-white'); banquetsSvg.classList.add('text-ss-text-mute'); }
+         } else {
+             banquetsBtn.className = banquetsActiveClasses;
+             staysBtn.className = inactiveClasses;
+             staysContent.style.display = 'none';
+             banquetsContent.style.display = 'block';
+             
+             var staysSvg = staysBtn.querySelector('svg');
+             if (staysSvg) { staysSvg.classList.remove('text-white'); staysSvg.classList.add('text-ss-text-mute'); }
+             var banquetsSvg = banquetsBtn.querySelector('svg');
+             if (banquetsSvg) { banquetsSvg.classList.remove('text-ss-text-mute'); banquetsSvg.classList.add('text-white'); }
+         }
+      };
+      </script>
+
+      <!-- Stays Content -->
+      <div id="home-stays-content" class="flex flex-col">
       
       <!-- Destinations Section -->
       <div class="mt-4">
@@ -359,11 +399,11 @@
             </div>
 
             <!-- Center Box -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#3a3a3a] to-[#121212] rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.4)] px-2 py-[16px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[105px] border border-white/10">
-               <span class="text-[6.5px] font-bold tracking-[0.25em] text-white/70 uppercase leading-tight mb-0.5">GO</span>
-               <span class="text-[14px] font-black tracking-wider bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none mb-1 drop-shadow-sm">BEYOND</span>
-               <span class="text-[6.5px] font-bold tracking-[0.25em] text-white/70 uppercase leading-tight mb-0.5">THE</span>
-               <span class="text-[14px] font-black tracking-wider bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none drop-shadow-sm">ORDINARY</span>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#3a3a3a] to-[#121212] rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.4)] px-2.5 py-[17px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[112px] border border-white/10">
+               <span class="text-[7.2px] font-bold tracking-[0.25em] text-white/70 uppercase leading-tight mb-1">GO</span>
+               <span class="text-[15.5px] font-black tracking-wider bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none mb-1.5 drop-shadow-sm">BEYOND</span>
+               <span class="text-[7.2px] font-bold tracking-[0.25em] text-white/70 uppercase leading-tight mb-1">THE</span>
+               <span class="text-[15.5px] font-black tracking-wider bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none drop-shadow-sm">ORDINARY</span>
             </div>
 
             <!-- Bottom End-to-End Bar -->
@@ -443,6 +483,66 @@
                </div>
             </div>
          </div>
+      </div>
+      
+      </div> <!-- Closes home-stays-content -->
+      
+      <!-- Banquets Content -->
+      <div id="home-banquets-content" class="w-full" style="display: none;">
+
+         <!-- Banquets Banner — end-to-end -->
+         <div class="relative overflow-hidden border-y border-[rgba(26,26,26,0.08)] min-h-[242px] flex flex-col">
+
+            <!-- Background Image — light blur, no overlay -->
+            <img src="/banquet_hall.png" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="filter: blur(1.5px); transform: scale(1.03);" />
+
+            <!-- Content -->
+            <div class="relative z-10 px-5 pt-5 pb-10 flex flex-col flex-1">
+
+               <!-- Header — black, left aligned -->
+               <div class="mb-4">
+                  <h2 class="text-[15.4px] font-semibold text-[#121212] leading-tight tracking-tight mb-0.5">You tell us the event</h2>
+                  <p class="text-[16.6px] font-semibold text-[#1a1a1a]/80 tracking-normal">we take care of the rest</p>
+               </div>
+
+               <!-- Value Propositions — each with gradient pill background -->
+               <div class="grid grid-cols-4 gap-2 w-full mt-auto">
+
+                  <!-- In House F&B -->
+                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
+                     <span class="text-[37.5px] leading-none mb-1 transform -rotate-3">🍽️</span>
+                     <span class="text-[10.5px] font-bold text-white leading-tight">In House<br/>F&B</span>
+                  </div>
+
+                  <!-- Styling & Decor -->
+                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
+                     <span class="text-[37.5px] leading-none mb-1 transform rotate-3">💐</span>
+                     <span class="text-[10.5px] font-bold text-white leading-tight">Styling<br/>& Decor</span>
+                  </div>
+
+                  <!-- Audio-Visual -->
+                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
+                     <span class="text-[37.5px] leading-none mb-1 transform -rotate-2">🎤</span>
+                     <span class="text-[10.5px] font-bold text-white leading-tight">Audio<br/>Visual</span>
+                  </div>
+
+                  <!-- Event Planner -->
+                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
+                     <span class="text-[37.5px] leading-none mb-1 transform rotate-2">📋</span>
+                     <span class="text-[10.5px] font-bold text-white leading-tight">Event<br/>Planner</span>
+                  </div>
+
+               </div>
+               
+            </div>
+            
+            <!-- Bottom gradient bar — full width, absolute flush to bottom -->
+            <div class="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-r from-[#eab308] to-[#4f7134] px-5 py-2 flex items-center justify-center">
+               <span class="text-[9px] font-bold tracking-[0.2em] text-white uppercase">Weddings · Conferences · Celebrations</span>
+            </div>
+
+         </div>
+
       </div>
       
     </div>
@@ -929,7 +1029,7 @@
       <div class="sticky top-0 z-20 bg-white/90 backdrop-blur-md pt-safe px-4 pb-2 border-b border-[rgba(26,26,26,0.08)]">
          <div class="flex items-center gap-3 mt-2 mb-3">
             <button onclick="closeResults()" class="w-10 h-10 flex items-center justify-center -ml-2"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
-            <button onclick="openSearchFlow()" class="flex-1 bg-ss-light-gold rounded-full py-2.5 px-4 flex items-center gap-3 shadow-sm border border-[rgba(26,26,26,0.08)]">
+            <button onclick="openSearchFlow()" class="flex-1 bg-ss-light-gold rounded-full py-2 px-4 flex items-center gap-3 shadow-sm border border-[rgba(26,26,26,0.08)]">
                <i data-lucide="search" class="w-4 h-4 text-ss-text-mute"></i>
                <div class="text-left line-clamp-1">
                   <span class="font-bold text-sm">Gurugram</span> <span class="text-xs text-ss-text-mute">· Oct 3-5 · 2 Guests</span>
@@ -937,13 +1037,24 @@
             </button>
          </div>
          
-         <!-- Filters -->
-         <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-            <button class="shrink-0 px-4 py-1.5 border border-[rgba(26,26,26,0.08)] rounded-full text-sm font-medium flex items-center gap-1"><i data-lucide="sliders-horizontal" class="w-4 h-4"></i> Filters</button>
-            <button class="shrink-0 px-4 py-1.5 border border-[rgba(26,26,26,0.08)] rounded-full text-sm font-medium">Price</button>
-            <button class="shrink-0 px-4 py-1.5 border border-[rgba(26,26,26,0.08)] rounded-full text-sm font-medium">Locality</button>
-            <button class="shrink-0 px-4 py-1.5 border border-[rgba(26,26,26,0.08)] rounded-full text-sm font-medium">Rating</button>
-         </div>
+         <!-- Quick Price Band Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 pt-0.5">
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹1000 - ₹1499
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹1500 - ₹1999
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹2000 - ₹2499
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹2500 - ₹2999
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹3000+
+             </button>
+          </div>
       </div>
       
       <!-- Trust Strip -->
@@ -953,8 +1064,9 @@
       </div>
       
       <div class="flex-1 overflow-y-auto p-4 space-y-4 pb-24 relative">
+         <h2 class="font-extrabold text-[#182612] text-[17px] -mb-2 mt-0">5 results</h2>
          <!-- Card 1 -->
-         <div onclick="openHotelDetail()" class="bg-white rounded-2xl overflow-hidden shadow-md active:scale-[0.98] transition-transform">
+         <div onclick="openHotelDetail()" class="bg-white rounded-2xl overflow-hidden shadow-md active:scale-[0.98] transition-transform -mt-5">
             <div class="relative h-56">
                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" />
                <div class="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center shadow-sm">
@@ -998,39 +1110,89 @@
             </button>
          </div>
          
-         <div class="w-full bg-white rounded-full py-3 px-4 flex items-center gap-2 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.10)] mb-3 cursor-text">
-            <i data-lucide="search" class="w-[18px] h-[18px] text-ss-text-mute"></i>
-            <div class="flex-1 text-left text-[12.5px]">
+         <div class="w-full bg-white rounded-full py-2.5 px-4 flex items-center gap-2 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.10)] mb-2.5 cursor-text">
+            <i data-lucide="search" class="w-[17px] h-[17px] text-ss-text-mute"></i>
+            <div class="flex-1 text-left text-[12px]">
                <span class="font-bold text-ss-text">Gurgaon</span>
-               <div class="text-[10px] text-ss-text-mute font-medium mt-0.5">Oct 3-5 · 2 Guests</div>
+               <div class="text-[10px] text-ss-text-mute font-medium">Oct 3-5 · 2 Guests</div>
             </div>
          </div>
 
-         <!-- Quick Filter Pills -->
-         <div class="flex items-center justify-between gap-2 pb-1">
-            <button onclick="openFilterSheet('price')" class="flex-1 flex justify-center items-center gap-1 bg-white border border-[rgba(26,26,26,0.08)] rounded-full py-1.5 text-[11.5px] font-bold text-ss-text shadow-sm active:scale-95 transition-transform shrink-0">
-               Price <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-ss-text-mute"></i>
-            </button>
-            <button onclick="openFilterSheet('locality')" class="flex-1 flex justify-center items-center gap-1 bg-white border border-[rgba(26,26,26,0.08)] rounded-full py-1.5 text-[11.5px] font-bold text-ss-text shadow-sm active:scale-95 transition-transform shrink-0">
-               Locality <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-ss-text-mute"></i>
-            </button>
-            <button onclick="openFilterSheet('category')" class="flex-1 flex justify-center items-center gap-1 bg-white border border-[rgba(26,26,26,0.08)] rounded-full py-1.5 text-[11.5px] font-bold text-ss-text shadow-sm active:scale-95 transition-transform shrink-0">
-               Property <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-ss-text-mute"></i>
-            </button>
-         </div>
+         <!-- Quick Price Band Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 pt-0.5">
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹1000 - ₹1499
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹1500 - ₹1999
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹2000 - ₹2499
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹2500 - ₹2999
+             </button>
+             <button onclick="togglePriceBandPill(this)" class="px-3.5 py-1.5 bg-white border border-[rgba(26,26,26,0.08)] rounded-full text-[11px] font-bold text-ss-text shadow-sm whitespace-nowrap active:scale-95 transition-all shrink-0">
+                ₹3000+
+             </button>
+          </div>
       </div>
       
-      <div class="flex-1 overflow-y-auto no-scrollbar px-5 pt-5 pb-32 space-y-7 relative">
-         <div class="flex items-center justify-between mb-4 mt-1">
+      <div class="flex-1 overflow-y-auto no-scrollbar px-5 pt-3.5 pb-32 relative">
+         <div class="flex items-center justify-between mt-1.5 mb-2.5">
             <button onclick="openBenefitsSheet()" class="text-ss-green font-bold text-[11.5px] underline decoration-ss-green/40 underline-offset-2">Direct booking benefits</button>
-            <div class="bg-[rgba(26,26,26,0.05)] rounded-full p-0.5 flex text-[10px] font-bold border border-[rgba(26,26,26,0.05)]">
-               <button class="bg-white rounded-full px-3 py-1 shadow-sm text-[#182612]">Overnight</button>
-               <button class="px-3 py-1 text-ss-text-mute">Day-use</button>
+            <div class="flex items-center gap-1.5">
+               <div id="label-res-overnight" class="flex items-center gap-1 text-[#2c4021] font-bold text-[8px] uppercase tracking-wider transition-colors duration-300 cursor-pointer" onclick="if(document.getElementById('res-booking-type-toggle').classList.contains('bg-[#84cc16]')) document.getElementById('res-booking-type-toggle').click();">
+                 <i data-lucide="moon" class="w-2.5 h-2.5 fill-current"></i>
+                 <span>Overnight</span>
+               </div>
+               
+               <button type="button" id="res-booking-type-toggle" class="relative inline-flex h-[14px] w-[26px] items-center rounded-full bg-[#2c4021] transition-colors duration-300 focus:outline-none" onclick="
+                 const isDayUse = this.classList.contains('bg-[#84cc16]');
+                 const knob = this.querySelector('span');
+                 const labelNight = document.getElementById('label-res-overnight');
+                 const labelDay = document.getElementById('label-res-dayuse');
+                 
+                 if (!isDayUse) {
+                   // Switch to Day Use
+                   this.classList.remove('bg-[#2c4021]');
+                   this.classList.add('bg-[#84cc16]');
+                   knob.classList.remove('translate-x-[2px]');
+                   knob.classList.add('translate-x-[14px]');
+                   labelNight.classList.remove('text-[#2c4021]');
+                   labelNight.classList.add('text-ss-text-mute');
+                   labelDay.classList.remove('text-ss-text-mute');
+                   labelDay.classList.add('text-[#84cc16]');
+                 } else {
+                   // Switch to Overnight
+                   this.classList.add('bg-[#2c4021]');
+                   this.classList.remove('bg-[#84cc16]');
+                   knob.classList.remove('translate-x-[14px]');
+                   knob.classList.add('translate-x-[2px]');
+                   labelNight.classList.add('text-[#2c4021]');
+                   labelNight.classList.remove('text-ss-text-mute');
+                   labelDay.classList.add('text-ss-text-mute');
+                   labelDay.classList.remove('text-[#84cc16]');
+                 }
+               ">
+                 <span class="inline-block h-[10px] w-[10px] transform rounded-full bg-white transition-transform duration-300 translate-x-[2px] shadow-sm"></span>
+               </button>
+               
+               <div id="label-res-dayuse" class="flex items-center gap-1 text-ss-text-mute font-bold text-[8px] uppercase tracking-wider transition-colors duration-300 cursor-pointer" onclick="if(!document.getElementById('res-booking-type-toggle').classList.contains('bg-[#84cc16]')) document.getElementById('res-booking-type-toggle').click();">
+                 <i data-lucide="sun" class="w-2.5 h-2.5 fill-current"></i>
+                 <span>Day-Use</span>
+               </div>
             </div>
          </div>
-         <!-- Card 1 -->
-         <div class="w-full shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
-            <div class="relative h-[13rem] mb-3">
+
+         <!-- Results Count Header -->
+         <h2 class="font-extrabold text-[#182612] text-[17px] mt-[18px] mb-2">5 results</h2>
+
+         <!-- Cards Container -->
+         <div class="flex flex-col gap-6">
+            <!-- Card 1 -->
+            <div class="w-full shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+               <div class="relative h-[13rem] mb-3">
                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
                <div class="absolute top-2.5 left-3 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
                   <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.8
@@ -1164,6 +1326,7 @@
             </div>
          </div>
       </div>
+   </div>
 
       <!-- Floating Sort & Filter Widget -->
       <div class="fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-50 flex items-center bg-gradient-to-r from-ss-green to-ss-green-dark text-white rounded-[24px] shadow-2xl border border-white/10 overflow-hidden divide-x divide-white/20">
@@ -1434,7 +1597,12 @@
         
         <!-- 2. Header Info -->
         <div class="px-5 pt-5 pb-6">
-           <h1 class="font-extrabold text-xl text-ss-text mb-2 leading-tight">Saltstayz Premier - Naraina</h1>
+           <div class="flex items-center justify-between gap-3 mb-2">
+              <h1 class="font-extrabold text-xl text-ss-text leading-tight flex-1">Saltstayz Premier - Naraina</h1>
+              <a href="tel:+918800123456" class="btn-secondary-cta w-8 h-8 !rounded-full shadow-xs shrink-0 active:scale-90" title="Call Hotel" aria-label="Call Hotel">
+                 <i data-lucide="phone" class="w-3.5 h-3.5 text-[#3d5a26]"></i>
+              </a>
+           </div>
            <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
                  <div class="text-[13px] text-ss-text-mute mb-2 flex items-start gap-1">
@@ -1624,7 +1792,7 @@
               <!-- Timeline & Guests -->
               <div id="overnight-timeline" class="space-y-4 mb-5">
                  <div>
-                    <h4 class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Dates</h4>
+                    <h4 id="hotel-dates-section" class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Dates</h4>
                     <div onclick="openDatePopup()" class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
                        <div class="font-bold text-[13px] text-ss-text">22 Aug - 24 Aug</div>
                        <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
@@ -1867,9 +2035,12 @@
 
 <div class="px-5 mb-8">
    <!-- Dates box -->
-   <div class="border border-[rgba(26,26,26,0.08)] rounded-2xl p-3 mb-5 w-full bg-white shadow-sm">
-      <div class="text-[10px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Dates</div>
-      <div class="text-[15px] font-extrabold text-ss-text">Thu, 22 Aug - Sat, 24 Aug</div>
+   <div class="border border-[rgba(26,26,26,0.08)] rounded-2xl p-3.5 mb-5 w-full bg-white shadow-sm flex justify-between items-center">
+      <div>
+         <div class="text-[10px] font-bold text-ss-text-mute uppercase tracking-widest mb-1">Dates</div>
+         <div class="text-[15px] font-extrabold text-ss-text">Thu, 22 Aug - Sat, 24 Aug</div>
+      </div>
+      <button onclick="document.getElementById('hotel-dates-section').scrollIntoView({behavior: 'smooth', block: 'center'})" class="text-[#4f7134] font-bold text-[12px] underline decoration-[#4f7134]/40 underline-offset-2 hover:opacity-80 active:scale-95 transition-all cursor-pointer">Change</button>
    </div>
 
    <div class="h-[1px] bg-[rgba(26,26,26,0.08)] mb-6"></div>
@@ -2332,6 +2503,19 @@
     
     function closeHotelDetail() { closeScreen('detail-flow'); }
     
+    function togglePriceBandPill(btn) {
+      const isSelected = btn.classList.contains('bg-[#2c4021]');
+      const parent = btn.parentElement;
+      parent.querySelectorAll('button').forEach(b => {
+        b.classList.remove('bg-[#2c4021]', 'text-white', 'border-[#2c4021]');
+        b.classList.add('bg-white', 'text-ss-text', 'border-[rgba(26,26,26,0.08)]');
+      });
+      if (!isSelected) {
+        btn.classList.remove('bg-white', 'text-ss-text', 'border-[rgba(26,26,26,0.08)]');
+        btn.classList.add('bg-[#2c4021]', 'text-white', 'border-[#2c4021]');
+      }
+    }
+    
   
     
         // Detail Flow Redesign Scripts
@@ -2736,6 +2920,7 @@
     function openViewAllFlow() { navigateToScreen('view-all-flow'); }
     
     function closeViewAllFlow() { closeScreen('view-all-flow'); }
+
 </script>
 </body>
 </html>

@@ -197,15 +197,15 @@
             </div>
           </div>
 
-          <!-- Flow 3: Experiences Dropdown -->
+          <!-- Flow 3: Banquets Dropdown -->
           <div class="relative group">
             <button class="px-3.5 py-2 rounded-md font-semibold text-sm text-ss-text hover:text-ss-green hover:bg-ss-green-soft/60 transition flex items-center gap-1.5">
-              <span>Experiences</span>
+              <span>Banquets</span>
               <i data-lucide="chevron-down" class="w-4 h-4 opacity-60 group-hover:rotate-180 transition-transform duration-200"></i>
             </button>
             <div class="hidden group-hover:block absolute top-full left-0 w-44 bg-white rounded-none p-2 shadow-2xl border border-ss-border mt-1">
               <a href="#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Restaurants</a>
-              <a href="#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Banquets</a>
+              <a href="#experiences" class="px-3 py-2 rounded-md hover:bg-ss-green-soft hover:text-ss-green text-sm font-semibold text-ss-text transition block">Banquets & Events</a>
             </div>
           </div>
 
@@ -280,9 +280,47 @@
           <!-- Left: Single Bar Search Widget -->
           <div class="flex flex-col gap-2 w-full xl:w-auto">
             <!-- Overnight / Day-Use Toggle -->
-            <div class="flex items-center bg-gray-200/50 p-1 w-max rounded-none">
-              <button class="bg-white shadow-sm text-ss-text font-bold text-[10px] sm:text-xs uppercase tracking-widest px-6 py-2 transition rounded-none">Overnight</button>
-              <button class="text-ss-text-mute hover:text-ss-text font-bold text-[10px] sm:text-xs uppercase tracking-widest px-6 py-2 transition rounded-none border border-transparent">Day-Use</button>
+            <div class="flex items-center gap-2 py-1 w-max mb-1">
+              <div id="label-overnight" class="flex items-center gap-1 text-[#2c4021] font-bold text-[8px] sm:text-[9px] uppercase tracking-wider transition-colors duration-300 cursor-pointer" onclick="if(document.getElementById('booking-type-toggle').classList.contains('bg-[#84cc16]')) document.getElementById('booking-type-toggle').click();">
+                <i data-lucide="moon" class="w-3 h-3 fill-current"></i>
+                <span>Overnight</span>
+              </div>
+              
+              <button type="button" id="booking-type-toggle" class="relative inline-flex h-[16px] w-[30px] items-center rounded-full bg-[#2c4021] transition-colors duration-300 focus:outline-none" onclick="
+                const isDayUse = this.classList.contains('bg-[#84cc16]');
+                const knob = this.querySelector('span');
+                const labelNight = document.getElementById('label-overnight');
+                const labelDay = document.getElementById('label-dayuse');
+                
+                if (!isDayUse) {
+                  // Switch to Day Use
+                  this.classList.remove('bg-[#2c4021]');
+                  this.classList.add('bg-[#84cc16]');
+                  knob.classList.remove('translate-x-[2px]');
+                  knob.classList.add('translate-x-[16px]');
+                  labelNight.classList.remove('text-[#2c4021]');
+                  labelNight.classList.add('text-ss-text-mute');
+                  labelDay.classList.remove('text-ss-text-mute');
+                  labelDay.classList.add('text-[#84cc16]');
+                } else {
+                  // Switch to Overnight
+                  this.classList.add('bg-[#2c4021]');
+                  this.classList.remove('bg-[#84cc16]');
+                  knob.classList.remove('translate-x-[16px]');
+                  knob.classList.add('translate-x-[2px]');
+                  labelNight.classList.add('text-[#2c4021]');
+                  labelNight.classList.remove('text-ss-text-mute');
+                  labelDay.classList.add('text-ss-text-mute');
+                  labelDay.classList.remove('text-[#84cc16]');
+                }
+              ">
+                <span class="inline-block h-[12px] w-[12px] transform rounded-full bg-white transition-transform duration-300 translate-x-[2px] shadow-sm"></span>
+              </button>
+              
+              <div id="label-dayuse" class="flex items-center gap-1 text-ss-text-mute font-bold text-[8px] sm:text-[9px] uppercase tracking-wider transition-colors duration-300 cursor-pointer" onclick="if(!document.getElementById('booking-type-toggle').classList.contains('bg-[#84cc16]')) document.getElementById('booking-type-toggle').click();">
+                <i data-lucide="sun" class="w-3 h-3 fill-current"></i>
+                <span>Day-Use</span>
+              </div>
             </div>
             
             <div class="flex items-center bg-[#1a1a1a] p-1 shadow-lg overflow-x-auto hide-scrollbar w-full xl:w-auto">
@@ -307,19 +345,22 @@
               </button>
             </div>
           </div>
-          <!-- Right: Filter Bar -->
-          <div class="flex items-center bg-white rounded-none border-2 border-ss-border shadow-none overflow-x-auto hide-scrollbar w-full xl:w-auto">
-            <button onclick="openFilterModal('property')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition border-r-2 border-ss-border flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
-              <i data-lucide="building-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Property <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+          <!-- Right: Quick Price Band Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar w-full xl:w-auto py-1">
+            <button onclick="togglePriceBandPill(this)" class="px-4 py-2.5 bg-white border border-ss-border text-[11px] font-bold uppercase tracking-wider text-ss-text shadow-sm hover:border-ss-green active:scale-95 transition-all whitespace-nowrap shrink-0">
+              ₹1000 - ₹1499
             </button>
-            <button onclick="openFilterModal('price')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition border-r-2 border-ss-border flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
-              <i data-lucide="indian-rupee" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Price <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            <button onclick="togglePriceBandPill(this)" class="px-4 py-2.5 bg-white border border-ss-border text-[11px] font-bold uppercase tracking-wider text-ss-text shadow-sm hover:border-ss-green active:scale-95 transition-all whitespace-nowrap shrink-0">
+              ₹1500 - ₹1999
             </button>
-            <button onclick="openFilterModal('locality')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition border-r-2 border-ss-border flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Locality <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            <button onclick="togglePriceBandPill(this)" class="px-4 py-2.5 bg-white border border-ss-border text-[11px] font-bold uppercase tracking-wider text-ss-text shadow-sm hover:border-ss-green active:scale-95 transition-all whitespace-nowrap shrink-0">
+              ₹2000 - ₹2499
             </button>
-            <button onclick="openFilterModal('amenities')" class="px-4 py-3 sm:px-5 sm:py-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-ss-text hover:bg-gray-50 transition flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-ss-green"></i> Amenities <i data-lucide="chevron-down" class="w-3 h-3 text-ss-text-mute ml-0.5"></i>
+            <button onclick="togglePriceBandPill(this)" class="px-4 py-2.5 bg-white border border-ss-border text-[11px] font-bold uppercase tracking-wider text-ss-text shadow-sm hover:border-ss-green active:scale-95 transition-all whitespace-nowrap shrink-0">
+              ₹2500 - ₹2999
+            </button>
+            <button onclick="togglePriceBandPill(this)" class="px-4 py-2.5 bg-white border border-ss-border text-[11px] font-bold uppercase tracking-wider text-ss-text shadow-sm hover:border-ss-green active:scale-95 transition-all whitespace-nowrap shrink-0">
+              ₹3000+
             </button>
           </div>
           
@@ -1243,6 +1284,19 @@
     function toggleMobileDrawer() {
       const drawer = document.getElementById('mobile-drawer');
       drawer.classList.toggle('hidden');
+    }
+
+    function togglePriceBandPill(btn) {
+      const isSelected = btn.classList.contains('bg-[#2c4021]');
+      const parent = btn.parentElement;
+      parent.querySelectorAll('button').forEach(b => {
+        b.classList.remove('bg-[#2c4021]', 'text-white', 'border-[#2c4021]');
+        b.classList.add('bg-white', 'text-ss-text', 'border-ss-border');
+      });
+      if (!isSelected) {
+        btn.classList.remove('bg-white', 'text-ss-text', 'border-ss-border');
+        btn.classList.add('bg-[#2c4021]', 'text-white', 'border-[#2c4021]');
+      }
     }
   </script>
 </body>
