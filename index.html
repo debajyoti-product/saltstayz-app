@@ -1151,7 +1151,7 @@
       </div>
 
       <!-- Floating Sort & Filter Widget -->
-      <div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 flex items-center bg-gradient-to-r from-ss-green to-ss-green-dark text-white rounded-[24px] shadow-2xl border border-white/10 overflow-hidden divide-x divide-white/20">
+      <div class="fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-50 flex items-center bg-gradient-to-r from-ss-green to-ss-green-dark text-white rounded-[24px] shadow-2xl border border-white/10 overflow-hidden divide-x divide-white/20">
          <button onclick="openSortSheet()" class="px-5 py-2.5 font-bold text-[11.5px] flex items-center gap-1.5 active:bg-white/10 transition-colors">
             <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-white"></i> Sort
          </button>
@@ -2007,7 +2007,7 @@
      </div>
      
      <!-- Sticky Bottom Booking Bar -->
-     <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-[rgba(26,26,26,0.08)] px-5 pt-2.5 pb-[calc(0.75rem+env(safe-area-inset-bottom))] z-30 shadow-[0_-12px_20px_rgba(0,0,0,0.03)] flex items-center justify-between">
+     <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] bg-white border-t border-[rgba(26,26,26,0.08)] px-5 pt-2.5 pb-[calc(0.75rem+env(safe-area-inset-bottom))] z-30 shadow-[0_-12px_20px_rgba(0,0,0,0.03)] flex items-center justify-between">
         <div onclick="openFareSheet()" class="cursor-pointer active:opacity-60 transition-opacity">
            <div class="font-extrabold text-[20px] text-ss-text leading-none">
               ₹8,280
