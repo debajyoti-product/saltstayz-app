@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Special+Gothic+Condensed+One&family=Special+Gothic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -197,7 +197,7 @@
          if (!staysBtn || !banquetsBtn || !staysContent || !banquetsContent) return;
 
          var staysActiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-ss-green to-ss-green-dark text-white text-sm font-medium shadow-sm transition-all duration-200';
-         var banquetsActiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-[#eab308] to-[#4f7134] text-white text-sm font-medium shadow-sm transition-all duration-200';
+         var banquetsActiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-gradient-to-r from-[#f97316] to-[#c2410c] text-white text-sm font-medium shadow-sm transition-all duration-200';
          var inactiveClasses = 'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full bg-white border border-[rgba(26,26,26,0.12)] text-ss-text-mute text-sm font-medium shadow-sm transition-all duration-200';
          
          if (tab === 'stays') {
@@ -221,6 +221,9 @@
              var banquetsSvg = banquetsBtn.querySelector('svg');
              if (banquetsSvg) { banquetsSvg.classList.remove('text-ss-text-mute'); banquetsSvg.classList.add('text-white'); }
          }
+          if (window.lucide) {
+              setTimeout(function() { lucide.createIcons(); }, 10);
+          }
       };
       </script>
 
@@ -399,17 +402,19 @@
             </div>
 
             <!-- Center Box -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#3a3a3a] to-[#121212] rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.4)] px-2.5 py-[17px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[112px] border border-white/10">
-               <span class="text-[7.2px] font-bold tracking-[0.25em] text-white/70 uppercase leading-tight mb-1">GO</span>
-               <span class="text-[15.5px] font-black tracking-wider bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none mb-1.5 drop-shadow-sm">BEYOND</span>
-               <span class="text-[7.2px] font-bold tracking-[0.25em] text-white/70 uppercase leading-tight mb-1">THE</span>
-               <span class="text-[15.5px] font-black tracking-wider bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none drop-shadow-sm">ORDINARY</span>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#3a3a3a] to-[#121212] rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.4)] px-2 py-[13.5px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[116px] border border-white/10" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
+               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/70 uppercase leading-tight mb-0.5">GO</span>
+               <span class="text-[23.4px] font-black tracking-[0.068em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none mb-1 drop-shadow-sm">BEYOND</span>
+               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/70 uppercase leading-tight mb-0.5">THE</span>
+               <span class="text-[23.4px] font-black tracking-[0.068em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none drop-shadow-sm">ORDINARY</span>
             </div>
 
             <!-- Bottom End-to-End Bar -->
-            <div class="absolute bottom-0 left-0 right-0 z-20 py-1.5 px-4 border-t border-[#4f7134]/30 flex items-center justify-center bg-gradient-to-r from-[#d2e2c6] to-[#b8d2a6]">
+            <div class="absolute bottom-0 left-0 right-0 z-20 py-1.5 px-4 border-t border-[#4f7134]/30 flex items-center justify-center bg-gradient-to-r from-[#d2e2c6] to-[#b8d2a6] cursor-pointer active:opacity-90 transition-opacity">
                <div class="absolute inset-0 opacity-[0.18] pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #4f7134 0, #4f7134 1px, transparent 1px, transparent 6px);"></div>
-               <span class="relative z-10 text-[9.5px] font-bold tracking-[0.16em] text-[#14230e] uppercase">Stay more, save more</span>
+               <span class="relative z-10 flex items-center gap-1.5 text-[9.5px] font-bold tracking-[0.16em] text-[#14230e] uppercase">
+                  LEARN MORE <i data-lucide="arrow-right-circle" class="w-3.5 h-3.5 stroke-[2.2]"></i>
+               </span>
             </div>
 
          </div>
@@ -488,57 +493,349 @@
       </div> <!-- Closes home-stays-content -->
       
       <!-- Banquets Content -->
-      <div id="home-banquets-content" class="w-full" style="display: none;">
+      <div id="home-banquets-content" class="w-full mt-4" style="display: none;">
 
          <!-- Banquets Banner — end-to-end -->
-         <div class="relative overflow-hidden border-y border-[rgba(26,26,26,0.08)] min-h-[242px] flex flex-col">
+         <div class="relative overflow-hidden border-y border-[rgba(26,26,26,0.08)] min-h-[290px] flex flex-col bg-gradient-to-br from-[#ffecd2] to-[#fcb66d]">
 
-            <!-- Background Image — light blur, no overlay -->
-            <img src="/banquet_hall.png" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="filter: blur(1.5px); transform: scale(1.03);" />
+            <!-- 3D Corner Illustrations -->
+            <!-- Top-left: Chandelier (partially cropped, peeking in from corner) -->
+            <img src="/chandelier_pure_white.jpg" alt="" class="absolute -top-6 -left-4 w-[32%] pointer-events-none opacity-80 -rotate-6" style="mix-blend-mode: darken;" />
+
+            <!-- Top-right: Banquet chairs (partially cropped) -->
+            <img src="/banquet_chairs_3d.jpg" alt="" class="absolute -top-6 -right-8 w-[48%] pointer-events-none opacity-75 rotate-6" style="mix-blend-mode: darken;" />
 
             <!-- Content -->
             <div class="relative z-10 px-5 pt-5 pb-10 flex flex-col flex-1">
 
-               <!-- Header — black, left aligned -->
-               <div class="mb-4">
-                  <h2 class="text-[15.4px] font-semibold text-[#121212] leading-tight tracking-tight mb-0.5">You tell us the event</h2>
-                  <p class="text-[16.6px] font-semibold text-[#1a1a1a]/80 tracking-normal">we take care of the rest</p>
-               </div>
+               <!-- Header + Value Propositions Grouped above bottom bar -->
+               <div class="mt-auto flex flex-col items-center w-full">
 
-               <!-- Value Propositions — each with gradient pill background -->
-               <div class="grid grid-cols-4 gap-2 w-full mt-auto">
-
-                  <!-- In House F&B -->
-                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
-                     <span class="text-[37.5px] leading-none mb-1 transform -rotate-3">🍽️</span>
-                     <span class="text-[10.5px] font-bold text-white leading-tight">In House<br/>F&B</span>
+                  <!-- Header & Subheader with swapped typography — left aligned with pills -->
+                  <div class="mb-[17px] text-left w-[97%] flex flex-col items-start justify-center">
+                     <h2 class="text-[9.25px] font-extrabold text-[#8f4b1e] leading-tight tracking-[0.12em] uppercase -translate-y-[1.5px]">You tell us the event</h2>
+                     <p class="text-[22.4px] font-bold tracking-[0.04em] uppercase leading-none translate-y-[5px] bg-gradient-to-r from-[#d9480f] to-[#4e1402] bg-clip-text text-transparent drop-shadow-sm" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">we take care of the rest</p>
                   </div>
 
-                  <!-- Styling & Decor -->
-                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
-                     <span class="text-[37.5px] leading-none mb-1 transform rotate-3">💐</span>
-                     <span class="text-[10.5px] font-bold text-white leading-tight">Styling<br/>& Decor</span>
-                  </div>
+                  <!-- Value Propositions — lighter cream frosted glass gradient -->
+                  <div class="grid grid-cols-4 gap-[7.2px] w-[97%]">
 
-                  <!-- Audio-Visual -->
-                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
-                     <span class="text-[37.5px] leading-none mb-1 transform -rotate-2">🎤</span>
-                     <span class="text-[10.5px] font-bold text-white leading-tight">Audio<br/>Visual</span>
-                  </div>
+                     <!-- In House F&B -->
+                     <div class="flex flex-col items-center text-center bg-gradient-to-b from-[#fffef9]/85 to-[#fdf6de]/50 backdrop-blur-sm border border-white/80 rounded-xl py-[9px] px-1 shadow-[0_2px_6px_rgba(0,0,0,0.03)] overflow-hidden">
+                        <span class="text-[41.25px] leading-none mb-1 transform -rotate-3">🍽️</span>
+                        <span class="text-[9.8px] font-medium text-[#1a1a1a] whitespace-nowrap tracking-tight translate-y-[1px]">In House F&B</span>
+                     </div>
 
-                  <!-- Event Planner -->
-                  <div class="flex flex-col items-center text-center bg-gradient-to-br from-[#eab308]/50 to-[#4f7134]/50 backdrop-blur-xl rounded-xl py-2.5 px-1 shadow-sm">
-                     <span class="text-[37.5px] leading-none mb-1 transform rotate-2">📋</span>
-                     <span class="text-[10.5px] font-bold text-white leading-tight">Event<br/>Planner</span>
+                     <!-- Styling & Decor -->
+                     <div class="flex flex-col items-center text-center bg-gradient-to-b from-[#fffef9]/85 to-[#fdf6de]/50 backdrop-blur-sm border border-white/80 rounded-xl py-[9px] px-1 shadow-[0_2px_6px_rgba(0,0,0,0.03)] overflow-hidden">
+                        <span class="text-[41.25px] leading-none mb-1 transform rotate-3">💐</span>
+                        <span class="text-[9.8px] font-medium text-[#1a1a1a] whitespace-nowrap tracking-tight translate-y-[1px]">Styling & Decor</span>
+                     </div>
+
+                     <!-- Audio-Visual -->
+                     <div class="flex flex-col items-center text-center bg-gradient-to-b from-[#fffef9]/85 to-[#fdf6de]/50 backdrop-blur-sm border border-white/80 rounded-xl py-[9px] px-1 shadow-[0_2px_6px_rgba(0,0,0,0.03)] overflow-hidden">
+                        <span class="text-[41.25px] leading-none mb-1 transform -rotate-2">🎤</span>
+                        <span class="text-[9.8px] font-medium text-[#1a1a1a] whitespace-nowrap tracking-tight translate-y-[1px]">Audio Visual</span>
+                     </div>
+
+                     <!-- Event Planner -->
+                     <div class="flex flex-col items-center text-center bg-gradient-to-b from-[#fffef9]/85 to-[#fdf6de]/50 backdrop-blur-sm border border-white/80 rounded-xl py-[9px] px-1 shadow-[0_2px_6px_rgba(0,0,0,0.03)] overflow-hidden">
+                        <span class="text-[41.25px] leading-none mb-1 transform rotate-2">📋</span>
+                        <span class="text-[9.8px] font-medium text-[#1a1a1a] whitespace-nowrap tracking-tight translate-y-[1px]">Event Planner</span>
+                     </div>
+
                   </div>
 
                </div>
                
             </div>
             
-            <!-- Bottom gradient bar — full width, absolute flush to bottom -->
-            <div class="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-r from-[#eab308] to-[#4f7134] px-5 py-2 flex items-center justify-center">
-               <span class="text-[9px] font-bold tracking-[0.2em] text-white uppercase">Weddings · Conferences · Celebrations</span>
+            <!-- Bottom element — gradient text with fading horizontal divider lines -->
+            <div class="absolute bottom-2.5 left-0 right-0 z-20 px-6 flex items-center justify-center gap-2.5">
+               <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#ea580c]/60"></div>
+               <span class="text-[8.5px] font-extrabold tracking-[0.2em] uppercase bg-gradient-to-r from-[#ea580c] to-[#9a3412] bg-clip-text text-transparent whitespace-nowrap">Weddings · Conferences · Celebrations</span>
+               <div class="h-[1px] flex-1 bg-gradient-to-r from-[#9a3412]/60 to-transparent"></div>
+            </div>
+
+         </div>
+
+         <!-- Banquets in Gurgaon Section -->
+         <div class="mt-6 mb-6">
+            <div class="flex items-center justify-between px-5 mb-2.5">
+               <h2 class="text-[15.5px] font-bold text-[#182612]">Banquets in Gurgaon</h2>
+               <button onclick="openViewAllFlow()" class="flex items-center gap-0.5 text-[12px] font-bold text-[#ea580c] active:opacity-75 transition-opacity">
+                  View all <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+               </button>
+            </div>
+            
+            <div class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x">
+               
+               <!-- Card 1 -->
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider">
+                           <i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 110 Guests
+                        </span>
+                     </div>
+                  </div>
+                  
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5">
+                        <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Premier</h3>
+                        <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span>
+                     </div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">
+                        Huda City Center
+                     </div>
+                  </div>
+               </div>
+               
+               <!-- Card 2 -->
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider">
+                           <i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 150 Guests
+                        </span>
+                     </div>
+                  </div>
+                  
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5">
+                        <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Select</h3>
+                        <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span>
+                     </div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">
+                        Sohna Road
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 3 -->
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider">
+                           <i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 200 Guests
+                        </span>
+                     </div>
+                  </div>
+                  
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5">
+                        <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Signature</h3>
+                        <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span>
+                     </div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">
+                        Cyber City
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <!-- Search By Guest Count Section -->
+         <div class="mt-2 mb-8">
+            
+            <!-- Pills -->
+            <div class="flex overflow-x-auto no-scrollbar px-5 pb-3 gap-2 snap-x">
+               <button onclick="selectBanquetBand(1)" id="pill-band-1" class="shrink-0 flex items-center px-4 py-2 border-[1.25px] border-[#ea580c] bg-orange-50 text-[#c2410c] rounded-full text-[12px] font-semibold transition-colors">
+                  <i data-lucide="users" class="w-3.5 h-3.5 mr-1.5 text-[#ea580c]"></i> 100-149
+               </button>
+               <button onclick="selectBanquetBand(2)" id="pill-band-2" class="shrink-0 flex items-center px-4 py-2 border-[1.25px] border-[rgba(26,26,26,0.12)] text-ss-text bg-transparent rounded-full text-[12px] font-semibold transition-colors">
+                  <i data-lucide="users" class="w-3.5 h-3.5 mr-1.5 text-ss-text-mute"></i> 150-199
+               </button>
+               <button onclick="selectBanquetBand(3)" id="pill-band-3" class="shrink-0 flex items-center px-4 py-2 border-[1.25px] border-[rgba(26,26,26,0.12)] text-ss-text bg-transparent rounded-full text-[12px] font-semibold transition-colors">
+                  <i data-lucide="users" class="w-3.5 h-3.5 mr-1.5 text-ss-text-mute"></i> 200-249
+               </button>
+               <button onclick="selectBanquetBand(4)" id="pill-band-4" class="shrink-0 flex items-center px-4 py-2 border-[1.25px] border-[rgba(26,26,26,0.12)] text-ss-text bg-transparent rounded-full text-[12px] font-semibold transition-colors">
+                  <i data-lucide="users" class="w-3.5 h-3.5 mr-1.5 text-ss-text-mute"></i> 250-299
+               </button>
+            </div>
+            
+            <script>
+            function selectBanquetBand(bandIndex) {
+                for (let i = 1; i <= 4; i++) {
+                    const pill = document.getElementById('pill-band-' + i);
+                    const content = document.getElementById('band-' + i + '-content');
+                    if (!pill || !content) continue;
+                    const icon = pill.querySelector('svg, i');
+                    if (i === bandIndex) {
+                        pill.className = "shrink-0 flex items-center px-4 py-2 border-[1.25px] border-[#ea580c] bg-orange-50 text-[#c2410c] rounded-full text-[12px] font-semibold transition-colors";
+                        if (icon) { icon.classList.remove('text-ss-text-mute'); icon.classList.add('text-[#ea580c]'); }
+                        content.style.display = "flex";
+                    } else {
+                        pill.className = "shrink-0 flex items-center px-4 py-2 border-[1.25px] border-[rgba(26,26,26,0.12)] text-ss-text bg-transparent rounded-full text-[12px] font-semibold transition-colors";
+                        if (icon) { icon.classList.remove('text-[#ea580c]'); icon.classList.add('text-ss-text-mute'); }
+                        content.style.display = "none";
+                    }
+                }
+            }
+            </script>
+
+            <!-- Band 1 Content (100-149) -->
+            <div id="band-1-content" class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x pt-1">
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 110 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Pearl</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sector 14</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 125 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Azure</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">MG Road</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 145 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Bliss</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sector 56</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Band 2 Content (150-199) -->
+            <div id="band-2-content" style="display: none;" class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x pt-1">
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 160 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Oasis</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Golf Course Ext</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 175 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Flora</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sector 31</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 190 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Nova</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Palam Vihar</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Band 3 Content (200-249) -->
+            <div id="band-3-content" style="display: none;" class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x pt-1">
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 210 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Vertex</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">DLF Phase 3</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 230 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Elite</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sector 44</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 245 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Haven</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sector 15</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Band 4 Content (250-299) -->
+            <div id="band-4-content" style="display: none;" class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x pt-1">
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 260 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Imperial</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">MG Road</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 275 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Majestic</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sector 29</div>
+                  </div>
+               </div>
+               <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                  <div class="relative h-[11rem] mb-2.5">
+                     <img src="/banquet_hall_card.png" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                     <div class="absolute bottom-2 left-2.5 bg-white/80 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                        <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-1 uppercase tracking-wider"><i data-lucide="users" class="w-2.5 h-2.5 text-[#ea580c]"></i> 290 Guests</span>
+                     </div>
+                  </div>
+                  <div class="px-1">
+                     <div class="flex items-baseline gap-1.5 mb-0.5"><h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Royal</h3><span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurgaon</span></div>
+                     <div class="text-[11.5px] font-medium text-ss-text-mute">Sohna Road</div>
+                  </div>
+               </div>
             </div>
 
          </div>
@@ -2256,20 +2553,20 @@
 
   </div> <!-- end mobile-wrapper -->
   <!-- ==================== BOTTOM NAVIGATION ==================== -->
-  <div id="bottom-nav" style="display: flex;" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] bg-white/90 backdrop-blur-lg border-t border-[rgba(26,26,26,0.08)] flex justify-around items-center pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] z-[9999] shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-    <button onclick="switchTab('home')" class="nav-btn nav-item active flex flex-col items-center gap-1 w-16" data-target="home">
+  <div id="bottom-nav" style="display: flex;" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] bg-white/90 backdrop-blur-lg border-t border-[rgba(26,26,26,0.08)] flex justify-around items-center pt-2.5 pb-[calc(0.6rem+env(safe-area-inset-bottom))] z-[9999] shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+    <button onclick="switchTab('home')" class="nav-btn nav-item active flex flex-col items-center justify-center gap-1 w-[4.5rem] py-1.5 rounded-2xl bg-ss-green-soft text-ss-green-dark transition-all duration-300" data-target="home">
       <i data-lucide="home" class="w-6 h-6"></i>
-      <span class="text-[10px] font-bold">Home</span>
+      <span class="text-[10px] font-extrabold">Home</span>
     </button>
-    <button onclick="switchTab('bookings')" class="nav-btn nav-item flex flex-col items-center gap-1 w-16" data-target="bookings">
+    <button onclick="switchTab('bookings')" class="nav-btn nav-item flex flex-col items-center justify-center gap-1 w-[4.5rem] py-1.5 rounded-2xl text-ss-text-mute transition-all duration-300" data-target="bookings">
       <i data-lucide="calendar" class="w-6 h-6"></i>
       <span class="text-[10px] font-bold">Bookings</span>
     </button>
-    <button onclick="switchTab('beyond')" class="nav-btn nav-item flex flex-col items-center gap-1 w-16" data-target="beyond">
+    <button onclick="switchTab('beyond')" class="nav-btn nav-item flex flex-col items-center justify-center gap-1 w-[4.5rem] py-1.5 rounded-2xl text-ss-text-mute transition-all duration-300" data-target="beyond">
       <i data-lucide="sparkles" class="w-6 h-6"></i>
       <span class="text-[10px] font-bold">Beyond</span>
     </button>
-    <button onclick="switchTab('profile')" class="nav-btn nav-item flex flex-col items-center gap-1 w-16" data-target="profile">
+    <button onclick="switchTab('profile')" class="nav-btn nav-item flex flex-col items-center justify-center gap-1 w-[4.5rem] py-1.5 rounded-2xl text-ss-text-mute transition-all duration-300" data-target="profile">
       <i data-lucide="user" class="w-6 h-6"></i>
       <span class="text-[10px] font-bold">Profile</span>
     </button>
@@ -2339,12 +2636,15 @@
       navigateToScreen('tab-' + tabId);
       
       document.querySelectorAll('.nav-btn').forEach(btn => {
+         const span = btn.querySelector('span');
          if(btn.dataset.target === tabId) {
-            btn.classList.add('active', 'text-ss-green');
+            btn.classList.add('active', 'text-ss-green-dark', 'bg-ss-green-soft');
             btn.classList.remove('text-ss-text-mute');
+            if (span) { span.classList.remove('font-bold'); span.classList.add('font-extrabold'); }
          } else {
-            btn.classList.remove('active', 'text-ss-green');
+            btn.classList.remove('active', 'text-ss-green-dark', 'bg-ss-green-soft');
             btn.classList.add('text-ss-text-mute');
+            if (span) { span.classList.remove('font-extrabold'); span.classList.add('font-bold'); }
          }
       });
       if (window.lucide) lucide.createIcons();
