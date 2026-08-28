@@ -2151,30 +2151,78 @@
               </div>
            </div>
 
+           <!-- Room Type -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Room Type</h4>
+              <div class="flex flex-wrap gap-2">
+                 <button class="px-4 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold">Standard</button>
+                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Deluxe</button>
+                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Superior</button>
+                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Family</button>
+              </div>
+           </div>
+
+           <!-- Beds -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Beds</h4>
+              <div class="flex flex-wrap gap-2">
+                 <button class="px-4 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold">Single</button>
+                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Twin</button>
+              </div>
+           </div>
+
+           <!-- Customer Rating -->
+           <div>
+              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Customer Rating</h4>
+              <div class="flex flex-wrap gap-2">
+                 <button class="flex items-center gap-1.5 px-4 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold">
+                    4* & above
+                 </button>
+              </div>
+           </div>
+
            <!-- Amenities -->
            <div>
               <h4 class="font-bold text-[16px] text-[#182612] mb-3">Amenities</h4>
-              <div class="space-y-3">
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Free WiFi</span></label>
-                 <label class="flex items-center gap-3"><input type="checkbox" checked class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Breakfast included</span></label>
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Swimming Pool</span></label>
+              <div class="flex flex-wrap gap-2">
+                 <!-- Visible pills -->
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="wifi" class="w-4 h-4 text-ss-green"></i> Free WiFi</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold"><i data-lucide="coffee" class="w-4 h-4"></i> Breakfast</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="wind" class="w-4 h-4 text-ss-green"></i> AC</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="tv" class="w-4 h-4 text-ss-green"></i> Smart TV</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="waves" class="w-4 h-4 text-ss-green"></i> Pool</button>
+                 
+                 <!-- Hidden pills -->
+                 <button class="hidden hidden-amenity flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="dumbbell" class="w-4 h-4 text-ss-green"></i> Gym</button>
+                 <button class="hidden hidden-amenity flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="concierge-bell" class="w-4 h-4 text-ss-green"></i> Room Service</button>
+                 <button class="hidden hidden-amenity flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="coffee" class="w-4 h-4 text-ss-green"></i> Mini Bar</button>
               </div>
+              <button onclick="document.querySelectorAll('.hidden-amenity').forEach(el => el.classList.remove('hidden')); this.style.display='none'" class="mt-3 text-ss-green font-bold text-[13px] underline decoration-ss-green/40">View more</button>
            </div>
            
            <!-- Facilities -->
            <div>
               <h4 class="font-bold text-[16px] text-[#182612] mb-3">Facilities</h4>
-              <div class="space-y-3">
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Parking</span></label>
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Fitness Center</span></label>
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Bar / Lounge</span></label>
+              <div class="flex flex-wrap gap-2">
+                 <!-- Visible pills -->
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="car" class="w-4 h-4 text-ss-green"></i> Parking</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="briefcase" class="w-4 h-4 text-ss-green"></i> Conference Room</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="users" class="w-4 h-4 text-ss-green"></i> Banquet</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="washing-machine" class="w-4 h-4 text-ss-green"></i> Laundry</button>
+                 <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="shield" class="w-4 h-4 text-ss-green"></i> 24/7 Security</button>
+                 
+                 <!-- Hidden pills -->
+                 <button class="hidden hidden-facility flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="wheelchair" class="w-4 h-4 text-ss-green"></i> Wheelchair Access</button>
+                 <button class="hidden hidden-facility flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="utensils" class="w-4 h-4 text-ss-green"></i> Restaurant</button>
+                 <button class="hidden hidden-facility flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="martini" class="w-4 h-4 text-ss-green"></i> Lounge</button>
               </div>
+              <button onclick="document.querySelectorAll('.hidden-facility').forEach(el => el.classList.remove('hidden')); this.style.display='none'" class="mt-3 text-ss-green font-bold text-[13px] underline decoration-ss-green/40">View more</button>
            </div>
         </div>
         
-        <div class="px-6 pt-4 border-t border-[rgba(26,26,26,0.08)] flex gap-3">
-           <button onclick="closeMainFilterSheet()" class="flex-1 bg-gray-100 text-[#182612] py-3.5 rounded-full font-bold text-[15px]">Clear All</button>
-           <button onclick="closeMainFilterSheet()" class="flex-1 bg-ss-green text-white py-3.5 rounded-full font-bold text-[15px] shadow-sm">Show Results</button>
+        <div class="px-6 pt-4 border-t border-[rgba(26,26,26,0.08)] flex items-center justify-between shrink-0 bg-white">
+           <button onclick="closeMainFilterSheet()" class="text-[13.5px] font-bold text-ss-text-mute underline px-2 py-2 active:opacity-70">Clear all</button>
+           <button onclick="closeMainFilterSheet()" class="w-[44%] bg-gradient-to-r from-ss-green to-ss-green-dark text-white py-3 rounded-full font-bold text-[15px] shadow-lg active:scale-[0.98] transition-transform">Show results</button>
         </div>
      </div>
   </div>
