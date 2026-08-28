@@ -489,6 +489,305 @@
             </div>
          </div>
       </div>
+
+      <!-- Explore Properties Section -->
+      <div class="mt-8 mb-6 w-full">
+         
+         <!-- The explore properties integrated bar (End-to-End full bleed) -->
+         <div class="w-full pt-4 bg-gradient-to-r from-[#eab308] to-ss-green flex flex-col items-center relative z-0">
+            <span class="text-[11px] font-extrabold tracking-[0.15em] text-white uppercase whitespace-nowrap mb-3.5 drop-shadow-sm">
+               EXPLORE PROPERTIES
+            </span>
+
+            <!-- The Tabs Grid inside the bar (px-5 aligns cutouts with page elements on the left) -->
+            <div class="flex justify-between w-full px-5 items-end">
+               
+               <div onclick="selectPropertyType('select')" class="prop-type-tab cursor-pointer w-[31%]" data-type="select">
+                  <!-- Active Tab Cutout: Merges with content below (bg matches page #f5f3ec) -->
+                  <div class="prop-type-bg bg-[#f5f3ec] rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem]">
+                     <span class="prop-type-title font-black text-[16px] tracking-[0.068em] text-[#3d5a26] uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">SELECT</span>
+                  </div>
+               </div>
+               
+               <div onclick="selectPropertyType('premier')" class="prop-type-tab cursor-pointer w-[31%]" data-type="premier">
+                  <div class="prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75">
+                     <span class="prop-type-title font-bold text-[13px] tracking-[0.068em] text-white uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">PREMIER</span>
+                  </div>
+               </div>
+
+               <div onclick="selectPropertyType('autograph')" class="prop-type-tab cursor-pointer w-[31%]" data-type="autograph">
+                  <div class="prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75">
+                     <span class="prop-type-title font-bold text-[13px] tracking-[0.068em] text-white uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">AUTOGRAPH</span>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <!-- Subheaders Row (Outside the bar: px-5 aligns with cutouts and page elements on the left) -->
+         <div class="px-5 mt-2.5 mb-1 w-full">
+            <div id="desc-select" class="prop-type-desc text-[12px] font-medium text-ss-text-mute text-center whitespace-nowrap leading-tight transition-all duration-300 block" data-type="select">
+               Modern essential stays · Starts at <span class="font-semibold text-ss-text-mute">₹1,300</span>/night+taxes
+            </div>
+            <div id="desc-premier" class="prop-type-desc text-[12px] font-medium text-ss-text-mute text-center whitespace-nowrap leading-tight transition-all duration-300 hidden" data-type="premier">
+               Premium comfort stays · Starts at <span class="font-semibold text-ss-text-mute">₹1,700</span>/night+taxes
+            </div>
+            <div id="desc-autograph" class="prop-type-desc text-[12px] font-medium text-ss-text-mute text-center whitespace-nowrap leading-tight transition-all duration-300 hidden" data-type="autograph">
+               Ultimate luxury stays · Starts at <span class="font-semibold text-ss-text-mute">₹2,500</span>/night+taxes
+            </div>
+         </div>
+
+         <!-- The Property Hotels Lists -->
+         <div class="mt-6 mb-2">
+            
+            <!-- Select Cards -->
+            <div id="prop-list-select" class="prop-list-content block">
+               <div class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x">
+                  
+                  <!-- Select Card 1 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.8
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Select</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· New Delhi</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹2,800</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Select Card 2 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.5
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Select Cyber City</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹2,500</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Select Card 3 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.6
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Select Golf Course</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹2,900</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+
+            <!-- Premier Cards -->
+            <div id="prop-list-premier" class="prop-list-content hidden">
+               <div class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x">
+                  
+                  <!-- Premier Card 1 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.8
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Premier</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹3,500</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Premier Card 2 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.7
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Premier Grand</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· New Delhi</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹3,800</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Premier Card 3 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.9
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Premier Residency</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹4,200</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+
+            <!-- Autograph Cards -->
+            <div id="prop-list-autograph" class="prop-list-content hidden">
+               <div class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x">
+                  
+                  <!-- Autograph Card 1 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.9
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Autograph Collection</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· South Delhi</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹6,500</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Autograph Card 2 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 4.9
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Autograph Suites</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹7,200</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Autograph Card 3 -->
+                  <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+                     <div class="relative h-[11rem] mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
+                        <div class="absolute top-2 left-2.5 flex items-center gap-1 bg-white/50 backdrop-blur-md border border-white/40 px-1.5 py-0.5 rounded-md text-[#182612] text-[11px] font-extrabold shadow-sm">
+                           <i data-lucide="star" class="w-3 h-3 text-[#ea8a00] fill-current"></i> 5.0
+                        </div>
+                        <div class="absolute bottom-2 left-2.5 bg-white/50 backdrop-blur-md border border-white/40 px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                           <span class="font-extrabold text-[#182612] text-[8.5px] flex items-center gap-0.5 uppercase tracking-widest">
+                              <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#d5a84e] fill-current"></i>Beyond
+                           </span>
+                           <span class="text-[#2c4021] font-bold text-[8.5px]">· 20% off + 3% cashback</span>
+                        </div>
+                     </div>
+                     <div class="px-1">
+                        <div class="flex items-baseline gap-1.5 mb-0.5">
+                           <h3 class="font-bold text-[13px] text-[#182612] truncate">Autograph Royal</h3>
+                           <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· New Delhi</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-ss-text-mute">
+                           Starts at <span class="text-[11.5px] font-semibold text-[#182612]">₹8,500</span>/night+taxes
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+
+         </div>
+      </div>
       
       </div> <!-- Closes home-stays-content -->
       
@@ -3017,6 +3316,42 @@
              <div class="flex items-center gap-2.5"><i data-lucide="bath" class="w-4 h-4 text-ss-green"></i> Attached Bathroom</div>
           </div>
        `);
+    }
+
+    function selectPropertyType(type) {
+        document.querySelectorAll('.prop-list-content').forEach(el => {
+            el.classList.add('hidden');
+            el.classList.remove('block');
+        });
+        const selectedList = document.getElementById('prop-list-' + type);
+        if (selectedList) {
+            selectedList.classList.add('block');
+            selectedList.classList.remove('hidden');
+        }
+
+        document.querySelectorAll('.prop-type-tab').forEach(tab => {
+            const bgBox = tab.querySelector('.prop-type-bg');
+            const title = tab.querySelector('.prop-type-title');
+            
+            if (tab.dataset.type === type) {
+                bgBox.className = 'prop-type-bg bg-[#f5f3ec] rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem]';
+                title.className = 'prop-type-title font-black text-[16px] tracking-[0.068em] text-[#3d5a26] uppercase transition-all duration-300';
+            } else {
+                bgBox.className = 'prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75 hover:opacity-100';
+                title.className = 'prop-type-title font-bold text-[13px] tracking-[0.068em] text-white uppercase transition-all duration-300';
+            }
+        });
+
+        document.querySelectorAll('.prop-type-desc').forEach(desc => {
+            if (desc.dataset.type === type) {
+                desc.classList.remove('hidden');
+                desc.classList.add('block');
+            } else {
+                desc.classList.add('hidden');
+                desc.classList.remove('block');
+            }
+        });
+        if (window.lucide) lucide.createIcons();
     }
 
   
