@@ -409,10 +409,10 @@
             </div>
 
             <!-- Center Box -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#3a3a3a] to-[#121212] rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.4)] px-2 py-[13.5px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[116px] border border-white/10" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
-               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/70 uppercase leading-tight mb-0.5">GO</span>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#505050]/85 to-[#242424]/85 backdrop-blur-md rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.25)] px-2 py-[13.5px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[116px] border border-white/20" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
+               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/80 uppercase leading-tight mb-0.5">GO</span>
                <span class="text-[23.4px] font-black tracking-[0.068em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none mb-1 drop-shadow-sm">BEYOND</span>
-               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/70 uppercase leading-tight mb-0.5">THE</span>
+               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/80 uppercase leading-tight mb-0.5">THE</span>
                <span class="text-[23.4px] font-black tracking-[0.068em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none drop-shadow-sm">ORDINARY</span>
             </div>
 
@@ -512,18 +512,18 @@
                <div onclick="selectPropertyType('select')" class="prop-type-tab cursor-pointer w-[31%]" data-type="select">
                   <!-- Active Tab Cutout: Merges with content below (bg matches page #f5f3ec) -->
                   <div class="prop-type-bg bg-[#f5f3ec] rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem]">
-                     <span class="prop-type-title font-black text-[16px] tracking-[0.068em] text-[#3d5a26] uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">SELECT</span>
+                     <span class="prop-type-title font-black text-[16px] tracking-[0.068em] bg-gradient-to-r from-ss-green to-ss-green-dark bg-clip-text text-transparent uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">SELECT</span>
                   </div>
                </div>
                
                <div onclick="selectPropertyType('premier')" class="prop-type-tab cursor-pointer w-[31%]" data-type="premier">
-                  <div class="prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75">
+                  <div class="prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75 hover:opacity-100">
                      <span class="prop-type-title font-bold text-[13px] tracking-[0.068em] text-white uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">PREMIER</span>
                   </div>
                </div>
 
                <div onclick="selectPropertyType('autograph')" class="prop-type-tab cursor-pointer w-[31%]" data-type="autograph">
-                  <div class="prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75">
+                  <div class="prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75 hover:opacity-100">
                      <span class="prop-type-title font-bold text-[13px] tracking-[0.068em] text-white uppercase transition-all duration-300" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">AUTOGRAPH</span>
                   </div>
                </div>
@@ -531,8 +531,8 @@
             </div>
          </div>
 
-         <!-- Subheaders Row (Outside the bar: px-5 aligns with cutouts and page elements on the left) -->
-         <div class="px-5 mt-2.5 mb-1 w-full">
+         <!-- Subheaders Row (Moved down by ~10-15%) -->
+         <div class="px-5 mt-3.5 mb-1 w-full">
             <div id="desc-select" class="prop-type-desc text-[12px] font-medium text-ss-text-mute text-center whitespace-nowrap leading-tight transition-all duration-300 block" data-type="select">
                Modern essential stays · Starts at <span class="font-semibold text-ss-text-mute">₹1,300</span>/night+taxes
             </div>
@@ -3477,10 +3477,17 @@
         document.querySelectorAll('.prop-type-tab').forEach(tab => {
             const bgBox = tab.querySelector('.prop-type-bg');
             const title = tab.querySelector('.prop-type-title');
+            const tabType = tab.dataset.type;
             
-            if (tab.dataset.type === type) {
+            if (tabType === type) {
                 bgBox.className = 'prop-type-bg bg-[#f5f3ec] rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem]';
-                title.className = 'prop-type-title font-black text-[16px] tracking-[0.068em] text-[#3d5a26] uppercase transition-all duration-300';
+                if (type === 'select') {
+                    title.className = 'prop-type-title font-black text-[16px] tracking-[0.068em] bg-gradient-to-r from-ss-green to-ss-green-dark bg-clip-text text-transparent uppercase transition-all duration-300';
+                } else if (type === 'premier') {
+                    title.className = 'prop-type-title font-black text-[16px] tracking-[0.068em] bg-gradient-to-r from-[#eab308] to-ss-green bg-clip-text text-transparent uppercase transition-all duration-300';
+                } else if (type === 'autograph') {
+                    title.className = 'prop-type-title font-black text-[16px] tracking-[0.068em] bg-gradient-to-r from-[#1a1a1a] via-[#b8860b] to-[#1a1a1a] bg-clip-text text-transparent uppercase transition-all duration-300';
+                }
             } else {
                 bgBox.className = 'prop-type-bg bg-transparent rounded-t-xl w-full flex items-center justify-center transition-all duration-300 h-[2.3rem] opacity-75 hover:opacity-100';
                 title.className = 'prop-type-title font-bold text-[13px] tracking-[0.068em] text-white uppercase transition-all duration-300';
