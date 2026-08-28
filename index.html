@@ -15,6 +15,13 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script type="module">
+    import { animate, spring, stagger } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+    window.animate = animate;
+    window.spring = spring;
+    window.stagger = stagger;
+  </script>
 
   <script>
     tailwind.config = {
@@ -2906,18 +2913,36 @@
     
     function navigateToScreen(screenId) {
        const active = document.querySelector('.screen.active');
+       const newScreen = document.getElementById(screenId);
+       
+       if (active === newScreen) return;
+
        if (active) {
            scrollPositions[active.id] = window.scrollY || document.documentElement.scrollTop;
            active.classList.remove('active');
        }
        
-       const newScreen = document.getElementById(screenId);
-       if (newScreen) newScreen.classList.add('active');
+       if (newScreen) {
+           newScreen.classList.add('active');
+           if (window.animate) {
+               newScreen.style.opacity = 0;
+               window.animate(newScreen, 
+                   { opacity: [0, 1] }, 
+                   { duration: 0.25, easing: "ease-out" }
+               );
+           }
+       }
        
        const nav = document.getElementById('bottom-nav');
        if (nav) {
-           if (screenId.startsWith('tab-')) nav.style.display = 'flex';
-           else nav.style.display = 'none';
+           if (screenId.startsWith('tab-')) {
+               nav.style.display = 'flex';
+               if (window.animate && (!active || !active.id.startsWith('tab-'))) {
+                   window.animate(nav, { opacity: [0, 1], y: [20, 0], x: "-50%" }, { duration: 0.3 });
+               }
+           } else {
+               nav.style.display = 'none';
+           }
        }
        
        if (scrollPositions[screenId]) {
@@ -2927,6 +2952,50 @@
        }
        
        if (window.lucide) lucide.createIcons();
+    }
+
+    function animatePopupOpen(popupId) {
+       const overlay = document.getElementById(popupId);
+       if (!overlay) return;
+       const content = overlay.firstElementChild;
+       overlay.classList.remove('hidden');
+       overlay.classList.add('flex');
+       if (window.animate) {
+           window.animate(overlay, { opacity: [0, 1] }, { duration: 0.2 });
+           if (content) {
+               window.animate(content, { y: ["100%", "0%"] }, { duration: 0.4, easing: window.spring({ stiffness: 300, damping: 30 }) });
+           }
+       }
+    }
+
+    function animatePopupClose(popupId, callback) {
+       const overlay = document.getElementById(popupId);
+       if (!overlay) return;
+       const content = overlay.firstElementChild;
+       
+       function cleanup() {
+           overlay.classList.add('hidden');
+           overlay.classList.remove('flex');
+           overlay.style.opacity = "";
+           if (content) content.style.transform = "";
+           if (callback) callback();
+       }
+
+       if (window.animate) {
+           if (content) {
+               window.animate(content, { y: ["0%", "100%"] }, { duration: 0.25, easing: "ease-in" });
+           }
+           const anim = window.animate(overlay, { opacity: [1, 0] }, { duration: 0.25 });
+           if (anim.then) {
+               anim.then(cleanup);
+           } else if (anim.finished) {
+               anim.finished.then(cleanup);
+           } else {
+               setTimeout(cleanup, 250);
+           }
+       } else {
+           cleanup();
+       }
     }
 
     function switchTab(tabId) {
@@ -2950,14 +3019,25 @@
     }
     
     function closeScreen(screenId) {
-       document.getElementById(screenId).classList.remove('active');
+       const screen = document.getElementById(screenId);
+       if (screen) screen.classList.remove('active');
+       
        const fallback = document.getElementById('tab-' + activeNavigationTab);
-       fallback.classList.add('active');
+       if (fallback) {
+           fallback.classList.add('active');
+           if (window.animate) {
+               fallback.style.opacity = 0;
+               window.animate(fallback, { opacity: [0, 1] }, { duration: 0.25 });
+           }
+       }
        
        const nav = document.getElementById('bottom-nav');
-       if (nav) nav.style.display = 'flex';
+       if (nav) {
+           nav.style.display = 'flex';
+           if (window.animate) window.animate(nav, { opacity: [0, 1], y: [20, 0], x: "-50%" }, { duration: 0.3 });
+       }
        
-       if (scrollPositions[fallback.id]) {
+       if (fallback && scrollPositions[fallback.id]) {
            window.scrollTo(0, scrollPositions[fallback.id]);
        }
     }
@@ -2969,15 +3049,9 @@
     let guestCount = 0;
     let childCount = 0;
 
-    function openDatePopup() {
-       document.getElementById('date-popup').classList.remove('hidden');
-       document.getElementById('date-popup').classList.add('flex');
-    }
+    function openDatePopup() { animatePopupOpen('date-popup'); }
     
-    function closeDatePopup() {
-       document.getElementById('date-popup').classList.remove('flex');
-       document.getElementById('date-popup').classList.add('hidden');
-    }
+    function closeDatePopup() { animatePopupClose('date-popup'); }
 
     function toggleDayUseSelection(isDayUse) {
        const indicator = document.getElementById('day-use-indicator');
@@ -3041,15 +3115,8 @@
        closeDatePopup();
     }
 
-    function openGuestPopup() {
-       document.getElementById('guest-popup').classList.remove('hidden');
-       document.getElementById('guest-popup').classList.add('flex');
-    }
-    
-    function closeGuestPopup() {
-       document.getElementById('guest-popup').classList.remove('flex');
-       document.getElementById('guest-popup').classList.add('hidden');
-    }
+    function openGuestPopup() { animatePopupOpen('guest-popup'); }
+    function closeGuestPopup() { animatePopupClose('guest-popup'); }
 
     function updateGuests(delta) {
        guestCount = Math.max(0, guestCount + delta);
@@ -3092,10 +3159,15 @@
     function goToResults() {
       document.getElementById('search-flow').classList.remove('active');
       document.getElementById('results-flow').classList.add('active');
+      if (window.animate) {
+          const results = document.getElementById('results-flow');
+          results.style.opacity = 0;
+          window.animate(results, { opacity: [0, 1] }, { duration: 0.3 });
+      }
     }
     
     function closeResults() {
-      document.getElementById('results-flow').classList.remove('active');
+      closeScreen('results-flow');
     }
     
     function openHotelDetail() { navigateToScreen('detail-flow'); }
@@ -3119,45 +3191,26 @@
     
         // Detail Flow Redesign Scripts
     function openFareSheet() {
-       const overlay = document.getElementById('fare-sheet');
        const content = document.getElementById('fare-sheet-content');
-       overlay.classList.remove('hidden');
-       overlay.classList.add('flex');
-       // trigger reflow
-       void overlay.offsetWidth;
-       content.classList.remove('translate-y-full');
+       if (content) content.classList.remove('translate-y-full', 'transition-transform', 'duration-300');
+       animatePopupOpen('fare-sheet');
     }
     
     function closeFareSheet() {
-       const overlay = document.getElementById('fare-sheet');
-       const content = document.getElementById('fare-sheet-content');
-       content.classList.add('translate-y-full');
-       setTimeout(() => {
-          overlay.classList.add('hidden');
-          overlay.classList.remove('flex');
-       }, 300);
+       animatePopupClose('fare-sheet');
     }
     
     function openGenericSheet(title, htmlContent) {
-       const overlay = document.getElementById('generic-sheet');
-       const content = document.getElementById('generic-sheet-content');
        document.getElementById('generic-sheet-title').innerText = title;
        document.getElementById('generic-sheet-body').innerHTML = htmlContent;
-       overlay.classList.remove('hidden');
-       overlay.classList.add('flex');
-       void overlay.offsetWidth;
-       content.classList.remove('translate-y-full');
+       const content = document.getElementById('generic-sheet-content');
+       if (content) content.classList.remove('translate-y-full', 'transition-transform', 'duration-300');
+       animatePopupOpen('generic-sheet');
        lucide.createIcons();
     }
     
     function closeGenericSheet() {
-       const overlay = document.getElementById('generic-sheet');
-       const content = document.getElementById('generic-sheet-content');
-       content.classList.add('translate-y-full');
-       setTimeout(() => {
-          overlay.classList.add('hidden');
-          overlay.classList.remove('flex');
-       }, 300);
+       animatePopupClose('generic-sheet');
     }
     
     function openAmenitiesSheet() {
@@ -3327,6 +3380,10 @@
         if (selectedList) {
             selectedList.classList.add('block');
             selectedList.classList.remove('hidden');
+            if (window.animate) {
+                selectedList.style.opacity = 0;
+                window.animate(selectedList, { opacity: [0, 1], y: [10, 0] }, { duration: 0.3 });
+            }
         }
 
         document.querySelectorAll('.prop-type-tab').forEach(tab => {
@@ -3346,6 +3403,10 @@
             if (desc.dataset.type === type) {
                 desc.classList.remove('hidden');
                 desc.classList.add('block');
+                if (window.animate) {
+                    desc.style.opacity = 0;
+                    window.animate(desc, { opacity: [0, 1] }, { duration: 0.3 });
+                }
             } else {
                 desc.classList.add('hidden');
                 desc.classList.remove('block');
