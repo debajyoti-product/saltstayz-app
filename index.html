@@ -90,86 +90,89 @@
   <div class="mobile-wrapper w-full min-h-screen max-w-[384px] bg-[#f5f3ec] relative shadow-2xl sm:border sm:border-gray-300 overflow-x-hidden">
 
   <!-- ==================== ONBOARDING FLOW ==================== -->
-  <div id="onboarding-flow" class="screen z-40">
-    <div id="onboarding-carousel" class="flex-1 flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full w-full">
+  <div id="onboarding-flow" class="screen z-[100] bg-white active flex flex-col h-full w-full">
+    <!-- Top Image Section -->
+    <div class="relative h-[55%] w-full shrink-0">
+      <img src="./onboarding_bg.png" class="w-full h-full object-cover" alt="Onboarding">
+      <!-- Faded separation -->
+      <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
       
-      <!-- Slide 1: Hotels -->
-      <div class="snap-center shrink-0 w-full h-full relative">
-        <img src="https://images.unsplash.com/photo-1542314831-c6a4d27ce66b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boutique stays" class="absolute inset-0 w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 pb-24">
-          <h2 class="text-3xl font-bold text-white mb-2">Curated boutique stays</h2>
-          <p class="text-white/80">Experience luxury hand-picked for you.</p>
-        </div>
-      </div>
-      
-      <!-- Slide 2: Beyond -->
-      <div class="snap-center shrink-0 w-full h-full relative bg-ss-green-dark flex flex-col justify-center items-center p-6">
-        <h2 class="text-3xl font-bold text-white mb-6 text-center">Save more the more you stay</h2>
-        <!-- Tier ladder teaser -->
-        <div class="w-full max-w-sm bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-          <div class="flex items-center justify-between text-white mb-4">
-             <span class="font-bold">Beyond Membership</span>
-             <i data-lucide="crown" class="w-5 h-5 text-yellow-400"></i>
-          </div>
-          <div class="w-full bg-white/20 h-2 rounded-full overflow-hidden">
-             <div class="bg-ss-green-soft w-1/3 h-full"></div>
-          </div>
-          <p class="text-white/70 text-sm mt-2">Unlock Silver tier in 3 stays</p>
-        </div>
-      </div>
-      
-      <!-- Slide 3: Experiences -->
-      <div class="snap-center shrink-0 w-full h-full relative">
-        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Experiences" class="absolute inset-0 w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 pb-24">
-          <h2 class="text-3xl font-bold text-white mb-2">More than just a stay</h2>
-          <p class="text-white/80">Explore restaurants and banquets.</p>
-          <button onclick="showOtpFlow()" class="mt-6 w-full bg-ss-green text-white py-4 rounded-xl font-bold text-lg">Get Started</button>
-        </div>
-      </div>
+      <!-- Skip button -->
+      <button id="onboarding-skip-btn" onclick="obSkip()" class="absolute top-5 right-5 bg-black/30 hover:bg-black/40 backdrop-blur-md text-white border border-white/30 text-xs font-semibold px-4 py-1.5 rounded-full z-20 transition-all active:scale-95 shadow-sm">Skip</button>
     </div>
-    
-    <!-- Dots & Skip -->
-    <div class="absolute top-safe pt-4 right-4 z-50">
-       <button onclick="showOtpFlow()" class="text-white/80 bg-black/20 backdrop-blur-md px-4 py-1.5 rounded-full text-sm">Skip</button>
-    </div>
-  </div>
 
-  <!-- OTP Flow -->
-  <div id="otp-flow" class="screen bg-white z-40 p-6 flex flex-col pt-safe">
-    <div class="pt-12">
-      <h2 class="text-2xl font-bold mb-2">Enter your phone number</h2>
-      <p class="text-ss-text-mute mb-8">We'll send you an OTP to log in.</p>
-      
-      <div class="flex gap-3 mb-6">
-        <div class="w-20 border-b-2 border-ss-border flex items-center justify-center pb-2 text-lg font-bold">+91</div>
-        <input type="tel" class="flex-1 border-b-2 border-ss-green pb-2 text-lg outline-none bg-transparent" placeholder="98765 43210" />
-      </div>
-      
-      <button onclick="showOtpVerify()" class="w-full bg-ss-green text-white py-4 rounded-xl font-bold text-lg">Continue</button>
-    </div>
-  </div>
-  
-  <div id="otp-verify" class="screen bg-white z-40 p-6 flex flex-col pt-safe">
-    <div class="pt-12">
-      <h2 class="text-2xl font-bold mb-2">Verify OTP</h2>
-      <p class="text-ss-text-mute mb-8">Enter the 4-digit code sent to your number.</p>
-      
-      <div class="flex gap-4 mb-8 justify-center">
-        <input type="text" maxlength="1" class="w-14 h-14 border-2 border-ss-border rounded-xl text-center text-2xl font-bold outline-none focus:border-ss-green" />
-        <input type="text" maxlength="1" class="w-14 h-14 border-2 border-ss-border rounded-xl text-center text-2xl font-bold outline-none focus:border-ss-green" />
-        <input type="text" maxlength="1" class="w-14 h-14 border-2 border-ss-border rounded-xl text-center text-2xl font-bold outline-none focus:border-ss-green" />
-        <input type="text" maxlength="1" class="w-14 h-14 border-2 border-ss-border rounded-xl text-center text-2xl font-bold outline-none focus:border-ss-green" />
-      </div>
-      
-      <button onclick="completeLogin()" class="w-full bg-ss-green text-white py-4 rounded-xl font-bold text-lg">Verify & Login</button>
+    <!-- Bottom Content Section -->
+    <div class="flex-1 flex flex-col px-6 pb-8 pt-2 w-full relative z-10 bg-white">
+        
+        <!-- Value Props (1, 2, 3) -->
+        <div id="ob-value-props" class="w-full flex flex-col flex-1 pt-6">
+            <div id="ob-vp-1" class="w-full flex flex-col items-start flex-1 transition-opacity duration-300">
+               <h2 class="text-[17.5px] font-extrabold text-gray-900 mb-1.5 text-left w-full leading-snug" id="ob-vp-h">Header 1</h2>
+               <p class="text-gray-500 font-medium text-[15.5px] text-left w-full leading-relaxed" id="ob-vp-p">Subheader 1 goes here. This is a placeholder.</p>
+            </div>
+
+            <!-- Dots -->
+            <div id="ob-dots" class="flex gap-2 justify-center mb-6 mt-auto">
+                <div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#4f7134] to-[#3d5a26] transition-all duration-300" id="ob-dot-0"></div>
+                <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" id="ob-dot-1"></div>
+                <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" id="ob-dot-2"></div>
+            </div>
+            
+            <button onclick="obNextVP()" class="w-full py-3.5 rounded-full text-white font-semibold text-[17px] bg-gradient-to-r from-[#4f7134] to-[#3d5a26] shadow-lg shadow-[#4f7134]/20">
+                Continue
+            </button>
+        </div>
+
+        <!-- Phone Number -->
+        <div id="ob-phone" class="w-full flex flex-col flex-1 pt-6 hidden">
+           <h2 class="text-[17.5px] font-extrabold text-gray-900 mb-1.5 text-left w-full">Enter your phone number</h2>
+           <p class="text-gray-500 font-medium text-[15.5px] text-left w-full mb-6">For booking updates & important notifications</p>
+           <div class="flex w-full gap-3 mt-4 mb-auto">
+               <div class="w-[70px] border-b-[1.5px] border-gray-300 pb-2 flex items-center justify-center text-[19px] font-medium text-gray-800">
+                   +91
+               </div>
+               <input type="tel" class="flex-1 border-b-[1.5px] border-gray-300 pb-2 text-[19px] focus:outline-none focus:border-[#4f7134] text-gray-900 bg-transparent placeholder-gray-400 font-medium tracking-wide" placeholder="98765 43210" id="ob-phone-input">
+           </div>
+           
+           <button onclick="obSendOTP()" class="w-full py-3.5 mt-6 rounded-full text-white font-semibold text-[17px] bg-gradient-to-r from-[#4f7134] to-[#3d5a26] shadow-lg shadow-[#4f7134]/20">
+               Send OTP
+           </button>
+        </div>
+
+        <!-- OTP -->
+        <div id="ob-otp" class="w-full flex flex-col flex-1 pt-6 hidden">
+           <h2 class="text-[17.5px] font-extrabold text-gray-900 mb-1.5 text-left w-full">Enter verification code</h2>
+           <p class="text-gray-500 font-medium text-[15.5px] text-left w-full mb-6">We have sent one to your phone number.</p>
+           <div class="flex gap-3.5 justify-center w-full mt-4 mb-auto">
+               <input type="text" maxlength="1" class="w-12 h-14 border-[1.5px] border-gray-300 rounded-2xl text-center text-[22px] font-semibold focus:outline-none focus:border-[#4f7134] focus:ring-1 focus:ring-[#4f7134] text-gray-900 bg-transparent">
+               <input type="text" maxlength="1" class="w-12 h-14 border-[1.5px] border-gray-300 rounded-2xl text-center text-[22px] font-semibold focus:outline-none focus:border-[#4f7134] focus:ring-1 focus:ring-[#4f7134] text-gray-900 bg-transparent">
+               <input type="text" maxlength="1" class="w-12 h-14 border-[1.5px] border-gray-300 rounded-2xl text-center text-[22px] font-semibold focus:outline-none focus:border-[#4f7134] focus:ring-1 focus:ring-[#4f7134] text-gray-900 bg-transparent">
+               <input type="text" maxlength="1" class="w-12 h-14 border-[1.5px] border-gray-300 rounded-2xl text-center text-[22px] font-semibold focus:outline-none focus:border-[#4f7134] focus:ring-1 focus:ring-[#4f7134] text-gray-900 bg-transparent">
+           </div>
+           
+           <button onclick="obVerify()" class="w-full py-3.5 mt-6 rounded-full text-white font-semibold text-[17px] bg-gradient-to-r from-[#4f7134] to-[#3d5a26] shadow-lg shadow-[#4f7134]/20">
+               Verify
+           </button>
+        </div>
+
+        <!-- Name -->
+        <div id="ob-name" class="w-full flex flex-col flex-1 pt-6 hidden">
+           <h2 class="text-[17.5px] font-extrabold text-gray-900 mb-6 text-left w-full">What should we call you?</h2>
+           <div class="w-full mt-4 mb-auto">
+               <input type="text" class="w-full border-b-[1.5px] border-gray-300 pb-2 text-[19px] focus:outline-none focus:border-[#4f7134] text-gray-900 bg-transparent placeholder-gray-400 font-medium tracking-wide text-left" placeholder="Your full name" id="ob-name-input">
+           </div>
+           
+           <button onclick="obFinish()" class="w-full py-3.5 mt-6 rounded-full text-white font-semibold text-[17px] bg-gradient-to-r from-[#4f7134] to-[#3d5a26] shadow-lg shadow-[#4f7134]/20">
+               Continue
+           </button>
+        </div>
     </div>
   </div>
 
   <!-- ==================== MAIN APP SHELL ==================== -->
   
   <!-- HOME TAB -->
-  <div id="tab-home" class="screen active pb-20">
+  <div id="tab-home" class="screen pb-20">
     <div class="flex-1 flex flex-col">
       
       <!-- Top Sticky Header -->
@@ -3435,7 +3438,7 @@
   
   </div> <!-- end mobile-wrapper -->
   <!-- ==================== BOTTOM NAVIGATION ==================== -->
-  <div id="bottom-nav" style="display: flex;" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] bg-white/90 backdrop-blur-lg border-t border-[rgba(26,26,26,0.08)] flex justify-around items-center pt-2.5 pb-[calc(0.6rem+env(safe-area-inset-bottom))] z-[9999] shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+  <div id="bottom-nav" style="display: none;" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] bg-white/90 backdrop-blur-lg border-t border-[rgba(26,26,26,0.08)] flex justify-around items-center pt-2.5 pb-[calc(0.6rem+env(safe-area-inset-bottom))] z-[9999] shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
     <button onclick="switchTab('home')" class="nav-btn nav-item active flex flex-col items-center justify-center gap-1 w-[4.5rem] py-1.5 rounded-2xl bg-ss-green-soft text-ss-green-dark transition-all duration-300" data-target="home">
       <i data-lucide="home" class="w-6 h-6"></i>
       <span class="text-[10px] font-extrabold">Home</span>
@@ -3462,26 +3465,112 @@
       console.error(e);
     }
 
-    function showOtpFlow() {
-      document.getElementById('onboarding-flow').classList.remove('active');
-      document.getElementById('otp-flow').classList.add('active');
+    let currentVP = 0;
+    const vpContent = [
+      {h: "Curated hotels at prime locations 🏨", p: "Explore & book hotels as per your budget, comfort & convenience"},
+      {h: "Stay. Save. Repeat 💸", p: "Discounts & cashback with every booking turn your trips into a rewarding experience"},
+      {h: "Plan events & celebrations 📅", p: "From private occasions to corporate gatherings, we provide top venues & event services"}
+    ];
+
+    function runAnimation(el, frames, opts, callback) {
+        if (!window.animate) {
+            if (callback) callback();
+            return;
+        }
+        const anim = window.animate(el, frames, opts);
+        if (anim && anim.then) {
+            anim.then(callback);
+        } else if (anim && anim.finished) {
+            anim.finished.then(callback);
+        } else {
+            setTimeout(callback, (opts.duration || 0.3) * 1000 + 50);
+        }
     }
-    
-    function showOtpVerify() {
-      document.getElementById('otp-flow').classList.remove('active');
-      document.getElementById('otp-verify').classList.add('active');
+
+    function updateVP(animateStep = false) {
+        const vpContainer = document.getElementById('ob-vp-1');
+        
+        const updateContent = () => {
+            document.getElementById('ob-vp-h').innerHTML = vpContent[currentVP].h;
+            document.getElementById('ob-vp-p').innerHTML = vpContent[currentVP].p;
+            
+            for(let i=0; i<3; i++) {
+                const dot = document.getElementById('ob-dot-'+i);
+                if(i === currentVP) {
+                    dot.className = "w-2 h-2 rounded-full bg-gradient-to-r from-[#4f7134] to-[#3d5a26] transition-all duration-300";
+                } else {
+                    dot.className = "w-2 h-2 rounded-full bg-gray-300 transition-all duration-300";
+                }
+            }
+        };
+
+        if (animateStep) {
+            runAnimation(vpContainer, { opacity: 0, x: -15 }, { duration: 0.15 }, () => {
+                updateContent();
+                runAnimation(vpContainer, { opacity: [0, 1], x: [15, 0] }, { duration: 0.2 });
+            });
+        } else {
+            updateContent();
+        }
     }
-    
-    function completeLogin() {
-      console.log('completeLogin clicked');
-      try {
-        document.getElementById('otp-verify').classList.remove('active');
+
+    function obNextVP() {
+        if(currentVP < 2) {
+            currentVP++;
+            updateVP(true);
+        } else {
+            obSkip();
+        }
+    }
+
+    function transitionSteps(hideId, showId) {
+        const hideEl = document.getElementById(hideId);
+        const showEl = document.getElementById(showId);
+        
+        runAnimation(hideEl, { opacity: [1, 0], x: [0, -20] }, { duration: 0.2, easing: "ease-in" }, () => {
+            hideEl.classList.add('hidden');
+            hideEl.style.opacity = "";
+            hideEl.style.transform = "";
+
+            showEl.style.opacity = "0";
+            showEl.classList.remove('hidden');
+            
+            // Yield a frame to let opacity: 0 apply before starting animation
+            requestAnimationFrame(() => {
+                runAnimation(showEl, { opacity: [0, 1], x: [20, 0] }, { duration: 0.3, easing: "ease-out" }, () => {
+                    showEl.style.opacity = "";
+                    showEl.style.transform = "";
+                });
+            });
+        });
+    }
+
+    function obSkip() {
+        const skipBtn = document.getElementById('onboarding-skip-btn');
+        if (skipBtn) {
+            runAnimation(skipBtn, { opacity: 0 }, { duration: 0.2 }, () => {
+                skipBtn.style.display = 'none';
+            });
+        }
+        transitionSteps('ob-value-props', 'ob-phone');
+    }
+
+    function obSendOTP() {
+        transitionSteps('ob-phone', 'ob-otp');
+    }
+
+    function obVerify() {
+        transitionSteps('ob-otp', 'ob-name');
+    }
+
+    function obFinish() {
+        document.getElementById('onboarding-flow').classList.remove('active');
         document.getElementById('bottom-nav').style.display = 'flex';
         switchTab('home');
-      } catch (e) {
-        console.error('Error in completeLogin:', e);
-      }
     }
+
+    // Initialize the onboarding content without animation
+    updateVP(false);
     
 
     const scrollPositions = {};
