@@ -46,7 +46,13 @@
   </script>
 
   <style>
+    *, ::before, ::after { box-sizing: border-box; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f5f3ec; color: #1a1a1a; }
+    input[type="date"], input[type="text"], input[type="number"], input[type="tel"], select {
+      box-sizing: border-box;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .screen { display: none !important; min-height: 100vh; width: 100%; flex-direction: column; background: #f5f3ec;}
@@ -3056,123 +3062,7 @@
      </div>
   </div>
 
-  <!-- Bottom Sheets & Overlays -->
-  
-<!-- Enquiry Sheet -->
-<div id="enquiry-sheet" class="fixed inset-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] flex-col bg-black/60 z-[90] !justify-end hidden">
-   <div class="bg-white rounded-t-3xl pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] translate-y-full transition-transform duration-300 flex flex-col max-h-[85vh]" id="enquiry-content">
-      <div class="flex justify-between items-center mb-4 px-6 shrink-0">
-         <h3 class="font-bold text-xl text-[#182612]">Submit Enquiry</h3>
-         <button onclick="closeEnquirySheet()" class="p-2 bg-[rgba(26,26,26,0.04)] rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
-      </div>
-      
-      <div class="flex-1 overflow-y-auto px-6 space-y-4 no-scrollbar pb-6">
-         <!-- Venue -->
-         <div>
-            <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Venue</label>
-            <input type="text" id="enquiry-venue" value="Saltstayz Premier" readonly class="w-full bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none" />
-         </div>
-         
-         <!-- Event Date -->
-         <div>
-            <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Event Date</label>
-            <input type="date" class="w-full bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green" />
-         </div>
-         
-         <!-- Guests -->
-         <div>
-            <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Guests (Approx)</label>
-            <input type="number" placeholder="e.g. 100" class="w-full bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green" />
-         </div>
-         
-         <!-- Event Type -->
-         <div>
-            <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Event Type</label>
-            <div class="relative">
-               <select class="w-full bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green appearance-none pr-10">
-                  <option value="" disabled selected>Select event type</option>
-                  <option value="birthday">Birthday</option>
-                  <option value="wedding">Wedding / Reception</option>
-                  <option value="conference">Conference / Summit</option>
-                  <option value="offsite">Offsite</option>
-                  <option value="award">Award Ceremony</option>
-                  <option value="others">Others</option>
-               </select>
-               <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-ss-text-mute pointer-events-none"></i>
-            </div>
-         </div>
-         
-         <!-- Name -->
-         <div>
-            <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Name</label>
-            <input type="text" value="Debajyoti" class="w-full bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none" />
-         </div>
-         
-         <!-- Phone Number -->
-         <div>
-            <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Phone Number</label>
-            <input type="tel" value="+91 9876543210" class="w-full bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none" />
-         </div>
-      </div>
-      
-      <!-- Submit CTA -->
-      <div class="px-6 pt-4 border-t border-[rgba(26,26,26,0.08)]">
-         <button onclick="closeEnquirySheet()" class="w-full bg-ss-green text-white py-3.5 rounded-xl font-bold text-[14px] shadow-sm active:scale-95 transition-transform flex items-center justify-center gap-2">
-            Submit
-         </button>
-      </div>
-   </div>
-</div>
 
-  <div id="fare-sheet" class="fixed inset-0 left-1/2 -translate-x-1/2 w-full max-w-[384px] flex-col bg-black/60 z-[70] !justify-end hidden">
-     <div class="bg-white rounded-t-3xl p-6 pb-[calc(2rem+env(safe-area-inset-bottom))] translate-y-full transition-transform duration-300" id="fare-sheet-content">
-        <div class="flex justify-between items-center mb-6">
-           <h3 class="font-bold text-xl">Fare Breakdown</h3>
-           <button onclick="closeFareSheet()" class="p-2 bg-[rgba(26,26,26,0.04)] rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
-        </div>
-        <div class="space-y-4 text-[14px]">
-           <div class="flex justify-between">
-              <span class="text-ss-text">Deluxe Suite <span class="text-ss-text-mute">x 2 nights</span></span>
-              <span class="font-bold">₹9,000</span>
-           </div>
-           <div class="flex justify-between">
-              <span class="text-ss-text">Taxes & Fees</span>
-              <span class="font-bold">₹1,080</span>
-           </div>
-           <div class="flex justify-between text-ss-green">
-              <span class="font-bold">Beyond Discount (20%)</span>
-              <span class="font-bold">- ₹1,800</span>
-           </div>
-           <div class="border-t border-dashed border-[rgba(26,26,26,0.2)] my-2"></div>
-           <div class="flex justify-between items-center">
-              <span class="font-extrabold text-lg">Total Payable</span>
-              <span class="font-extrabold text-2xl text-ss-text">₹8,280</span>
-           </div>
-        </div>
-     </div>
-  </div>
-
-  <!-- Placeholders for other sheets (Amenities, Reviews, Policy, FAQ, Map, Gallery) -->
-  <div id="generic-sheet" class="overlay bg-black/60 z-[70] !justify-end hidden">
-     <div class="bg-white rounded-t-3xl p-6 h-[70vh] flex flex-col pb-[calc(1rem+env(safe-area-inset-bottom))] translate-y-full transition-transform duration-300" id="generic-sheet-content">
-        <div class="flex justify-between items-center mb-4 shrink-0">
-           <h3 class="font-bold text-xl" id="generic-sheet-title">Title</h3>
-           <button onclick="closeGenericSheet()" class="p-2 bg-[rgba(26,26,26,0.04)] rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
-        </div>
-        <div class="flex-1 overflow-y-auto pr-2" id="generic-sheet-body">
-           <!-- Content injected via JS -->
-        </div>
-     </div>
-  </div>
-  
-  <div id="full-gallery" class="overlay bg-black z-[80] hidden flex flex-col pt-safe">
-     <button onclick="closeGallerySheet()" class="absolute top-safe right-4 z-10 p-2 bg-white/20 rounded-full text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
-     <div class="flex-1 flex items-center justify-center">
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=90" class="w-full object-contain" />
-     </div>
-  </div>
-
-  
   <!-- ==================== BANQUET DETAIL FLOW ==================== -->
   <div id="banquet-detail-flow" class="screen bg-ss-light-gold z-[60]">
      
@@ -3440,26 +3330,26 @@
          <!-- Venue -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Venue</label>
-            <input type="text" id="enquiry-venue" value="Saltstayz Premier" readonly class="w-full bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none" />
+            <input type="text" id="enquiry-venue" value="Saltstayz Premier" readonly class="w-full block box-border bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
          </div>
          
          <!-- Event Date -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Event Date</label>
-            <input type="date" class="w-full bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green" />
+            <input type="date" class="w-full block box-border bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green max-w-full" />
          </div>
          
          <!-- Guests -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Guests (Approx)</label>
-            <input type="number" placeholder="e.g. 100" class="w-full bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green" />
+            <input type="number" placeholder="e.g. 100" class="w-full block box-border bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green max-w-full" />
          </div>
          
          <!-- Event Type -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Event Type</label>
-            <div class="relative">
-               <select class="w-full bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green appearance-none pr-10">
+            <div class="relative w-full">
+               <select class="w-full block box-border bg-white border border-[rgba(26,26,26,0.15)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none focus:border-ss-green appearance-none pr-10 max-w-full">
                   <option value="" disabled selected>Select event type</option>
                   <option value="birthday">Birthday</option>
                   <option value="wedding">Wedding / Reception</option>
@@ -3475,13 +3365,13 @@
          <!-- Name -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Name</label>
-            <input type="text" value="Debajyoti" class="w-full bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none" />
+            <input type="text" value="Debajyoti" class="w-full block box-border bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
          </div>
          
          <!-- Phone Number -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Phone Number</label>
-            <input type="tel" value="+91 9876543210" class="w-full bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none" />
+            <input type="tel" value="+91 9876543210" class="w-full block box-border bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
          </div>
       </div>
       
