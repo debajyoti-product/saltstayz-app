@@ -197,11 +197,11 @@
            </div>
            <div class="flex justify-between items-center text-[13px]">
               <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">CHECK-IN</span>
-              <span class="font-medium text-ss-text text-right">Thu, 22 Aug, 12:00 PM</span>
+              <span class="font-medium text-ss-text text-right">Thu, 22 Sep, 12:00 PM</span>
            </div>
            <div class="flex justify-between items-center text-[13px]">
               <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">CHECK-OUT</span>
-              <span class="font-medium text-ss-text text-right">Sat, 24 Aug, 11:00 AM</span>
+              <span class="font-medium text-ss-text text-right">Sat, 24 Sep, 11:00 AM</span>
            </div>
            <div class="flex justify-between items-center text-[13px]">
               <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">GUESTS</span>
@@ -1398,10 +1398,10 @@
       <h1 class="text-[20px] font-extrabold text-[#182612]">Bookings</h1>
     </div>
     
-    <div class="flex-1 flex flex-col items-center justify-center p-6 text-center mt-2">
+    <!-- Empty State (Shown when no bookings) -->
+    <div id="bookings-empty-state" class="flex-1 flex flex-col items-center justify-center p-6 text-center mt-2">
       <!-- 3D Hotel Illustration -->
       <div class="relative w-64 h-64 mb-6 flex items-center justify-center">
-        
         <img src="/3d-hotel.png" alt="3D Hotel" class="relative z-10 w-full h-full object-cover mix-blend-multiply" />
       </div>
       
@@ -1414,6 +1414,59 @@
       <button onclick="openSearchFlow()" class="w-[58%] bg-gradient-to-r from-ss-green to-ss-green-dark text-white py-3 rounded-full font-bold text-[12px] shadow-md active:scale-[0.98] transition-transform">
         Get started
       </button>
+    </div>
+
+    <!-- Active Bookings List (Shown after booking confirmation) -->
+    <div id="bookings-active-list" class="px-5 pt-2 hidden">
+      <!-- Upcoming & Past Pills -->
+      <div class="flex gap-3 w-full mb-3">
+         <button id="bookings-toggle-upcoming" onclick="window.switchBookingsTab('upcoming')" type="button" class="flex-1 flex items-center justify-center py-2 rounded-full bg-gradient-to-r from-ss-green to-ss-green-dark text-white text-sm font-medium shadow-sm transition-all duration-200">
+            Upcoming
+         </button>
+         <button id="bookings-toggle-past" onclick="window.switchBookingsTab('past')" type="button" class="flex-1 flex items-center justify-center py-2 rounded-full bg-white border border-[rgba(26,26,26,0.12)] text-ss-text-mute text-sm font-medium shadow-sm transition-all duration-200">
+            Past
+         </button>
+      </div>
+
+      <div id="bookings-upcoming-content">
+         <!-- 1. sep '26 month header with line separator -->
+         <div class="mt-4 mb-4 flex items-center justify-center gap-3 w-full">
+            <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+            <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Sep '26</h2>
+            <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+         </div>
+
+         <!-- 2. Room card (with dropshadow) -->
+         <div class="w-full bg-white border border-[rgba(26,26,26,0.08)] rounded-2xl overflow-hidden shadow-md flex flex-col p-3.5">
+            <div class="flex gap-3 mb-3 items-stretch min-h-[105px]">
+               <div class="relative w-[36%] rounded-xl overflow-hidden shrink-0">
+                  <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover absolute inset-0" alt="Saltstayz Premier" />
+               </div>
+               <div class="flex-1 flex flex-col justify-start items-start text-left">
+                  <h3 class="font-bold text-[15px] text-ss-text mb-1 leading-tight">Saltstayz Premier</h3>
+                  <div class="text-[11px] text-ss-text-mute mb-2 line-clamp-2 leading-snug">
+                     C-30, Naraina Industrial Area Phase 1, New Delhi
+                  </div>
+                  <div class="flex items-center gap-1.5 text-[11.5px] font-medium text-ss-text-mute">
+                     <i data-lucide="calendar" class="w-3.5 h-3.5 text-ss-text-mute shrink-0"></i>
+                     <span>22 Sep - 24 Sep</span>
+                  </div>
+                  <div class="text-[11px] text-ss-text-mute font-medium mt-1.5">
+                     1 Room • 2 Guests
+                  </div>
+               </div>
+            </div>
+            <div class="pt-3 border-t border-[rgba(26,26,26,0.06)]">
+               <button onclick="openBookingDetailsFromList()" class="btn-secondary-cta w-full py-2.5 text-[13px] font-bold text-[#4f7134] shadow-xs">
+                  View details
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <div id="bookings-past-content" class="hidden text-center py-10">
+         <p class="text-ss-text-mute font-medium text-[13px]">No past bookings to show</p>
+      </div>
     </div>
   </div>
   
@@ -3993,13 +4046,49 @@
     function closeConfirmBookingSheet() {
        animatePopupClose('confirm-booking-sheet');
     }
+
+    window.switchBookingsTab = function(tab) {
+       const upcomingBtn = document.getElementById('bookings-toggle-upcoming');
+       const pastBtn = document.getElementById('bookings-toggle-past');
+       const upcomingContent = document.getElementById('bookings-upcoming-content');
+       const pastContent = document.getElementById('bookings-past-content');
+       
+       const activeClass = 'flex-1 flex items-center justify-center py-2 rounded-full bg-gradient-to-r from-ss-green to-ss-green-dark text-white text-sm font-medium shadow-sm transition-all duration-200';
+       const inactiveClass = 'flex-1 flex items-center justify-center py-2 rounded-full bg-white border border-[rgba(26,26,26,0.12)] text-ss-text-mute text-sm font-medium shadow-sm transition-all duration-200';
+       
+       if (tab === 'upcoming') {
+          if (upcomingBtn) upcomingBtn.className = activeClass;
+          if (pastBtn) pastBtn.className = inactiveClass;
+          if (upcomingContent) upcomingContent.classList.remove('hidden');
+          if (pastContent) pastContent.classList.add('hidden');
+       } else {
+          if (upcomingBtn) upcomingBtn.className = inactiveClass;
+          if (pastBtn) pastBtn.className = activeClass;
+          if (upcomingContent) upcomingContent.classList.add('hidden');
+          if (pastContent) pastContent.classList.remove('hidden');
+       }
+       if (window.lucide) lucide.createIcons();
+    };
     
     function handleConfirmBookingYes() {
        closeConfirmBookingSheet();
+       
+       // Show booking in Bookings tab
+       const emptyState = document.getElementById('bookings-empty-state');
+       const activeList = document.getElementById('bookings-active-list');
+       if (emptyState) emptyState.classList.add('hidden');
+       if (activeList) activeList.classList.remove('hidden');
+       if (window.lucide) lucide.createIcons();
+
        setTimeout(() => {
           navigateToScreen('booking-confirmation-flow');
           document.getElementById('bottom-nav').style.display = 'none';
        }, 300);
+    }
+
+    function openBookingDetailsFromList() {
+       navigateToScreen('booking-confirmation-flow');
+       document.getElementById('bottom-nav').style.display = 'none';
     }
 
     function goToBookingsFromConfirmation() {
