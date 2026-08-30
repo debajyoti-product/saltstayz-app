@@ -169,6 +169,58 @@
     </div>
   </div>
 
+  <!-- ==================== BOOKING CONFIRMATION FLOW ==================== -->
+  <div id="booking-confirmation-flow" class="screen bg-[#f5f3ec] z-[100] flex-col h-full w-full">
+     <div class="flex-1 flex flex-col items-center pt-14 px-5 overflow-y-auto no-scrollbar">
+        <!-- Filled Gradient Checkmark -->
+        <div class="mb-3.5 relative w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-ss-green to-ss-green-dark text-white shadow-md shadow-ss-green/20">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <h1 class="text-[19px] font-extrabold text-ss-text mb-1.5 text-center">Booking confirmed</h1>
+        <p class="text-[13px] text-ss-text-mute text-center leading-relaxed font-medium px-2 mb-6">We have sent a Whatsapp message to you with the booking details.</p>
+
+        <!-- Booking Details Card -->
+        <div class="w-full bg-white rounded-2xl p-4 border border-[rgba(26,26,26,0.08)] shadow-sm space-y-3.5">
+           <div class="flex justify-between items-center text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">HOTEL</span>
+              <span class="font-medium text-ss-text text-right">Saltstayz Premier</span>
+           </div>
+           <div class="flex justify-between items-start text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider mt-0.5">ADDRESS</span>
+              <span class="font-medium text-ss-text text-right max-w-[68%] leading-snug">C-30, Naraina Industrial Area Phase 1, New Delhi</span>
+           </div>
+           <div class="flex justify-between items-center text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">ROOM</span>
+              <span class="font-medium text-ss-text text-right">Deluxe Suite</span>
+           </div>
+           <div class="flex justify-between items-center text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">CHECK-IN</span>
+              <span class="font-medium text-ss-text text-right">Thu, 22 Aug, 12:00 PM</span>
+           </div>
+           <div class="flex justify-between items-center text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">CHECK-OUT</span>
+              <span class="font-medium text-ss-text text-right">Sat, 24 Aug, 11:00 AM</span>
+           </div>
+           <div class="flex justify-between items-center text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">GUESTS</span>
+              <span class="font-medium text-ss-text text-right">2 Guests</span>
+           </div>
+           <div class="flex justify-between items-center text-[13px]">
+              <span class="text-[11px] font-bold text-ss-text-mute uppercase tracking-wider">TOTAL PAYABLE</span>
+              <div class="flex items-center gap-2">
+                 <span class="font-medium text-[15px] text-ss-text">₹8,280</span>
+                 <span class="text-[10px] font-bold text-[#4f7134] bg-[#eef3e6] px-2 py-0.5 rounded-full border border-[#4f7134]/25">Pay at hotel</span>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="px-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] shrink-0 w-full mt-auto pt-3">
+         <button onclick="goToBookingsFromConfirmation()" class="btn-secondary-cta w-full py-3 text-[14px] shadow-xs font-bold text-ss-text">See your bookings</button>
+     </div>
+  </div>
+
   <!-- ==================== MAIN APP SHELL ==================== -->
   
   <!-- HOME TAB -->
@@ -3625,12 +3677,14 @@
     function obFinish() {
         document.getElementById('onboarding-flow').classList.remove('active');
         document.getElementById('bottom-nav').style.display = 'flex';
+        window.history.pushState(null, '', '/home');
         switchTab('home');
     }
 
     // Initialize the onboarding content without animation
     updateVP(false);
     
+
 
     const scrollPositions = {};
     let activeNavigationTab = 'home';
@@ -3943,9 +3997,16 @@
     function handleConfirmBookingYes() {
        closeConfirmBookingSheet();
        setTimeout(() => {
-          closeHotelDetail();
-          switchTab('bookings');
+          navigateToScreen('booking-confirmation-flow');
+          document.getElementById('bottom-nav').style.display = 'none';
        }, 300);
+    }
+
+    function goToBookingsFromConfirmation() {
+       closeScreen('booking-confirmation-flow');
+       closeHotelDetail();
+       document.getElementById('bottom-nav').style.display = 'flex';
+       switchTab('bookings');
     }
 
     function openFareSheet() {
@@ -4470,6 +4531,15 @@ window.closeScreen = function(screenId) {
         originalCloseScreen(screenId);
     }
 };
+
+// Simple routing based on URL
+if (window.location.pathname === '/home') {
+    document.getElementById('onboarding-flow').classList.remove('active');
+    document.getElementById('bottom-nav').style.display = 'flex';
+    switchTab('home');
+} else {
+    window.history.replaceState(null, '', '/onboarding');
+}
 </script>
 </body>
 
