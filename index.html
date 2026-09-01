@@ -106,21 +106,23 @@
         
         <!-- Value Props (1, 2, 3) -->
         <div id="ob-value-props" class="w-full flex flex-col flex-1 pt-6">
-            <div id="ob-vp-1" class="w-full flex flex-col items-start flex-1 transition-opacity duration-300">
-               <h2 class="text-[17.5px] font-extrabold text-gray-900 mb-1.5 text-left w-full leading-snug" id="ob-vp-h">Header 1</h2>
-               <p class="text-gray-500 font-medium text-[15.5px] text-left w-full leading-relaxed" id="ob-vp-p">Subheader 1 goes here. This is a placeholder.</p>
-            </div>
+            <div class="mt-auto flex flex-col gap-8 w-full">
+                <div id="ob-vp-1" class="w-full flex flex-col items-start transition-opacity duration-300">
+                   <h2 class="text-[17.5px] font-extrabold text-gray-900 mb-1.5 text-left w-full leading-snug" id="ob-vp-h">Header 1</h2>
+                   <p class="text-gray-500 font-medium text-[15.5px] text-left w-full leading-relaxed" id="ob-vp-p">Subheader 1 goes here. This is a placeholder.</p>
+                </div>
 
-            <!-- Dots -->
-            <div id="ob-dots" class="flex gap-2 justify-center mb-6 mt-auto">
-                <div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#4f7134] to-[#3d5a26] transition-all duration-300" id="ob-dot-0"></div>
-                <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" id="ob-dot-1"></div>
-                <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" id="ob-dot-2"></div>
+                <!-- Dots -->
+                <div id="ob-dots" class="flex gap-2 justify-center">
+                    <div class="w-2 h-2 rounded-full bg-gradient-to-r from-[#4f7134] to-[#3d5a26] transition-all duration-300" id="ob-dot-0"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" id="ob-dot-1"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" id="ob-dot-2"></div>
+                </div>
+                
+                <button onclick="obNextVP()" class="w-full py-3.5 rounded-full text-white font-semibold text-[17px] bg-gradient-to-r from-[#4f7134] to-[#3d5a26] shadow-lg shadow-[#4f7134]/20">
+                    Continue
+                </button>
             </div>
-            
-            <button onclick="obNextVP()" class="w-full py-3.5 rounded-full text-white font-semibold text-[17px] bg-gradient-to-r from-[#4f7134] to-[#3d5a26] shadow-lg shadow-[#4f7134]/20">
-                Continue
-            </button>
         </div>
 
         <!-- Phone Number -->
@@ -233,7 +235,7 @@
             <i data-lucide="map-pin" class="w-4 h-4 text-ss-green mr-1.5"></i>
             <span class="font-bold text-ss-text text-sm border-b border-[rgba(26,26,26,0.15)] pb-[1px]">Gurgaon</span>
          </div>
-         <div class="mt-4 mb-2 tracking-tight leading-tight">
+         <div class="mt-4 mb-6 tracking-tight leading-tight">
             <span class="text-[20px] font-semibold text-ss-text">Hello, </span>
             <span class="text-[23.5px] font-extrabold bg-gradient-to-r from-[#eab308] to-ss-green bg-clip-text text-transparent inline-block">Debajyoti</span>
          </div>
@@ -521,64 +523,31 @@
 
       <!-- Beyond Banner -->
       <div id="beyond-banner" class="mt-6 mb-6">
-         <div onclick="switchTab('beyond')" class="relative bg-ss-cream overflow-hidden shadow-sm border-y border-[rgba(26,26,26,0.06)] min-h-[288px] cursor-pointer active:scale-[0.99] transition-transform">
+         <div onclick="switchTab('beyond')" class="bg-gradient-to-b from-[#f3f6f1] to-[#e6ece2] py-5 shadow-sm border-y border-[rgba(26,26,26,0.06)] cursor-pointer active:scale-[0.99] transition-transform flex flex-col items-center">
             
-            <!-- Blurred Background Image -->
-            <img src="beyond_bg.jpg" alt="Beyond Background" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="filter: blur(4px); transform: scale(1.08);" />
-            <div class="absolute inset-0 bg-[#f5f1e6]/60 pointer-events-none"></div>
+            <!-- Header -->
+            <div class="flex items-center gap-3 mb-4">
+               <i data-lucide="sparkles" class="w-5 h-5 text-[#d49b00] fill-current animate-pulse"></i>
+               <div class="flex flex-col items-center text-center drop-shadow-sm" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
+                  <span class="text-[22px] font-black tracking-[0.06em] text-[#d49b00] uppercase leading-tight">GO BEYOND</span>
+                  <span class="text-[22px] font-black tracking-[0.06em] text-black uppercase leading-tight">THE ORDINARY</span>
+               </div>
+               <i data-lucide="sparkles" class="w-5 h-5 text-[#d49b00] fill-current animate-pulse"></i>
+            </div>
 
-            <!-- Top End-to-End Bar -->
-            <div class="absolute top-0 left-0 right-0 z-20 py-2 px-4 flex items-center justify-center bg-gradient-to-br from-[#4f7134] to-[#3d5a26] shadow-sm">
-               <span class="text-[10px] font-extrabold tracking-[0.18em] text-white uppercase whitespace-nowrap flex items-center gap-1.5">
-                  Saltstayz <span class="inline-flex items-center gap-0.5 text-[#ffd571]"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#ffd571] fill-current"></i>BEYOND</span>
+            <!-- Image Card -->
+            <div class="w-full px-5">
+               <div class="relative w-full h-[180px] rounded-xl overflow-hidden shadow-sm">
+                  <img src="beyond_bg.jpg" alt="Beyond Background" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+               </div>
+            </div>
+
+            <!-- Learn More -->
+            <div class="mt-4 flex items-center justify-center">
+               <span class="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.16em] text-[#4f7134] uppercase">
+                  LEARN MORE <i data-lucide="arrow-right-circle" class="w-3.5 h-3.5 stroke-[2]"></i>
                </span>
             </div>
-
-            <!-- 2x2 Grid -->
-            <div class="grid grid-cols-2 grid-rows-2 w-full h-[288px] pt-6 pb-5 relative z-10">
-               
-               <!-- Top Left: Discounts -->
-               <div class="flex flex-col items-center justify-center border-r border-b border-[rgba(26,26,26,0.08)] pt-1 pr-4 relative">
-                  <span class="text-[54px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform -rotate-6">🏷️</span>
-                  <span class="text-[11px] font-semibold text-ss-text/85">Discounts</span>
-               </div>
-               
-               <!-- Top Right: Cashback -->
-               <div class="flex flex-col items-center justify-center border-b border-[rgba(26,26,26,0.08)] pt-1 pl-4 relative">
-                  <span class="text-[54px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform rotate-3">💸</span>
-                  <span class="text-[11px] font-semibold text-ss-text/85">Cashback</span>
-               </div>
-               
-               <!-- Bottom Left: Upgrades -->
-               <div class="flex flex-col items-center justify-center border-r border-[rgba(26,26,26,0.08)] pb-1 pr-4 relative">
-                  <span class="text-[54px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform rotate-6">🛏️</span>
-                  <span class="text-[11px] font-semibold text-ss-text/85 text-center leading-tight">Free<br/>Upgrades</span>
-               </div>
-               
-               <!-- Bottom Right: Food -->
-               <div class="flex flex-col items-center justify-center pb-1 pl-4 relative">
-                  <span class="text-[54px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform -rotate-3">🍔</span>
-                  <span class="text-[11px] font-semibold text-ss-text/85 text-center leading-tight">Free<br/>Food</span>
-               </div>
-               
-            </div>
-
-            <!-- Center Box -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-br from-[#505050]/85 to-[#242424]/85 backdrop-blur-md rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.25)] px-2 py-[13.5px] flex flex-col items-center justify-center text-center whitespace-nowrap w-[116px] border border-white/20" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
-               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/80 uppercase leading-tight mb-0.5">GO</span>
-               <span class="text-[23.4px] font-black tracking-[0.068em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none mb-1 drop-shadow-sm">BEYOND</span>
-               <span class="text-[10.3px] font-bold tracking-[0.288em] text-white/80 uppercase leading-tight mb-0.5">THE</span>
-               <span class="text-[23.4px] font-black tracking-[0.068em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase leading-none drop-shadow-sm">ORDINARY</span>
-            </div>
-
-            <!-- Bottom End-to-End Bar -->
-            <div class="absolute bottom-0 left-0 right-0 z-20 py-1.5 px-4 border-t border-[#4f7134]/30 flex items-center justify-center bg-gradient-to-r from-[#d2e2c6] to-[#b8d2a6] cursor-pointer active:opacity-90 transition-opacity">
-               <div class="absolute inset-0 opacity-[0.18] pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #4f7134 0, #4f7134 1px, transparent 1px, transparent 6px);"></div>
-               <span class="relative z-10 flex items-center gap-1.5 text-[9.5px] font-bold tracking-[0.16em] text-[#14230e] uppercase">
-                  LEARN MORE <i data-lucide="arrow-right-circle" class="w-3.5 h-3.5 stroke-[2.2]"></i>
-               </span>
-            </div>
-
          </div>
       </div>
 
