@@ -526,19 +526,50 @@
          <div onclick="switchTab('beyond')" class="bg-gradient-to-b from-[#f3f6f1] to-[#e6ece2] py-5 shadow-sm border-y border-[rgba(26,26,26,0.06)] cursor-pointer active:scale-[0.99] transition-transform flex flex-col items-center">
             
             <!-- Header -->
-            <div class="flex items-center gap-3 mb-4">
+            <div class="flex items-center gap-3 mb-4 w-full justify-center">
                <i data-lucide="sparkles" class="w-5 h-5 text-[#d49b00] fill-current animate-pulse"></i>
-               <div class="flex flex-col items-center text-center drop-shadow-sm" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
-                  <span class="text-[22px] font-black tracking-[0.06em] text-[#d49b00] uppercase leading-tight">GO BEYOND</span>
-                  <span class="text-[22px] font-black tracking-[0.06em] text-black uppercase leading-tight">THE ORDINARY</span>
+               <div class="relative flex items-center justify-center h-8" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
+                  <!-- Bottom text (Black shadow) -->
+                  <span class="text-[18.5px] sm:text-[20px] font-black tracking-[0.05em] text-black uppercase absolute translate-x-[1.5px] translate-y-[1.5px] whitespace-nowrap">GO BEYOND THE ORDINARY</span>
+                  <!-- Top text (Golden) -->
+                  <span class="text-[18.5px] sm:text-[20px] font-black tracking-[0.05em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase relative z-10 whitespace-nowrap">GO BEYOND THE ORDINARY</span>
                </div>
                <i data-lucide="sparkles" class="w-5 h-5 text-[#d49b00] fill-current animate-pulse"></i>
             </div>
 
             <!-- Image Card -->
             <div class="w-full px-5">
-               <div class="relative w-full h-[180px] rounded-xl overflow-hidden shadow-sm">
-                  <img src="beyond_bg.jpg" alt="Beyond Background" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+               <div class="relative w-full h-[260px] rounded-xl overflow-hidden shadow-sm">
+                  <!-- Blurred Background Image -->
+                  <img src="beyond_bg.jpg" alt="Beyond Background" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="filter: blur(4px); transform: scale(1.08);" />
+                  <div class="absolute inset-0 bg-[#f5f1e6]/60 pointer-events-none"></div>
+
+                  <!-- 2x2 Grid -->
+                  <div class="grid grid-cols-2 grid-rows-2 w-full h-full p-2 relative z-10">
+                     <!-- Top Left: Discounts -->
+                     <div class="flex flex-col items-center justify-center border-r border-b border-[rgba(26,26,26,0.08)] pt-1 pr-4 relative">
+                        <span class="text-[44px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform -rotate-6">🏷️</span>
+                        <span class="text-[11px] font-semibold text-ss-text/85">Discounts</span>
+                     </div>
+                     
+                     <!-- Top Right: Cashback -->
+                     <div class="flex flex-col items-center justify-center border-b border-[rgba(26,26,26,0.08)] pt-1 pl-4 relative">
+                        <span class="text-[44px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform rotate-3">💸</span>
+                        <span class="text-[11px] font-semibold text-ss-text/85">Cashback</span>
+                     </div>
+                     
+                     <!-- Bottom Left: Upgrades -->
+                     <div class="flex flex-col items-center justify-center border-r border-[rgba(26,26,26,0.08)] pb-1 pr-4 relative">
+                        <span class="text-[44px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform rotate-6">🛏️</span>
+                        <span class="text-[11px] font-semibold text-ss-text/85 text-center leading-tight">Free<br/>Upgrades</span>
+                     </div>
+                     
+                     <!-- Bottom Right: Food -->
+                     <div class="flex flex-col items-center justify-center pb-1 pl-4 relative">
+                        <span class="text-[44px] drop-shadow-[0_8px_8px_rgba(0,0,0,0.15)] leading-none mb-1 transform -rotate-3">🍔</span>
+                        <span class="text-[11px] font-semibold text-ss-text/85 text-center leading-tight">Free<br/>Food</span>
+                     </div>
+                  </div>
                </div>
             </div>
 
