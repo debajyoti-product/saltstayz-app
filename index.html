@@ -523,18 +523,26 @@
 
       <!-- Beyond Banner -->
       <div id="beyond-banner" class="mt-6 mb-6">
-         <div onclick="switchTab('beyond')" class="bg-gradient-to-b from-[#f3f6f1] to-[#e6ece2] py-5 shadow-sm border-y border-[rgba(26,26,26,0.06)] cursor-pointer active:scale-[0.99] transition-transform flex flex-col items-center">
+         <div onclick="switchTab('beyond')" class="bg-gradient-to-b from-[#f5f3ec] via-[#e8efe3]/70 to-[#f5f3ec] py-5 cursor-pointer active:scale-[0.99] transition-transform flex flex-col items-center relative overflow-hidden">
             
-            <!-- Header -->
-            <div class="flex items-center gap-3 mb-4 w-full justify-center">
-               <i data-lucide="sparkles" class="w-5 h-5 text-[#d49b00] fill-current animate-pulse"></i>
+            <!-- Header with scattered stars -->
+            <div class="relative w-full flex items-center justify-center py-1.5 mb-3 px-3">
+               <!-- Scattered Stars in Golden & Black -->
+               <i data-lucide="sparkles" class="w-3 h-3 text-[#d49b00] fill-current animate-pulse absolute left-4 top-1"></i>
+               <i data-lucide="sparkles" class="w-2 h-2 text-black fill-current absolute left-12 bottom-1 opacity-70 animate-pulse" style="animation-delay: 300ms;"></i>
+               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#d49b00] fill-current animate-pulse absolute left-[20%] -top-0.5" style="animation-delay: 500ms;"></i>
+               
+               <i data-lucide="sparkles" class="w-2.5 h-2.5 text-black fill-current absolute right-[19%] -top-1 opacity-60 animate-pulse" style="animation-delay: 700ms;"></i>
+               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#d49b00] fill-current animate-pulse absolute right-4 top-1.5" style="animation-delay: 200ms;"></i>
+               <i data-lucide="sparkles" class="w-2 h-2 text-black fill-current absolute right-12 bottom-0.5 opacity-75 animate-pulse" style="animation-delay: 600ms;"></i>
+
+               <!-- Header Text with Increased Drop Shadow -->
                <div class="relative flex items-center justify-center h-8" style="font-family: 'Special Gothic Condensed One', 'Special Gothic', sans-serif;">
-                  <!-- Bottom text (Black shadow) -->
-                  <span class="text-[18.5px] sm:text-[20px] font-black tracking-[0.05em] text-black uppercase absolute translate-x-[1.5px] translate-y-[1.5px] whitespace-nowrap">GO BEYOND THE ORDINARY</span>
+                  <!-- Bottom text (Black shadow - shifted 2% / 3px lower) -->
+                  <span class="text-[18.5px] sm:text-[20px] font-black tracking-[0.05em] text-black uppercase absolute translate-x-[1.8px] translate-y-[3px] whitespace-nowrap select-none">GO BEYOND THE ORDINARY</span>
                   <!-- Top text (Golden) -->
                   <span class="text-[18.5px] sm:text-[20px] font-black tracking-[0.05em] bg-gradient-to-br from-[#d49b00] via-[#fcdf8a] to-[#d49b00] bg-clip-text text-transparent uppercase relative z-10 whitespace-nowrap">GO BEYOND THE ORDINARY</span>
                </div>
-               <i data-lucide="sparkles" class="w-5 h-5 text-[#d49b00] fill-current animate-pulse"></i>
             </div>
 
             <!-- Image Card -->
