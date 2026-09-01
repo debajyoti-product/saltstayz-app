@@ -342,10 +342,10 @@
                <div class="px-1">
                   <div class="flex items-baseline gap-1.5 mb-0.5">
                      <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Premier</h3>
-                     <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                     <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Connaught...</span>
                   </div>
                         <div class="text-[10px] text-ss-text-mute mb-1 truncate flex items-center gap-0.5">
-                           <i data-lucide="map-pin" class="w-2.5 h-2.5"></i> C-30, Naraina Industrial Area Phase 1, New Delhi
+                           <i data-lucide="map-pin" class="w-2.5 h-2.5"></i> K9 - K11A, Connaught Cir, Block K, Connaught Place, New Delhi, Delhi 110001
                         </div>
                   
                   <div class="text-[11px] font-semibold text-ss-text-mute">
@@ -593,7 +593,7 @@
          <div class="flex overflow-x-auto no-scrollbar px-5 pb-2 gap-4 snap-x">
             
             <!-- Card 1 -->
-            <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail()">
+            <div class="w-[58%] shrink-0 snap-center cursor-pointer active:scale-[0.98] transition-transform" onclick="openHotelDetail('autograph')">
                <div class="relative h-[11rem] mb-2.5">
                   <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover rounded-xl shadow-sm" />
                   <!-- Rating replacing wishlist -->
@@ -611,12 +611,12 @@
                
                <div class="px-1">
                   <!-- Header: Name & Location beside it -->
-                  <div class="flex items-baseline gap-1.5 mb-0.5">
-                     <h3 class="font-bold text-[13px] text-[#182612] truncate">Saltstayz Premier</h3>
-                     <span class="text-[11px] font-bold text-ss-text-mute shrink-0">· Gurugram</span>
+                  <div class="flex items-baseline gap-1 mb-0.5 min-w-0">
+                     <h3 class="font-bold text-[12.5px] text-[#182612] shrink-0 whitespace-nowrap">Saltstayz Autograph</h3>
+                     <span class="text-[10.5px] font-bold text-ss-text-mute truncate min-w-0" title="Connaught Place">· Connaught...</span>
                   </div>
                         <div class="text-[10px] text-ss-text-mute mb-1 truncate flex items-center gap-0.5">
-                           <i data-lucide="map-pin" class="w-2.5 h-2.5"></i> C-30, Naraina Industrial Area Phase 1, New Delhi
+                           <i data-lucide="map-pin" class="w-2.5 h-2.5"></i> K9 - K11A, Connaught Cir, Block K, Connaught Place, New Delhi, Delhi 110001
                         </div>
                   
                   <!-- Price -->
@@ -2554,14 +2554,14 @@
                  <!-- Left: Hotel Info -->
                  <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-2 mb-1.5 mt-1">
-                       <h1 class="font-extrabold text-[15px] text-ss-text leading-tight truncate">Saltstayz Premier</h1>
+                       <h1 id="hotel-detail-name" class="font-extrabold text-[15px] text-ss-text leading-tight truncate">Saltstayz Premier</h1>
                        <a href="tel:+918800123456" class="btn-secondary-cta w-7 h-7 !rounded-full shadow-xs shrink-0 active:scale-90" title="Call Hotel" aria-label="Call Hotel">
                           <i data-lucide="phone" class="w-3 h-3 text-[#3d5a26]"></i>
                        </a>
                     </div>
                     <div class="text-[11px] text-ss-text-mute mb-2 flex items-start gap-1 leading-snug">
                        <i data-lucide="map-pin" class="w-3 h-3 shrink-0 mt-0.5"></i>
-                       <span>C-30, Naraina Industrial Area Phase 1, New Delhi</span>
+                       <span id="hotel-detail-address">C-30, Naraina Industrial Area Phase 1, New Delhi</span>
                     </div>
                     <button onclick="document.getElementById('reviews-section').scrollIntoView({behavior: 'smooth'})" class="flex items-center gap-1 font-bold text-[11px] text-ss-text">
                        <i data-lucide="star" class="w-3 h-3 fill-current text-[#ea8a00]"></i> 4.5 <span class="text-ss-text-mute font-medium">(1,391 reviews)</span>
@@ -2954,6 +2954,21 @@
               </div>
            </div>
            <button onclick="openAmenitiesSheet()" class="btn-secondary-cta w-full py-2.5 text-[13px] shadow-xs mt-3">View all amenities</button>
+        </div>
+
+        <!-- Did You Know (Shown only for Saltstayz Autograph) -->
+        <div id="hotel-detail-did-you-know" class="hidden">
+           <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full px-5">
+              <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Did you know</h2>
+              <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+           </div>
+           
+           <div class="px-5 mb-8 text-left">
+              <p class="text-[12.5px] text-ss-text-mute leading-relaxed font-normal">
+                 The in-house restaurant for this hotel is the iconic <span class="text-ss-green font-bold">Moti Mahal</span>, a widely recognized dining name in Delhi.
+              </p>
+           </div>
         </div>
 
         <!-- 8. Guest Reviews -->
@@ -4016,7 +4031,22 @@
       closeScreen('results-flow');
     }
     
-    function openHotelDetail() { navigateToScreen('detail-flow'); }
+    function openHotelDetail(type = 'premier') {
+      const nameEl = document.getElementById('hotel-detail-name');
+      const addrEl = document.getElementById('hotel-detail-address');
+      const didYouKnowEl = document.getElementById('hotel-detail-did-you-know');
+      
+      if (type === 'autograph') {
+        if (nameEl) nameEl.innerText = 'Saltstayz Autograph';
+        if (addrEl) addrEl.innerText = 'K9 - K11A, Connaught Cir, Block K, Connaught Place, New Delhi, Delhi 110001';
+        if (didYouKnowEl) didYouKnowEl.classList.remove('hidden');
+      } else {
+        if (nameEl) nameEl.innerText = 'Saltstayz Premier';
+        if (addrEl) addrEl.innerText = 'C-30, Naraina Industrial Area Phase 1, New Delhi';
+        if (didYouKnowEl) didYouKnowEl.classList.add('hidden');
+      }
+      navigateToScreen('detail-flow');
+    }
     
     function closeHotelDetail() { closeScreen('detail-flow'); }
     
