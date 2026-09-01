@@ -2405,7 +2405,11 @@
         <div class="flex-1 overflow-y-auto px-6 space-y-8 no-scrollbar pb-6">
            <!-- Property -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Property</h4>
+              <div class="mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Property</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
               <div class="flex gap-2">
                  <button class="flex-1 py-2.5 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-xl text-[13px] font-bold">Select</button>
                  <button class="flex-1 py-2.5 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-xl text-[13px] font-bold">Premier</button>
@@ -2415,7 +2419,11 @@
 
            <!-- Price -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-4">Price Range</h4>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Price Range</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
               <div class="flex justify-between items-center text-[13px] font-bold text-ss-text mb-3">
                  <span>₹1,300</span>
                  <span>₹3,500</span>
@@ -2429,47 +2437,67 @@
 
            <!-- Locality -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Locality</h4>
-              <div class="space-y-3">
-                 <label class="flex items-center gap-3"><input type="checkbox" checked class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">Sector 43, Gurugram</span></label>
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">DLF Phase 3</span></label>
-                 <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /><span class="font-semibold text-[14px] text-ss-text">MG Road</span></label>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Locality</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
+              <div class="space-y-4">
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Sector 43, Gurugram</span><input type="checkbox" checked class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">DLF Phase 3</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">MG Road</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
               </div>
            </div>
 
            <!-- Room Type -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Room Type</h4>
-              <div class="flex flex-wrap gap-2">
-                 <button class="px-4 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold">Standard</button>
-                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Deluxe</button>
-                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Superior</button>
-                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Family</button>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Room Type</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
+              <div class="space-y-4">
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Standard</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Deluxe</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Superior</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Family</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
               </div>
            </div>
 
            <!-- Beds -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Beds</h4>
-              <div class="flex flex-wrap gap-2">
-                 <button class="px-4 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold">Single</button>
-                 <button class="px-4 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-semibold">Twin</button>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Beds</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
+              <div class="space-y-4">
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Single</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">Twin</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
               </div>
            </div>
 
            <!-- Customer Rating -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Customer Rating</h4>
-              <div class="flex flex-wrap gap-2">
-                 <button class="flex items-center gap-1.5 px-4 py-2 border-2 border-ss-green bg-ss-green-soft text-ss-green-dark rounded-full text-[13px] font-bold">
-                    4* & above
-                 </button>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Customer Rating</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
+              <div class="space-y-4">
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">1* - 3*</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">3.1* - 4*</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
+                 <label class="flex items-center justify-between gap-3 w-full cursor-pointer"><span class="font-semibold text-[14px] text-ss-text">4.1* & above</span><input type="checkbox" class="w-5 h-5 rounded text-ss-green border-gray-300 focus:ring-ss-green accent-ss-green" /></label>
               </div>
            </div>
 
            <!-- Amenities -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Amenities</h4>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Amenities</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
               <div class="flex flex-wrap gap-2">
                  <!-- Visible pills -->
                  <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="wifi" class="w-4 h-4 text-ss-green"></i> Free WiFi</button>
@@ -2488,7 +2516,11 @@
            
            <!-- Facilities -->
            <div>
-              <h4 class="font-bold text-[16px] text-[#182612] mb-3">Facilities</h4>
+              <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full">
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+                 <h2 class="text-[12px] font-bold tracking-[0.15em] text-ss-text uppercase shrink-0">Facilities</h2>
+                 <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
+              </div>
               <div class="flex flex-wrap gap-2">
                  <!-- Visible pills -->
                  <button class="flex items-center gap-1.5 px-3 py-2 border border-[rgba(26,26,26,0.1)] text-ss-text rounded-full text-[13px] font-medium"><i data-lucide="car" class="w-4 h-4 text-ss-green"></i> Parking</button>
@@ -3022,11 +3054,11 @@
    <!-- Customer -->
    <div class="text-[11px] font-bold text-ss-green uppercase tracking-widest mb-3">Customer</div>
    <div class="flex flex-col gap-3 mb-3">
-      <div class="w-full bg-[#f8f7f2] border border-[rgba(26,26,26,0.06)] rounded-xl px-3.5 py-2">
+      <div class="w-full bg-white border border-[rgba(26,26,26,0.08)] shadow-sm rounded-xl px-3.5 py-2">
          <div class="text-[10px] text-gray-500 font-medium mb-0.5">Full Name</div>
          <input type="text" value="Debajyoti Das" class="w-full bg-transparent text-[14px] font-bold text-gray-900 focus:outline-none">
       </div>
-      <div class="w-full bg-[#f8f7f2] border border-[rgba(26,26,26,0.06)] rounded-xl px-3.5 py-2">
+      <div class="w-full bg-white border border-[rgba(26,26,26,0.08)] shadow-sm rounded-xl px-3.5 py-2">
          <div class="text-[10px] text-gray-500 font-medium mb-0.5">Phone Number</div>
          <input type="tel" value="+91 98765 43210" class="w-full bg-transparent text-[14px] font-bold text-gray-900 focus:outline-none">
       </div>
@@ -3510,13 +3542,13 @@
          <!-- Name -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Name</label>
-            <input type="text" value="Debajyoti" class="w-full block box-border bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
+            <input type="text" value="Debajyoti" class="w-full block box-border bg-white border border-[rgba(26,26,26,0.08)] shadow-sm rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
          </div>
          
          <!-- Phone Number -->
          <div>
             <label class="block text-[11px] font-bold text-ss-text-mute mb-1.5 uppercase tracking-wider">Phone Number</label>
-            <input type="tel" value="+91 9876543210" class="w-full block box-border bg-[rgba(26,26,26,0.04)] border border-[rgba(26,26,26,0.08)] rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
+            <input type="tel" value="+91 9876543210" class="w-full block box-border bg-white border border-[rgba(26,26,26,0.08)] shadow-sm rounded-xl px-4 py-3 text-[13.5px] font-bold text-ss-text focus:outline-none max-w-full" />
          </div>
       </div>
       
