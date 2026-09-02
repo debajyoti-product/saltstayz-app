@@ -2685,7 +2685,68 @@
            <div class="flex-1 h-[1px] bg-[rgba(26,26,26,0.15)]"></div>
         </div>
         
-                <div class="mb-4 relative group">
+                
+        <!-- NEW CARD 1: Booking Specifics -->
+        <div class="px-5 mb-4">
+           <div class="bg-white border border-[rgba(26,26,26,0.08)] rounded-2xl p-4 shadow-sm">
+              <!-- Overnight / Day-use Toggle -->
+              <div class="mb-4 flex justify-center w-full">
+                 <div class="bg-[rgba(26,26,26,0.06)] rounded-full p-1 inline-flex w-full">
+                    <button id="btn-overnight" onclick="setBookingMode('overnight')" class="flex-1 px-4 py-1.5 rounded-full text-[12.5px] font-bold bg-white text-ss-text shadow-sm transition">Overnight</button>
+                    <button id="btn-dayuse" onclick="setBookingMode('dayuse')" class="flex-1 px-4 py-1.5 rounded-full text-[12.5px] font-bold text-ss-text-mute hover:text-ss-text transition">Day Use</button>
+                 </div>
+              </div>
+
+              <!-- Timeline & Guests -->
+              <div id="overnight-timeline" class="space-y-4 mb-5">
+                 <div>
+                    <h4 id="hotel-dates-section" class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Dates</h4>
+                    <div onclick="openDatePopup()" class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
+                       <div class="font-bold text-[13px] text-ss-text">22 Aug - 24 Aug</div>
+                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
+                          <i data-lucide="calendar" class="w-4 h-4 text-ss-text"></i>
+                       </div>
+                    </div>
+                 </div>
+                 
+                 <div>
+                    <h4 id="hotel-guests-section" class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Guests</h4>
+                    <div onclick="openGuestPopup()" class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
+                       <div class="font-bold text-[13px] text-ss-text">2 Adults</div>
+                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
+                          <i data-lucide="users" class="w-4 h-4 text-ss-text"></i>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+              <!-- Timeline & Check-in (Day Use) -->
+              <div id="dayuse-timeline" class="space-y-4 mb-5 hidden">
+                 <div>
+                    <h4 class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Date</h4>
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
+                       <div class="font-bold text-[13px] text-ss-text">22 Aug</div>
+                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
+                          <i data-lucide="calendar" class="w-4 h-4 text-ss-text"></i>
+                       </div>
+                    </div>
+                 </div>
+                 
+                 <div>
+                    <h4 class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Check-in Time</h4>
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center relative cursor-pointer">
+                       <select id="dayuse-time-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer appearance-none z-10" onchange="document.getElementById('dayuse-time-display').innerText = this.value;"></select>
+                       <div id="dayuse-time-display" class="font-bold text-[13px] text-ss-text pointer-events-none">Select Time</div>
+                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center pointer-events-none">
+                          <i data-lucide="clock" class="w-4 h-4 text-ss-text"></i>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+<div class="mb-3 relative group">
            <!-- Navigation Arrows -->
            <button onclick="document.getElementById('room-cards').scrollBy({left: -320, behavior: 'smooth'})" class="absolute left-6 top-[85px] z-10 w-9 h-9 bg-white/95 backdrop-blur border border-[rgba(26,26,26,0.1)] rounded-full shadow-md flex items-center justify-center text-ss-text">
               <i data-lucide="chevron-left" class="w-5 h-5"></i>
@@ -2785,65 +2846,11 @@
 
               </div>
 
-           <div class="px-5">
-              <!-- SECTION 2: Booking Specifics Card -->
-           <div class="bg-white border border-[rgba(26,26,26,0.08)] rounded-2xl p-4 shadow-sm mt-2">
-              
-              <!-- Overnight / Day-use Toggle -->
-              <div class="mb-4 flex justify-center w-full">
-                 <div class="bg-[rgba(26,26,26,0.06)] rounded-full p-1 inline-flex w-full">
-                    <button id="btn-overnight" onclick="setBookingMode('overnight')" class="flex-1 px-4 py-1.5 rounded-full text-[12.5px] font-bold bg-white text-ss-text shadow-sm transition">Overnight</button>
-                    <button id="btn-dayuse" onclick="setBookingMode('dayuse')" class="flex-1 px-4 py-1.5 rounded-full text-[12.5px] font-bold text-ss-text-mute hover:text-ss-text transition">Day Use</button>
-                 </div>
-              </div>
-
-              <!-- Timeline & Guests -->
-              <div id="overnight-timeline" class="space-y-4 mb-5">
-                 <div>
-                    <h4 id="hotel-dates-section" class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Dates</h4>
-                    <div onclick="openDatePopup()" class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
-                       <div class="font-bold text-[13px] text-ss-text">22 Aug - 24 Aug</div>
-                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
-                          <i data-lucide="calendar" class="w-4 h-4 text-ss-text"></i>
-                       </div>
-                    </div>
-                 </div>
-                 
-                 <div>
-                    <h4 id="hotel-guests-section" class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Guests</h4>
-                    <div onclick="openGuestPopup()" class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
-                       <div class="font-bold text-[13px] text-ss-text">2 Adults</div>
-                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
-                          <i data-lucide="users" class="w-4 h-4 text-ss-text"></i>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-
-              <!-- Timeline & Check-in (Day Use) -->
-              <div id="dayuse-timeline" class="space-y-4 mb-5 hidden">
-                 <div>
-                    <h4 class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Date</h4>
-                    <div class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center cursor-pointer">
-                       <div class="font-bold text-[13px] text-ss-text">22 Aug</div>
-                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center">
-                          <i data-lucide="calendar" class="w-4 h-4 text-ss-text"></i>
-                       </div>
-                    </div>
-                 </div>
-                 
-                 <div>
-                    <h4 class="text-[11px] font-bold text-ss-text-mute mb-2 uppercase tracking-wider">Check-in Time</h4>
-                    <div class="bg-white rounded-xl p-3 shadow-sm border border-[rgba(26,26,26,0.08)] flex justify-between items-center relative cursor-pointer">
-                       <select id="dayuse-time-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer appearance-none z-10" onchange="document.getElementById('dayuse-time-display').innerText = this.value;"></select>
-                       <div id="dayuse-time-display" class="font-bold text-[13px] text-ss-text pointer-events-none">Select Time</div>
-                       <div class="w-8 h-8 bg-[rgba(26,26,26,0.04)] rounded-full flex items-center justify-center pointer-events-none">
-                          <i data-lucide="clock" class="w-4 h-4 text-ss-text"></i>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-               <div id="overnight-options">
+           
+        <!-- NEW CARD 2: Meal Options / Checkout -->
+        <div class="px-5">
+           <div class="bg-white border border-[rgba(26,26,26,0.08)] rounded-2xl p-4 shadow-sm">
+              <div id="overnight-options">
 <!-- Meal Plans -->
                <h4 class="text-[11px] font-bold text-ss-text-mute mb-2.5 uppercase tracking-wider">Meal options</h4>
                <div class="space-y-2.5">
@@ -2954,8 +2961,8 @@
                      </div>
                   </div>
                </div>
-            </div>
-         </div>
+           </div>
+        </div>
 
         <!-- 7. Amenities -->
         <div class="mt-8 mb-5 flex items-center justify-center gap-3 w-full px-5">
